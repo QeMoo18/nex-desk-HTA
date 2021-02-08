@@ -1,0 +1,97 @@
+CREATE UNIQUE INDEX idx_id_ticket
+ON td_register_ticket (id_ticket);
+
+
+CREATE INDEX idx_td_register_ticket
+ON td_register_ticket (ticket_responsibilty,problem_desc_itsm,location,status_ticket,fault_itsm_category,current_state);
+
+
+
+CREATE UNIQUE INDEX idx_id_ticket_parent_note
+ON td_parent_note (id_ticket);
+
+
+
+CREATE FULLTEXT INDEX idx_title_parent_note
+ON 	td_parent_note (title);
+
+
+CREATE FULLTEXT INDEX idx_text_editor_parent_note
+ON 	td_parent_note (text_editor);
+
+
+
+CREATE INDEX idx_child_note
+ON td_child_note (id_ticket,type_note,type_state);
+
+
+CREATE FULLTEXT INDEX idx_title_parent_note_text_editor
+ON 	td_parent_note (text_editor);
+
+
+
+
+CREATE UNIQUE INDEX idx_id_ticket_closed
+ON td_ticket_closed (id_ticket);
+
+
+
+CREATE INDEX idx_td_ticket_closed
+ON td_ticket_closed (responsibility,close_type,Fault_Type);
+
+
+
+CREATE FULLTEXT INDEX idx_td_ticket_closed_fulltext
+ON td_ticket_closed (action_taken,text_editor,Problem);
+
+
+
+CREATE UNIQUE INDEX idx_agent_id
+ON agent (userid);
+
+
+CREATE INDEX idx_customer_user
+ON customer_user (first_name,last_name,username,password,email,mobile,valid,other_id);
+
+
+
+CREATE INDEX idx_agent
+ON agent (first_name,group_name,role_name,username,password,email,mobile,validity,env);
+
+
+CREATE INDEX idx_computer
+ON computer (name,deployment_state,incident_state,model,type,serial_number,validity,location,ip,other_id);
+
+
+CREATE INDEX idx_hardware
+ON hardware (name,deployment_state,incident_state,serial_number,validity,location,other_id);
+
+
+
+CREATE INDEX idx_network
+ON network (name,deployment_state,incident_state,model,type,service_number,lv_no,ps_no,bs_no,dq_no,validity,location,ip,other_id);
+
+
+CREATE FULLTEXT INDEX idx_software
+ON software (name);
+
+
+CREATE INDEX idx_login_user
+ON login_user (username,password,role,userid,status,id);
+
+
+CREATE FULLTEXT INDEX idx_problem_description
+ON problem_description (name);
+
+
+CREATE FULLTEXT INDEX idx_location
+ON location (name);
+
+
+CREATE INDEX idx_sla_severity
+ON sla_severity (title,minute,sla_generated_id,id);
+
+
+
+CREATE INDEX idx_sla
+ON sla (sla,sla_generated_id;

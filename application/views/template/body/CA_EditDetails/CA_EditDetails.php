@@ -1,0 +1,1 @@
+<?php $this->load->view('template/body/CMC_Form_Customer/CMC_Form_Customer_v2'); ?>

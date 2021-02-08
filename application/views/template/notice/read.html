@@ -1,0 +1,143 @@
+<!-- 
+
+https://openclassrooms.com/en/courses/2504541-ultra-fast-applications-using-node-js/2505787-practical-exercise-the-super-chat
+
+#install package 
+https://github.com/mathiasbynens/he
+npm install he
+npm install ent
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>GT-Socket</title>
+        <style>
+            #zone_chat strong {
+                color: white;
+                background-color: black;
+                padding: 2px;
+            }
+        </style>
+    </head>
+ 
+    <body>
+
+        <!-- <form action="/" method="post" id="chat_form">
+            <input type="text" name="message" id="message" placeholder="Your message..." size="50" autofocus />
+            <input type="submit" id="send_message" value="Send" />
+        </form>
+ -->
+        <section id="chat_zone">
+            
+        </section>
+
+
+        <center>
+            <img src="<?= base_url()?>asset/socket.png" class="img-fluid" alt="Responsive image" style="height:100px; width:130px;">
+            <h1>GT-Socket</h1>
+            <p> 
+                GT-Socket is automate sytem  to receive notification from the server
+                <br><br>
+                This PC is <font color="#green"> "connected" </font> this server.  
+            </p>
+        </center>
+
+
+        <script src="http://10.0.20.81/nex-desk/asset/asset_socket/jquery-1.10.1.min.js"></script>
+        <script src="http://10.0.20.81/nex-desk/asset/asset_socket/socket.io.js"></script>
+
+
+        <!-- <script src="https://appku.my/app/asset/asset_socket/jquery-1.10.1.min.js"></script>
+        <script src="https://appku.my/app/asset/asset_socket/socket.io.js"></script>
+ -->
+        <script>
+
+            // Connecting to socket.io
+            var socket = io.connect('http://10.0.20.81:3000');
+
+            //var socket = io.connect('http://localhost:3000');
+
+            // var socket = io.connect('http://192.168.0.115:3000');
+
+            // var socket = io.connect('http://192.168.0.115:3000');
+
+            // io.set('transports', ['xhr-polling']);
+
+            // The username is requested, sent to the server and displayed in the title
+            //var username = prompt('What\'s your username?');
+            var username = 'User';
+            socket.emit('new_client', username);
+            document.title = username + ' - ' + document.title;
+
+            // // When a message is received it's inserted in the page
+            socket.on('message', function(data) {
+                insertMessage(data.username, data.message)
+            })
+
+            // // When a new client connects, the information is displayed
+            // socket.on('new_client', function(username) {
+            //     $('#chat_zone').prepend('<p><em>' + username + ' has joined the chat!</em></p>');
+            // })
+
+            // // When the form is sent, the message is sent and displayed on the page
+            // $('#chat_form').submit(function () {
+            //     var message = $('#message').val();
+            //     socket.emit('message', message); // Sends the message to the others
+            //     insertMessage(username, message); // Also displays the message on our page
+            //     $('#message').val('').focus(); // Empties the chat form and puts the focus back on it
+            //     return false; // Blocks 'classic' sending of the form
+            // });
+            
+            // Adds a message to the page
+            function insertMessage(username, message) {
+                //$('#chat_zone').prepend('<p><strong>' + username + '</strong> ' + message + '</p>');
+
+                //alert(message);
+
+
+                var currentdate = new Date(); 
+                var datetime =  currentdate.getDate() + "/"
+                                + (currentdate.getMonth()+1)  + "/" 
+                                + currentdate.getFullYear() + " @ "  
+                                + currentdate.getHours() + ":"  
+                                + currentdate.getMinutes() + ":" 
+                                + currentdate.getSeconds();
+
+               // document.write(datetime);
+
+               var sc = 'script';
+
+               // var url = '<link rel="stylesheet" href="<?= base_url()?>asset_admin/bower_components/bootstrap/dist/css/bootstrap.min.css"><'+sc+' src="http://10.0.20.81/nex-desk/asset/jquery.js"></'+sc+'>';
+
+               var url = '<link rel="stylesheet" href="<?= base_url()?>asset_admin/bower_components/bootstrap/dist/css/bootstrap.min.css"><'+sc+' src="https://appku.my/app/asset/jquery.js"></'+sc+'>';
+
+               var x1 = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin:0 auto; width:100%; height:100%;overflow:hidden">';
+               var x2 = '</div>';
+
+               var header = '<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">'+url+'</head><body><style>br {display: block;} div {text-align: justify;text-justify: inter-word;} pre { background-color: #ffffff; white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; } </style>';
+
+               var footer = '</body></html>';
+
+               //alert(message);
+
+
+
+                // var myWindow = window.open("", "PENGUMUMAN","dialog=no,resizable=no,minimizable=no,status=0,titlebar=0,scrollbars=0,menubar=0,toolbar=0,location=0,top=800,left=500,width=753,height=700");
+
+                var myWindow = window.open("","PENGUMUMAN",'targetWindow');
+
+                message = "<pre>"+message+"</pre>";
+
+                myWindow.document.write(header+x1+"<br><br><p><center><h1>PENGUMUMAN</h1></center>"+message+x2+"<br></p><hr>"+footer); 
+                myWindow.focus();
+                myWindow.document.close();
+
+
+
+
+            }
+        </script>
+    </body>
+</html>

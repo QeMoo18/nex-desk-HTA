@@ -1,0 +1,22 @@
+1) Sila set default customer user sebagai 
+Not Related 
+ID - 9999
+
+2) Sila set default location
+Not Related 
+ID - 9999
+
+3) Sila set software
+Not Related
+ID - 9999
+
+
+UPDATE software 
+SET other_id='9999'
+WHERE other_id='20539'
+
+
+UPDATE location 
+SET other_id='9999'
+WHERE other_id='1595'
+

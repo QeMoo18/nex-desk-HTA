@@ -1,0 +1,22 @@
+[
+	{	"userid" : "123456",
+		"first_name" : "Muhammad",
+		"last_name" : "Hafizuddin",
+		"group_name" : "Bit Group Sdn Bhd",
+		"role_name" : "Admin",
+		"email" : "muhammadhafizuddin@bit.com.my",
+		"mobile" : "0132444640",
+		"validity" : "Valid"
+		
+	},
+	{	"userid" : "678912",
+		"first_name" : "Azri",
+		"last_name" : "Azrinuddin",
+		"group_name" : "Bit Group Sdn Bhd",
+		"role_name" : "Agent",
+		"email" : "azri@bit.com.my",
+		"mobile" : "0132444640",
+		"validity" : "Valid"
+		
+	}
+]

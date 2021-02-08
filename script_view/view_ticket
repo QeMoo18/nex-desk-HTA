@@ -1,0 +1,35 @@
+CREATE VIEW view_ticket as
+SELECT 
+a.id_ticket,
+a.current_state,
+a.category,
+a.fault_itsm_category,
+a.problem_desc_itsm,
+a.created_date as start_date,
+a.created_by as created_ticket_by,
+a.ticket_responsibilty,
+a.ticket_owner,
+a.location,
+a.sla,
+b.title,
+b.type,
+b.queu,
+b.text_editor as parent_editor,
+c.text_editor as note_editor,
+c.type_state,
+c.created_date as date_note,
+c.created_by as created_note_by,
+d.responsibility,
+d.action_taken,
+d.text_editor as note_closed,
+d.Problem,
+d.Fault_Type,
+d.total_time_closed,
+d.working_time_closed,
+d.created_by as closed_by,
+d.created_date as closed_date
+FROM 
+td_register_ticket as a
+LEFT JOIN td_parent_note as b ON a.id_ticket = b.id_ticket
+LEFT JOIN td_child_note as c ON c.id_ticket = b.id_ticket
+LEFT JOIN td_ticket_closed as d ON d.id_ticket = a.id_ticket
