@@ -931,7 +931,15 @@
 		                	{
 		                		$("#get_from_id").val(response);
 		                		detail();
-								$('#form_data').attr('action', '<?= base_url()?>Form_PPM/Update_Printer');
+								//$('#form_data').attr('action', '<?= base_url()?>Form_PPM/Update_Printer');
+
+
+								<?php if($this->uri->segment(2)=='User_PPM_Form_Printer'){ ?>
+									//alert('a');
+		                			$('#form_data').attr('action', '<?= base_url()?>Form_PPM/Update_Printer_Outside');
+		                		<?php } else { ?>
+		                			$('#form_data').attr('action', '<?= base_url()?>Form_PPM/Update_Printer');
+		                		<?php } ?>
 		                	}
 		               	}
 		          })

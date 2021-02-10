@@ -144,11 +144,20 @@
         var subject = "<?= get_name_activity($this->session->userdata('id_activity'))?>";
         var ppm_id = "<?= $this->session->userdata('id_activity');?>";
         var user_find = $("#user_find").val();
+
+        var t = $("select[name='type_devices_find']").val();
+        var d = $("select[name='department_find']").val();
+        var s = $("select[name='status_find']").val();
+        
+
         if(user_find){
             var data = 
                         {   'ppm_id':ppm_id,
                             'user_find':user_find,
                             'subject':subject,
+                            't':t,
+                            's':s,
+                            'd':d,
                             '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
                         }
 

@@ -3953,7 +3953,7 @@ class Admin_model extends CI_Model
 
 
 
-	function user_data_workstation($rowno,$rowperpage,$search,$type_devices_find,$department_find,$ppm_id_find,$user)
+	function user_data_workstation($rowno,$rowperpage,$search,$type_devices_find,$department_find,$ppm_id_find,$user,$type,$department,$status)
 	{
 		$this->db->select('*');
 	    $this->db->from('ppm_register');
@@ -3963,6 +3963,23 @@ class Admin_model extends CI_Model
 	    if($search != ''){
 	      
 			$this->db->like('hostname', $search);
+		}
+
+
+		if($type != ''){
+
+			$this->db->where('ppm_device', $type);
+		}
+
+
+		if($department != ''){
+
+			$this->db->like('department', $department);
+		}
+
+
+		if($status != ''){
+			$this->db->like('status_ppm', $status);
 		}
 
 
@@ -3986,11 +4003,27 @@ class Admin_model extends CI_Model
 
 
 
-	function user_count_workstation($search = '',$type_devices_find = '',$department_find='',$ppm_id_find='',$user='')
+	function user_count_workstation($search = '',$type_devices_find = '',$department_find='',$ppm_id_find='',$user='',$type='',$department='',$status='')
 	{
 		if($search != ''){
 
 			$this->db->like('hostname', $search);
+		}
+
+
+		if($type != ''){
+
+			$this->db->where('ppm_device', $type);
+		}
+
+
+		if($department != ''){
+			$this->db->like('department', $department);
+		}
+
+
+		if($status != ''){
+			$this->db->like('status_ppm', $status);
 		}
 
 		// if($user != ''){

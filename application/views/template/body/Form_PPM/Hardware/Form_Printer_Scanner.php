@@ -20,6 +20,20 @@
 		<section class="content">
 			<div class="row">
 				<form action="<?=base_url()?>Form_PPM/Add_printer" method="post" id="form_data">
+
+
+					<input type="hidden" name="u" value="<?php if(!empty($_GET['u'])){echo $_GET['u'];}?>">
+
+
+					<input type="hidden" name="d" value="<?php if(!empty($_GET['department'])){echo $_GET['department'];}?>">
+
+
+					<input type="hidden" name="t" value="<?php if(!empty($_GET['type'])){echo $_GET['type'];}?>">
+
+
+					<input type="hidden" name="s" value="<?php if(!empty($_GET['status'])){echo $_GET['status'];}?>">
+
+
 					<input type="hidden" name="id" id="id">
 					<input type="hidden" name="ppm_id" id="ppm_id" value="<?= hex2bin($_GET['ppm_id'])?>">
 					<input type="hidden" id="get_from_id" name="get_from_id">
@@ -998,7 +1012,14 @@
 		                	{
 		                		$("#get_from_id").val(response);
 		                		detail();
-								$('#form_data').attr('action', '<?= base_url()?>Form_PPM/Update_Printer');
+								// $('#form_data').attr('action', '<?= base_url()?>Form_PPM/Update_Printer');
+
+								<?php if($this->uri->segment(2)=='User_PPM_Form_Printer'){ ?>
+									// alert('a');
+		                			$('#form_data').attr('action', '<?= base_url()?>Form_PPM/Update_Printer_Outside');
+		                		<?php } else { ?>
+		                			$('#form_data').attr('action', '<?= base_url()?>Form_PPM/Update_Printer');
+		                		<?php } ?>
 		                	}
 		               	}
 		          })

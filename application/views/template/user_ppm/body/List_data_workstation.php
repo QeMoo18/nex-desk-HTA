@@ -45,6 +45,14 @@
             <input type="hidden" name="hidden_ppm_id" value="<?= $this->session->userdata('q')?>">
             <input type="hidden" name="hidden_user_id" value="<?= $this->session->userdata('u')?>">
 
+            <input type="hidden" name="d" value="<?php if(!empty($_GET['d'])){echo $_GET['d'];}?>">
+
+
+            <input type="hidden" name="t" value="<?php if(!empty($_GET['t'])){echo $_GET['t'];}?>">
+
+
+            <input type="hidden" name="s" value="<?php if(!empty($_GET['s'])){echo $_GET['s'];}?>">
+
     		<div class="table table-responsive">
 		         <table class="table">
 		            <thead class="thead-dark">
@@ -109,23 +117,52 @@
                                     //var_dump($data["ppm_device"]);
                                 ?>
 
+
+
+                                <?php 
+                                    if(!empty($_GET['d'])){
+                                        $d=$_GET['d'];
+                                    } else {
+                                        $d='';
+                                    }
+                                ?>
+
+
+                                <?php 
+                                    if(!empty($_GET['t'])){
+                                        $t=$_GET['t'];
+                                    } else {
+                                        $t='';
+                                    }
+                                ?>
+
+
+                                <?php 
+                                    if(!empty($_GET['s'])){
+                                        $s=$_GET['s'];
+                                    } else {
+                                        $s='';
+                                    }
+                                ?>
+
+
                                 <?php if(($data["ppm_device"]=='Computer')||($data["ppm_device"]=='Desktop')){ ?>
-                                    <a href="<?= base_url()?>Form_PPM/User_Computer?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&type=<?= $type?>"><i class="fa fa-edit"></i></a>
+                                    <a href="<?= base_url()?>Form_PPM/User_Computer?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&department=<?= $d?>&type=<?= $t?>&status=<?= $s?>"><i class="fa fa-edit"></i></a>
                                 <?php } ?>
 
 
                                 <?php if(($data["ppm_device"]=='Laptop')||($data["ppm_device"]=='laptop')||($data["ppm_device"]=='Notebook')||($data["ppm_device"]=='notebook')){ ?>
-                                    <a href="<?= base_url()?>Form_PPM/User_Notebook?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&type=<?= $type?>"><i class="fa fa-edit"></i></a>
+                                    <a href="<?= base_url()?>Form_PPM/User_Notebook?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&department=<?= $d?>&type=<?= $t?>&status=<?= $s?>"><i class="fa fa-edit"></i></a>
                                 <?php } ?>
 
 
                                 <?php if(($data["ppm_device"]=='Printer')||($data["ppm_device"]=='printer')){ ?>
-                                    <a href="<?= base_url()?>Form_PPM/User_PPM_Form_Printer?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&type=<?= $type?>"><i class="fa fa-edit"></i></a>
+                                    <a href="<?= base_url()?>Form_PPM/User_PPM_Form_Printer?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&department=<?= $d?>&type=<?= $t?>&status=<?= $s?>"><i class="fa fa-edit"></i></a>
                                 <?php } ?>
 
 
                                 <?php if(($data["ppm_device"]=='Scanner')||($data["ppm_device"]=='scanner')){ ?>
-                                    <a href="<?= base_url()?>Form_PPM/User_Scanner?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&type=<?= $type?>"><i class="fa fa-edit"></i></a>
+                                    <a href="<?= base_url()?>Form_PPM/User_Scanner?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&department=<?= $d?>&type=<?= $t?>&status=<?= $s?>"><i class="fa fa-edit"></i></a>
                                 <?php } ?>
 
                           </td>
@@ -308,7 +345,9 @@
                 <?php if(!empty($this->session->userdata('ppm_id'))){ ?>
                     $(this).attr("href", $(this).attr('href') + "?q=<?= $_GET['q']?>&u=<?= $_GET['u']?>");
                 <?php } else { ?>
+                    /*
                     $(this).attr("href", $(this).attr('href') + "?q=<?= $this->session->userdata('q');?>&u=<?= $this->session->userdata('u');?>");
+                    */
                 <?php } ?>
                 
             }

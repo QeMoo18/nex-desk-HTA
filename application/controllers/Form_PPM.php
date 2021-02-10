@@ -1575,26 +1575,81 @@ class Form_PPM extends CI_Controller
   }
 
 
-  function Update_Notebook_Outside()
+  function Update_Computer_Outside()
   {
-
-
-
-
-
-
 
 
     $u = $this->input->post('u');
     $ppm_id = $this->input->post('ppm_id');
 
-    $idn =  $this->input->post('id_number');
+    $d = $this->input->post('d');
+    $t = $this->input->post('t');
+    $s = $this->input->post('s');
+
+    $idn =  $this->input->post('get_from_id');
+
+    //var_dump($idn); exit();
+    
+      
 
     $this->db->where('id_number',$idn);
     $data = array('status_ppm'=>'Acknowledge');
     $this->db->update('ppm_register',$data);
 
-    $sql = base_url()."Form_PPM/Form_PPM_Client_Work/1?q=".$ppm_id."&u=".$u;
+    $sql = base_url()."Form_PPM/Form_PPM_Client_Work/1?q=".$ppm_id."&u=".$u."&t=".$t."&d=".$d."&s=".$s;
+
+    redirect($sql);
+  }
+
+  function Update_Notebook_Outside()
+  {
+
+
+    $u = $this->input->post('u');
+    $ppm_id = $this->input->post('ppm_id');
+
+    $d = $this->input->post('d');
+    $t = $this->input->post('t');
+    $s = $this->input->post('s');
+
+    $idn =  $this->input->post('get_from_id');
+
+    //var_dump($idn); exit();
+
+
+
+    $this->db->where('id_number',$idn);
+    $data = array('status_ppm'=>'Acknowledge');
+    $this->db->update('ppm_register',$data);
+
+    $sql = base_url()."Form_PPM/Form_PPM_Client_Work/1?q=".$ppm_id."&u=".$u."&t=".$t."&d=".$d."&s=".$s;
+
+    redirect($sql);
+  }
+
+
+  function Update_Printer_Outside()
+  {
+
+
+    $u = $this->input->post('u');
+    $ppm_id = $this->input->post('ppm_id');
+
+    $d = $this->input->post('d');
+    $t = $this->input->post('t');
+    $s = $this->input->post('s');
+
+    $idn =  $this->input->post('get_from_id');
+
+    //var_dump($idn); exit();
+    
+      
+
+    $this->db->where('id_number',$idn);
+    $data = array('status_ppm'=>'Acknowledge');
+    $this->db->update('ppm_register',$data);
+
+    $sql = base_url()."Form_PPM/Form_PPM_Client_Work/1?q=".$ppm_id."&u=".$u."&t=".$t."&d=".$d."&s=".$s;
 
     redirect($sql);
   }
@@ -7848,6 +7903,19 @@ class Form_PPM extends CI_Controller
     $user_find = $this->input->post('user_find');
     // find email by username
 
+    $d = $this->input->post('d');
+    $t = $this->input->post('t');
+    $s = $this->input->post('s');
+
+
+    if($t=='Desktop'){
+      $t='Computer';
+    }
+
+    if($t=='Laptop'){
+      $t='Notebook';
+    }
+
     $email = '';
     $this->db->where('first_name',$user_find);
     $query =  $this->db->get('customer_user')->result();
@@ -7856,44 +7924,58 @@ class Form_PPM extends CI_Controller
       $email = $data->email;
     }
 
-
+    
     //$email = 'mediummyofficial@gmail.com';
-    $email = 'sufianmohdhassan19@gmail.com';
-    //var_dump($email); exit();
+    //$email = 'sufianmohdhassan19@gmail.com';
+    $data_array = array();
+    $role = $this->session->userdata('idModule');
+    for($i=0;$i<count($role); $i++){
+      $data_array[] = $role[$i];
+    }
+
+    if (in_array("PPM_Endorse", $data_array)) 
+    { 
+      $this->workstation_acknowledge_email($ppm_id,$user_find,$d,$t,$s,$email);
+    } else {
+      $this->workstation_verified_send_email($ppm_id,$user_find,$d,$t,$s,$email);
+    }
 
 
-    // url
-    // http://10.0.20.81/nex-desk/Form_PPM/Form_PPM_Client_Work/1?q=21&u=
+  }
 
 
-    // send email 
 
-    //var_dump($ppm_id);
+  function workstation_verified_send_email($ppm_id,$user_find,$d,$t,$s,$email)
+  {
 
-    // update to Performed & Send
-    $data_update = array('status_ppm'=>'Verified & Send');
-    $this->db->where('type_ppm_activity',$ppm_id);
-    $this->db->where('acknowledge',$user_find);
-    $this->db->where('status_ppm','Verified');
-    $this->db->update('ppm_register',$data_update);
-
-
-    // //var_dump($user_find); exit();
 
     // update to Performed & send
     $data = array('status_ppm'=>'Performed & Send');
+
+    if(!empty($d)){
+      $this->db->like('department',$d);
+    }
+
+    if(!empty($t)){
+      $this->db->like('ppm_device',$t);
+    }
+
+
+    if(!empty($s)){
+      $this->db->like('status_ppm',$s);
+    }
+
     $this->db->where('type_ppm_activity',$ppm_id);
     $this->db->where('acknowledge',$user_find);
     $this->db->where('status_ppm','Performed');
     $this->db->update('ppm_register',$data);
 
 
-
-    $subject = $this->input->post('subject');
+    //echo 'Verify';
+    //$subject = $this->input->post('subject');
+    $subject = 'Verify Nex-Desk';
     $body = 'Assalamualaikum dan selamat sejahtera, kami dari Pihak IT Hospital Tunku Azizah telah menyelengara perkakas "computer" mengikut jadual yang ditetapkan.<br><br>
-      <a href="'.base_url().'Form_PPM/Form_PPM_Client_Work/1?q='.$ppm_id.'&u=">Sila klik disini untuk lihat dan buat tindakan</a>. <br><br>';
-
-
+      <a href="'.base_url().'Form_PPM/Form_PPM_Client_Work/1?q='.$ppm_id.'&d='.$d.'&t='.$t.'&s='.$s.'&u=">Sila klik disini untuk lihat dan buat tindakan</a>. <br><br>';
 
 
      //Load email library
@@ -7913,37 +7995,121 @@ class Form_PPM extends CI_Controller
       $this->email->set_mailtype("html");
       $this->email->set_newline("\r\n");
 
-   
-        $this->email->from('hafiz@nexquadrant.com');
 
-        //$subject='testing email';
-        //$email='hafiz.shahipurullah@bit.com.my';
-  
-        $this->email->to($email);  // replace it with receiver mail id
-        $this->email->subject($subject); // replace it with relevant subject
+      $this->email->from('hafiz@nexquadrant.com');
 
-       
-            // $body = $this->load->view('email/reset_password.php',$data,TRUE);
-            
-        //var_dump($body);
+      //$subject='testing email';
+      //$email='hafiz.shahipurullah@bit.com.my';
 
-        //$body = '<h1>Computer/Notebook anda telah diselengara oleh Pihak ICT Hospital Tunku Azizah.  Sila tekan <a href="'.base_url().'Form_PPM/PDF_Computer/9681" download>Disini</a> untuk muaturun bukti selengaraan </h1>';
-            
-        $this->email->message($body);  
-        if($this->email->send()){
-          echo 'sent';
-        } else {
-          echo 'xsent';
-        }
-        echo $this->email->print_debugger();
+      $this->email->to($email);  // replace it with receiver mail id
+      $this->email->subject($subject); // replace it with relevant subject
 
 
+          // $body = $this->load->view('email/reset_password.php',$data,TRUE);
+          
+      //var_dump($body);
 
+      //$body = '<h1>Computer/Notebook anda telah diselengara oleh Pihak ICT Hospital Tunku Azizah.  Sila tekan <a href="'.base_url().'Form_PPM/PDF_Computer/9681" download>Disini</a> untuk muaturun bukti selengaraan </h1>';
+          
+      $this->email->message($body);  
+      if($this->email->send()){
+        echo 'sent';
+      } else {
+        echo 'xsent';
+      }
+      echo $this->email->print_debugger();
 
-
-
-      
   }
+
+
+  function workstation_acknowledge_email($ppm_id,$user_find,$d,$t,$s,$email)
+  {
+    //echo 'Acknowledge';
+
+
+    $subject = 'Endorse HTA';
+    $body = 'Assalamualaikum dan selamat sejahtera, kami dari Pihak IT Hospital Tunku Azizah telah menyelengara perkakas "workstation" mengikut jadual yang ditetapkan.<br><br>
+      Sila log masuk ke Nex-Desk dan klik senarai rujukkan lampiran dibawah bagi salinan penyelengaraan <br><br>';
+    
+
+    
+    $nameFile_zip = time().'F'.rand();
+
+
+    if(!empty($d)){
+      $this->db->like('department',$d);
+    }
+
+    if(!empty($t)){
+      $this->db->like('ppm_device',$t);
+    }
+
+
+    if(!empty($s)){
+      $this->db->like('status_ppm',$s);
+    }
+
+
+    $hostname = array();
+    $this->db->where('acknowledge',$user_find);
+    $this->db->where('type_ppm_activity',$ppm_id);
+    $query =  $this->db->get('ppm_register')->result();
+    foreach ($query as $data) 
+    {
+      $type_f = $data->ppm_type;
+      $type = bin2hex($type_f);
+
+      $id_number = $data->id_number;
+
+      $h = $data->hostname;
+
+
+      $link_url = bin2hex($h);
+      $link_ppm = bin2hex($ppm_id);
+
+      // var_dump($link_url);
+      $type = 'PDF_Computer';
+      $this->test_download($type,$id_number,$nameFile_zip);
+
+      $hostname[]=$h;
+
+
+
+
+      // update to Verify & send
+      $data = array('status_ppm'=>'Verify & Send');
+
+      // if(!empty($d)){
+      // $this->db->like('department',$d);
+      // }
+
+      // if(!empty($t)){
+      // $this->db->like('ppm_device',$t);
+      // }
+
+
+      // if(!empty($s)){
+      // $this->db->like('status_ppm',$s);
+      // }
+
+      $this->db->where('hostname',$h);
+      // $this->db->where('acknowledge',$user_find);
+      $this->db->where('status_ppm','Verify');
+      $this->db->update('ppm_register',$data);
+
+
+
+    }
+
+    //var_dump($hostname); exit();
+
+    $this->zip($ppm_id,$type,$id_number,$nameFile_zip,$hostname);
+
+    $this->send_email($email,$subject,$body,$nameFile_zip);
+
+  }
+
+
 
 
   function Server_Send_Email()
@@ -8069,16 +8235,22 @@ class Form_PPM extends CI_Controller
     // $url = 'http://10.0.20.81/nex-desk/Form_PPM/PDF_Hardware/11204';
 
     $url = 'http://10.0.20.81/nex-desk/Form_PPM/'.$type.'/'.$id_number; 
+
+    // $url = 'http://localhost/nex-desk_hta/Form_PPM/'.$type.'/'.$id_number; 
+
       
     // Use basename() function to return the base name of file  
     $file_name = basename($url);
 
     $filename = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$nameFile_zip;
+    // $filename = $_SERVER["DOCUMENT_ROOT"].'/nex-desk_hta/zip/'.$nameFile_zip;
+
     if (!file_exists($filename)) {
       mkdir($filename);
     } 
 
     $root = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$nameFile_zip.'/'.$file_name.'.pdf';
+    // $root = $_SERVER["DOCUMENT_ROOT"].'/nex-desk_hta/zip/'.$nameFile_zip.'/'.$file_name.'.pdf';
     //var_dump($root); exit();
 
 
@@ -8120,6 +8292,7 @@ class Form_PPM extends CI_Controller
 
       //$file_folder = 'http://10.0.20.81/nex-desk/Form_PPM/'.$type.'/'.$id_number; 
       $file_folder = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$nameFile_zip.'/'.$file_name.'.pdf';
+      //$file_folder = $_SERVER["DOCUMENT_ROOT"].'/nex-desk_hta/zip/'.$nameFile_zip.'/'.$file_name.'.pdf';
       
 
       var_dump($file_folder);
@@ -8136,6 +8309,7 @@ class Form_PPM extends CI_Controller
       $nameFile = $file_name;
 
       $fileKompresi = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$nameFile_zip.'/'.$nameFile_zip.".zip";
+      //$fileKompresi = $_SERVER["DOCUMENT_ROOT"].'/nex-desk_hta/zip/'.$nameFile_zip.'/'.$nameFile_zip.".zip";
 
       $kompresi = $zip->open($fileKompresi, ZIPARCHIVE::CREATE);
       if ($kompresi)
@@ -8240,6 +8414,7 @@ class Form_PPM extends CI_Controller
             $nameFile = 'Test';
 
             $fileKompresi = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$nameFile_zip.'/'.$nameFile_zip.".zip";
+            //$fileKompresi = $_SERVER["DOCUMENT_ROOT"].'/nex-desk_hta/zip/'.$nameFile_zip.'/'.$nameFile_zip.".zip";
 
             $this->email->attach($fileKompresi);
            
@@ -8261,6 +8436,9 @@ class Form_PPM extends CI_Controller
 
   function Form_PPM_Client_Work($rowno=0)
   {
+
+
+    
 
     $paging_by_find = 10;
 
@@ -8332,18 +8510,55 @@ class Form_PPM extends CI_Controller
       $this->session->set_userdata(array('u'=>$user_id));
     }
 
+
+    if(!empty($_GET['t'])){
+      $type = $_GET['t'];
+      $this->session->set_userdata(array('t'=>$type));
+    } else {
+      //$type = $this->session->userdata('t');
+      $type='';
+      $this->session->set_userdata(array('t'=>''));
+    }
+
+
+    if(!empty($_GET['d'])){
+      $department = $_GET['d'];
+      $this->session->set_userdata(array('d'=>$department));
+    } else {
+      //$department = $this->session->userdata('d');
+      $department ='';
+      $this->session->set_userdata(array('d'=>''));
+    }
+
+
+
+
+    if(!empty($_GET['s'])){
+      $status = $_GET['s'];
+      $this->session->set_userdata(array('s'=>$status));
+    } else {
+      //$department = $this->session->userdata('d');
+      $status ='';
+      $this->session->set_userdata(array('s'=>''));
+    }
+
+    //var_dump($type);
+    //exit();
+
     $user = $this->session->userdata('u');
 
 
     //var_dump($ppm_id); exit();
 
-    $allcount = $this->Admin->user_count_workstation($search_text,$type_devices_find,$department_find,$ppm_id,$user);
-    $users_record = $this->Admin->user_data_workstation($rowno,$rowperpage,$search_text,$type_devices_find,$department_find,$ppm_id,$user);
+    $allcount = $this->Admin->user_count_workstation($search_text,$type_devices_find,$department_find,$ppm_id,$user,$type,$department,$status);
+    $users_record = $this->Admin->user_data_workstation($rowno,$rowperpage,$search_text,$type_devices_find,$department_find,$ppm_id,$user,$type,$department,$status);
 
     //$data = $this->Admin->data_workstation();
     //$count = $this->Admin->count_workstation();
     //var_dump($count);
 
+
+    //  var_dump($users_record); exit();
 
     $segment1 = $this->uri->segment(1);
     $segment2 = $this->uri->segment(2);
@@ -8473,6 +8688,11 @@ class Form_PPM extends CI_Controller
       $user_id = hex2bin($hidden_user_id);
       $id_number = $this->input->post('id_number');
 
+
+      $d = $this->input->post('d');
+      $t = $this->input->post('t');
+      $s = $this->input->post('s');
+
       //var_dump($id_number);
 
       for($i=0;$i<count($id_number); $i++){
@@ -8487,7 +8707,11 @@ class Form_PPM extends CI_Controller
       }
 
       //exit();
-      redirect('Form_PPM/Form_PPM_Client_Work/'); 
+      //redirect('Form_PPM/Form_PPM_Client_Work/'); 
+
+      $sql = base_url()."Form_PPM/Form_PPM_Client_Work/1?q=".$hidden_ppm_id."&u=".$hidden_user_id."&d=".$d."&t=".$t."&s=".$s;
+
+      redirect($sql);
 
   }
 
@@ -8827,6 +9051,14 @@ class Form_PPM extends CI_Controller
       $status_find = $this->input->post('status_find');
       // var_dump($department_find); exit();
 
+
+      if($type_devices_find=='Desktop'){
+        $type_devices_find='Computer';
+      } else if($type_devices_find=='Laptop'){
+        $type_devices_find='Notebook';
+      }
+
+
       // $this->session->set_flashdata('paging_by_find', $paging_by_find);
       // $this->session->set_flashdata('type_devices_find', $type_devices_find);
       // $this->session->set_flashdata('user_find', $user_find);
@@ -8927,6 +9159,14 @@ class Form_PPM extends CI_Controller
       // $this->session->set_flashdata('user_find', $user_find);
       // $this->session->set_flashdata('status_find', $status_find);
       // $this->session->set_flashdata('department_find', $department_find);
+
+
+      if($type_devices_find=='Desktop'){
+        $type_devices_find='Computer';
+      } else if($type_devices_find=='Laptop'){
+        $type_devices_find='Notebook';
+      }
+      
 
 
       if(!empty($paging_by_find)){
