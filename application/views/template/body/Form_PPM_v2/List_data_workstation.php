@@ -168,11 +168,11 @@
                     dataType: 'html',
                     data: data,
                     beforeSend: function() {
-
+                        alert("Please wait, we are preparing the necessary documents to be sent to the target. Please click 'Ok' and wait for this page to appear popup popup.");
                     },
                     success: function(response){
                         alert("PPM Form already send");
-                        //location.reload();
+                        location.reload();
                     }
             });
         } 

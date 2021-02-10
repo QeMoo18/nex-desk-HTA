@@ -7924,7 +7924,7 @@ class Form_PPM extends CI_Controller
       $email = $data->email;
     }
 
-    
+
     //$email = 'mediummyofficial@gmail.com';
     //$email = 'sufianmohdhassan19@gmail.com';
     $data_array = array();
@@ -8142,6 +8142,7 @@ class Form_PPM extends CI_Controller
       $type_f = '';
       $type = '';
       $this->db->where('hostname',$h);
+      $this->db->where('status_ppm','Endorse');
       $this->db->where('type_ppm_activity',$ppm_id);
       $query =  $this->db->get('ppm_register')->result();
       foreach ($query as $data) 
@@ -8150,6 +8151,15 @@ class Form_PPM extends CI_Controller
         $type = bin2hex($type_f);
 
         $id_number = $data->id_number;
+
+        //var_dump($id_number); exit();
+
+        // update to Verify & send
+        $data_status = array('status_ppm'=>'Endorse & Send');
+        $this->db->where('id_number',$id_number);
+        $this->db->where('status_ppm','Endorse');
+        $this->db->update('ppm_register',$data_status);
+
       }
 
 
@@ -8201,6 +8211,7 @@ class Form_PPM extends CI_Controller
       $type_f = '';
       $type = '';
       $this->db->where('hostname',$h);
+      $this->db->where('status_ppm','Endorse');
       $this->db->where('type_ppm_activity',$ppm_id);
       $query =  $this->db->get('ppm_register')->result();
       foreach ($query as $data) 
@@ -8209,6 +8220,15 @@ class Form_PPM extends CI_Controller
         $type = bin2hex($type_f);
 
         $id_number = $data->id_number;
+
+
+        // update to Verify & send
+        $data_status = array('status_ppm'=>'Endorse & Send');
+        $this->db->where('id_number',$id_number);
+        $this->db->where('status_ppm','Endorse');
+        $this->db->update('ppm_register',$data_status);
+
+
       }
 
 

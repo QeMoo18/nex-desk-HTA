@@ -65,8 +65,8 @@
                         <option value="Not Yet">Not Yet</option>   
                         <option value="Performed">Performed</option>   
                         <option value="Verified">Verified</option>   
-                        <option value="Endorsed">Endorsed</option>   
-                        <option value="Endorsed & Send">Endorsed & Send</option>   
+                        <option value="Endorse">Endorsed</option>   
+                        <option value="Endorse & Send">Endorsed & Send</option>   
                       </select>
                     </div>
                     <input type="hidden" name="submit" value="submit">
@@ -165,28 +165,36 @@
 
         console.log(hostname);
 
-        if(hostname){
-            var data = 
-                        {   'subject':"<?= get_name_activity($this->session->userdata('id_activity'))?>",
-                            'ppm_id':ppm_id,
-                            'hostname':hostname,
-                            'email_selected':email_selected,
-                            '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
-                        }
+        if(email_selected==''){
+            alert('Please select receiver email & tick item selected !');
+        } else {
+          if(hostname.length>0){
+              var data = 
+                          {   'subject':"<?= get_name_activity($this->session->userdata('id_activity'))?>",
+                              'ppm_id':ppm_id,
+                              'hostname':hostname,
+                              'email_selected':email_selected,
+                              '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+                          }
 
-                    
-            $.ajax({
-                    url: '<?= base_url() ?>Form_PPM/Network_Send_Email',
-                    type: 'POST',
-                    dataType: 'html',
-                    data: data,
-                    beforeSend: function() {
+                      
+              $.ajax({
+                      url: '<?= base_url() ?>Form_PPM/Network_Send_Email',
+                      type: 'POST',
+                      dataType: 'html',
+                      data: data,
+                      beforeSend: function() {
+                        alert("Please wait, we are preparing the necessary documents to be sent to the target. Please click 'Ok' and wait for this page to appear popup popup.");
+                      },
+                      success: function(response){
 
-                    },
-                    success: function(response){
-                        alert("PPM Form already send");
-                    }
-            });
+                          alert("PPM Form already send");
+                          location.reload();
+                      }
+              });
+          } else {
+            alert('Please tick item selected !');
+          }
         }
 
         
