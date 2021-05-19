@@ -38,13 +38,13 @@
 				                </div>
 							
 								<div class="form-group col-md-3">
-				                  <label for="exampleInputEmail1">*Username</label>
+				                  <label for="exampleInputEmail1">Username</label>
 				                  <input type='text' class='form-control' name='CU_UName' id='CU_UName'>
 				                  <span id="alert_CU_UName"></span>  
 				                </div>
 							
 								<div class="form-group col-md-3">
-				                  <label for="exampleInputEmail1">*Password</label>
+				                  <label for="exampleInputEmail1">Password</label>
 				                  <input type='Password' class='form-control' name='CU_pwd' id='CU_pwd'>
 				                  <span id="alert_CU_pwd"></span>  
 				                </div>
@@ -189,19 +189,19 @@
 			$("#alert_CU_LName").html('<font color="red"> required field </font>');
 		}
 
-		if(CU_UName)
-		{ 
-			$("#alert_CU_UName").html('');
-		} else {
-			$("#alert_CU_UName").html('<font color="red"> required field </font>');
-		}
+		// if(CU_UName)
+		// { 
+		// 	$("#alert_CU_UName").html('');
+		// } else {
+		// 	$("#alert_CU_UName").html('<font color="red"> required field </font>');
+		// }
 
-		if(CU_pwd)
-		{ 
-			$("#alert_CU_pwd").html('');
-		} else {
-			$("#alert_CU_pwd").html('<font color="red"> required field </font>');
-		}
+		// if(CU_pwd)
+		// { 
+		// 	$("#alert_CU_pwd").html('');
+		// } else {
+		// 	$("#alert_CU_pwd").html('<font color="red"> required field </font>');
+		// }
 
 		if(CU_email)
 		{ 
@@ -226,7 +226,7 @@
 
 
 		//check to submit
-		if((CU_FName=='')||(CU_LName=='')||(CU_UName=='')||(CU_pwd=='')||(CU_email=='')||(Cust_ID=='')||(CU_valid=='')){
+		if((CU_FName=='')||(CU_LName=='')||(CU_email=='')||(Cust_ID=='')||(CU_valid=='')){
 
 		} else {
 

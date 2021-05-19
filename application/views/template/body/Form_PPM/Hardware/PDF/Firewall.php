@@ -33,7 +33,7 @@
 			<table>
 				<tbody>
 					<tr style="padding-bottom: 30px;">
-						<td style="width: 100;" class="small"><img src="<?= base_url()?>Prohawk_Logo.png" style="width: 220px;"><br> <h4><b>SERVER & STORAGE </b> </h4>  <p>Update and verify inventory by checking and ticking boxes below</p></td>
+						<td style="width: 100;" class="small"><img src="<?= base_url()?>Prohawk_Logo.png" style="width: 220px;"><br> <h4><b>NETWORK </b> </h4>  <p>Update and verify inventory by checking and ticking boxes below</p></td>
 						<td style="width: 50;"></td>
 						<td style="width: 100%;" class="small"><h4><b>PLANNED PREVENTIVE MAINTENANCE </b></h4>  <h5>HOSPITAL TUANKU AZIZAH</h5>
 						<br><br>
@@ -1437,8 +1437,191 @@
 			</tr>
 			</table>
 
-			
 
+			<br>
+			<table style="width:100%">
+			  <tr>
+			    <th style="width: 45%; background: #000; padding-left: 30px;">
+			    	<p style="color: white; font-size: 13px;">D. UPS</p>
+			    </th>
+			    <th style="width: 10%">
+			    	
+			    </th>
+			    <th style="width: 45%; background: #000; padding-left: 30px;">
+			    	<p style="color: white; font-size: 13px;">E.LOAD BALANCER</p>
+			    </th>
+			  </tr>
+			  <tr>
+
+			  	<td>
+			  		<table style="width:100%">
+					  <tr>
+						  	<td style="width: 80%" class="">
+						    	<span class="font_12">
+						    		1. Output Load (<?= $data->data_ol ?> )
+						    	</span>
+						    </td>
+						    <td style="width: 10%">
+						    	<span class="font_12">
+						    		<br>
+						    		
+						    	</span>
+						    </td>
+						    <td style="width: 10%" class="">
+						    	<span class="font_12">
+						    		<?= $data->ups_1 ?>
+						    	</span>
+						    </td>
+						</tr>
+
+					  <tr>
+						  	<td style="width: 80%" class="">
+						    	<span class="font_12">
+						    		2. Battery Capacity (<?= $data->data_bc ?>)
+						    	</span>
+						    </td>
+						    <td style="width: 10%">
+						    	<span class="font_12">
+						    		<br>
+						    		
+						    	</span>
+						    </td>
+						    <td style="width: 10%" class="">
+						    	<span class="font_12">
+						    		<?= $data->ups_2 ?>
+						    	</span>
+						    </td>
+						</tr>
+
+					  <tr>
+						  	<td style="width: 80%" class="">
+						    	<span class="font_12">
+						    		3. Battery Temperature (<?= $data->data_bt ?>)
+						    	</span>
+						    </td>
+						    <td style="width: 10%">
+						    	<span class="font_12">
+						    		<br>
+						    		
+						    	</span>
+						    </td>
+						    <td style="width: 10%" class="">
+						    	<span class="font_12">
+						    		<?= $data->ups_3 ?>
+						    	</span>
+						    </td>
+						</tr>
+
+
+						<tr>
+						  	<td style="width: 80%" class="">
+						    	<span class="font_12">
+						    		4. Run Time Remaining (<?= $data->data_rt ?>)
+						    	</span>
+						    </td>
+						    <td style="width: 10%">
+						    	<span class="font_12">
+						    		<br>
+						    		
+						    	</span>
+						    </td>
+						    <td style="width: 10%" class="">
+						    	<span class="font_12">
+						    		<?= $data->ups_4 ?>
+						    	</span>
+						    </td>
+						</tr>
+
+						<tr>
+						  	<td style="width: 80%" class="">
+						    	<span class="font_12">
+						    		5. Replace Battery Indicator
+						    	</span>
+						    </td>
+						    <td style="width: 10%">
+						    	<span class="font_12">
+						    		<br>
+						    		
+						    	</span>
+						    </td>
+						    <td style="width: 10%" class="">
+						    	<span class="font_12">
+						    		<?= $data->ups_5 ?>
+						    	</span>
+						    </td>
+						</tr>
+					</table>
+				</td>
+
+				<td></td>
+				<td>
+			  		<table style="width:100%">
+			  			<tr>
+						  	<td style="width: 80%" class="">
+						    	<span class="font_12">
+						    		1. Check system logs 
+						    	</span>
+						    </td>
+						    <td style="width: 10%">
+						    	<span class="font_12">
+						    		<br>
+						    		
+						    	</span>
+						    </td>
+						    <td style="width: 10%" class="">
+						    	<span class="font_12">
+						    		<?= $data->load_balance_1 ?>
+						    	</span>
+						    </td>
+						</tr>
+
+
+						<tr>
+						  	<td style="width: 80%" class="">
+						    	<span class="font_12">
+						    		2. Hard Disk Usage (<?= $data->hard_disk_usage ?>)
+						    	</span>
+						    </td>
+						    <td style="width: 10%">
+						    	<span class="font_12">
+						    		<br>
+						    		
+						    	</span>
+						    </td>
+						    <td style="width: 10%" class="">
+						    	<span class="font_12">
+						    		<?= $data->load_balance_2 ?>
+						    	</span>
+						    </td>
+						</tr>
+
+
+						<tr>
+						  	<td style="width: 80%" class="">
+						    	<span class="font_12">
+						    		3. Check System Memory 
+						    	</span>
+						    </td>
+						    <td style="width: 10%">
+						    	<span class="font_12">
+						    		<br>
+						    		
+						    	</span>
+						    </td>
+						    <td style="width: 10%" class="">
+						    	<span class="font_12">
+						    		<?= $data->load_balance_3 ?>
+						    	</span>
+						    </td>
+						</tr>
+
+					</table>
+				</td>
+
+			  </tr>
+			</table>
+
+			
 
 			<br><br>
 			<table style="width:100%" border="1">
@@ -1447,11 +1630,16 @@
 			    	<p style="color: white; font-size: 13px;">E. REMARK</p>
 			    </th>
 			  </tr>
-			  <tr>
+			  <!-- <tr>
 			  	<td style="padding-left: 30px;">
 			  		<p style="font-size: 12px;"><?= $data->comment; ?></p>
 			  	</td>
-			  </tr>
+			  </tr> -->
+			</table>
+			<table>
+				<tbody>
+					<?= $comment_user; ?>
+				</tbody>
 			</table>
 
 
@@ -1478,14 +1666,16 @@
 												<p style="font-size: 12px;">
 													<?= $data->responsible ?>
 													<br>
-													<?= $data->created_date ?>
+													<!-- <?= date('m/d/Y',strtotime($data->created_date)) ?> -->
+													<?= substr($data->created_date,0,-8) ?>
 												</p>
 											</td>
 											<td style="width: 200px; padding-left: 10px; padding-right: 10px;">
 												<p style="font-size: 12px;">
 													<?= $data->acknowledge ?>
 													<br>
-													<?= $data->created_date ?>
+													<!-- <?= date('m/d/Y',strtotime($data->created_date)) ?> -->
+													<?= substr($data->date_acknowledge,0,-8) ?>
 												</p>
 											</td>
 											<td style="width: 250px; padding-left: 10px; padding-right: 10px;">
@@ -1508,7 +1698,12 @@
 													<?php if(!empty($data->endorse)){ ?>
 													<?= $data->endorse ?>
 													<br>
-													<?= $data->date_endorse ?>
+													<!-- <?= date('m/d/Y',strtotime($data->date_endorse)) ?> -->
+
+													<?php 
+														echo substr($data->date_endorsed,0,-8);
+													?>
+
 													<?php } else { ?>
 														Not Yet
 													<?php } ?>

@@ -369,6 +369,15 @@ class Architecture_UI extends CI_Model
 	{
 		$idModule = $this->session->userdata('idModule');
 
+		$userid = $this->session->userdata('userid');
+	    $this->db->where('userid',$userid);
+	    $role = '';
+	    $query =  $this->db->get('login_user')->result();
+	    foreach ($query as $data) 
+	    {
+	      $role = $data->role;
+	    }
+
 		echo '
 					<li>
                         <a href="'.base_url().'dashboard" data-original-title="" title=""  style="padding-left: 13px;">
@@ -381,153 +390,156 @@ class Architecture_UI extends CI_Model
                     </li>
               ';
 
-       	if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)&& in_array('Ticket',$idModule)))
-        { 
-	        echo '
-						<li onclick="ticket_tab();">
-	                        <a data-original-title="" title="" style="padding-left: 13px;">
-	                        <i class="fa fa-ticket"></i>
+        if($role!='Endorse PPM'){
+
+	       	if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)&& in_array('Ticket',$idModule)))
+	        { 
+		        echo '
+							<li onclick="ticket_tab();">
+		                        <a data-original-title="" title="" style="padding-left: 13px;">
+		                        <i class="fa fa-ticket"></i>
+		                        <span class="menu-title" style="font-size: 14px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">
+		                           Ticket
+		                        </span>
+		                        <i class="arrow"></i>
+		                        </a>
+		                        
+		                        <div id="ticket_tab_data" style="display:none;">  
+									<ul class="collapse in" aria-expanded="true">
+
+									    <li><a href="'.base_url().'Ticket/Ticket_Search" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Search Ticket </a></li>
+
+									    <li><a href="'.base_url().'Ticket/CreateTicket_Phone" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Add Ticket : Phone </a></li>
+
+									    <li><a href="'.base_url().'Ticket/CreateTicket_Email" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Add Ticket : Email </a></li>
+
+									    <li><a href="'.base_url().'Ticket/Ticket_StatusView" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Ticket Status View </a></li>
+
+
+									    <li><a href="'.base_url().'Ticket/Ticket_QueuView" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Queue by View Ticket </a></li>
+
+									    <li><a href="'.base_url().'Ticket/MS_Overview_Open" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Master Ticket </a></li>
+
+									    
+									</ul>
+								</div>
+		                    </li>
+		                ';
+		    }
+
+		    if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)&& in_array('Customer',$idModule)))
+	        { 
+		        echo '
+		                    <li onclick="customer_tab();">
+		                        <a data-original-title="" title=""  style="padding-left: 13px;">
+		                        <i class="fa fa-users"></i>
+		                        <span class="menu-title" style="font-size: 14px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">
+		                           Customer
+		                        </span>
+		                        <i class="arrow"></i>
+		                        </a>
+		                        
+		                        <div id="customer_tab_data" style="display:none;">  
+									<ul class="collapse in" aria-expanded="true">
+										<li class="list-header" style="padding-left: 13px; font-size: 11px;font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">Customer Information Center</li>
+									    <li><a href="'.base_url().'Customer/CMC_Customer" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Search Customer </a></li>
+
+									    <li><a href="'.base_url().'Customer/CMC_Customer" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Search Customer User </a></li>
+
+									    
+									</ul>
+									<hr>
+									<ul class="collapse in" aria-expanded="true">
+										<li class="list-header" style="padding-left: 13px; font-size: 11px;font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">Customer User Adminstrator</li>
+									    <li><a href="'.base_url().'Customer/CUA_ViewList" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> View Customer User </a></li>
+
+									    <li><a href="'.base_url().'Customer/CUA_FormCustomer" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Add Customer User </a></li>
+									</ul>
+									<hr>
+									<ul class="collapse in" aria-expanded="true">
+									    <li><a href="'.base_url().'Customer/CU_Link_Location" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Link User Location </a></li>
+
+									    <li><a href="'.base_url().'Customer/CMC_Link_Service" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Manage Customer Services </a></li>
+									</ul>
+								</div>
+		                    </li>
+		            ';
+		    }
+
+
+		    if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)&& in_array('Report',$idModule)))
+	        { 
+	          	echo '
+	                    <li>
+	                        <a href="'.base_url().'report/report_v3" data-original-title="" title=""  style="padding-left: 13px;">
+	                        <i class="fa fa-laptop"></i>
 	                        <span class="menu-title" style="font-size: 14px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">
-	                           Ticket
+	                           Report
+	                        </span>
+	                        <i class="arrow"></i>
+	                        </a>
+	                    </li>
+	                 ';
+	        }
+
+
+	        if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)&& in_array('Service',$idModule)))
+	        { 
+	            echo '
+	                    <li onclick="services_tab();">
+	                        <a data-original-title="" title=""  style="padding-left: 13px;">
+	                        <i class="fa fa-tasks"></i>
+	                        <span class="menu-title" style="font-size: 14px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">
+	                           Services
 	                        </span>
 	                        <i class="arrow"></i>
 	                        </a>
 	                        
-	                        <div id="ticket_tab_data" style="display:none;">  
+	                        <div id="services_tab_data" style="display:none;">  
 								<ul class="collapse in" aria-expanded="true">
+								    <li><a href="'.base_url().'Service/Service_ListView" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Services </a></li>
 
-								    <li><a href="'.base_url().'Ticket/Ticket_Search" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Search Ticket </a></li>
-
-								    <li><a href="'.base_url().'Ticket/CreateTicket_Phone" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Add Ticket : Phone </a></li>
-
-								    <li><a href="'.base_url().'Ticket/CreateTicket_Email" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Add Ticket : Email </a></li>
-
-								    <li><a href="'.base_url().'Ticket/Ticket_StatusView" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Ticket Status View </a></li>
-
-
-								    <li><a href="'.base_url().'Ticket/Ticket_QueuView" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Queue by View Ticket </a></li>
-
-								    <li><a href="'.base_url().'Ticket/MS_Overview_Open" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Master Ticket </a></li>
+								    <li><a href="'.base_url().'Service/SLA_ListView" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> SLA </a></li>
 
 								    
 								</ul>
 							</div>
 	                    </li>
 	                ';
-	    }
+	        }
 
-	    if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)&& in_array('Customer',$idModule)))
-        { 
-	        echo '
-	                    <li onclick="customer_tab();">
-	                        <a data-original-title="" title=""  style="padding-left: 13px;">
-	                        <i class="fa fa-users"></i>
+
+	        if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)&& in_array('Admin',$idModule)))
+	        { 
+	            echo '
+	                    <li>
+	                        <a href="'.base_url().'menu/overview/admin" data-original-title="" title=""  style="padding-left: 13px;">
+	                        <i class="fa fa-user"></i>
 	                        <span class="menu-title" style="font-size: 14px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">
-	                           Customer
+	                           Administrator
 	                        </span>
 	                        <i class="arrow"></i>
 	                        </a>
-	                        
-	                        <div id="customer_tab_data" style="display:none;">  
-								<ul class="collapse in" aria-expanded="true">
-									<li class="list-header" style="padding-left: 13px; font-size: 11px;font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">Customer Information Center</li>
-								    <li><a href="'.base_url().'Customer/CMC_Customer" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Search Customer </a></li>
-
-								    <li><a href="'.base_url().'Customer/CMC_Customer" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Search Customer User </a></li>
-
-								    
-								</ul>
-								<hr>
-								<ul class="collapse in" aria-expanded="true">
-									<li class="list-header" style="padding-left: 13px; font-size: 11px;font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">Customer User Adminstrator</li>
-								    <li><a href="'.base_url().'Customer/CUA_ViewList" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> View Customer User </a></li>
-
-								    <li><a href="'.base_url().'Customer/CUA_FormCustomer" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Add Customer User </a></li>
-								</ul>
-								<hr>
-								<ul class="collapse in" aria-expanded="true">
-								    <li><a href="'.base_url().'Customer/CU_Link_Location" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Link User Location </a></li>
-
-								    <li><a href="'.base_url().'Customer/CMC_Link_Service" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Manage Customer Services </a></li>
-								</ul>
-							</div>
 	                    </li>
-	            ';
-	    }
+	                 ';
+	        }
 
 
-	    if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)&& in_array('Report',$idModule)))
-        { 
-          	echo '
-                    <li>
-                        <a href="'.base_url().'report/report_v3" data-original-title="" title=""  style="padding-left: 13px;">
-                        <i class="fa fa-laptop"></i>
-                        <span class="menu-title" style="font-size: 14px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">
-                           Report
-                        </span>
-                        <i class="arrow"></i>
-                        </a>
-                    </li>
-                 ';
-        }
-
-
-        if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)&& in_array('Service',$idModule)))
-        { 
-            echo '
-                    <li onclick="services_tab();">
-                        <a data-original-title="" title=""  style="padding-left: 13px;">
-                        <i class="fa fa-tasks"></i>
-                        <span class="menu-title" style="font-size: 14px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">
-                           Services
-                        </span>
-                        <i class="arrow"></i>
-                        </a>
-                        
-                        <div id="services_tab_data" style="display:none;">  
-							<ul class="collapse in" aria-expanded="true">
-							    <li><a href="'.base_url().'Service/Service_ListView" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> Services </a></li>
-
-							    <li><a href="'.base_url().'Service/SLA_ListView" style="padding-left: 13px;font-size: 13px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;"><i class="fa fa-caret-right"></i> SLA </a></li>
-
-							    
-							</ul>
-						</div>
-                    </li>
-                ';
-        }
-
-
-        if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)&& in_array('Admin',$idModule)))
-        { 
-            echo '
-                    <li>
-                        <a href="'.base_url().'menu/overview/admin" data-original-title="" title=""  style="padding-left: 13px;">
-                        <i class="fa fa-user"></i>
-                        <span class="menu-title" style="font-size: 14px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">
-                           Administrator
-                        </span>
-                        <i class="arrow"></i>
-                        </a>
-                    </li>
-                 ';
-        }
-
-
-        if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)&& in_array('Admin',$idModule)))
-        { 
-            echo '
-                    <li>
-                        <a href="'.base_url().'desktop_management" data-original-title="" title=""  style="padding-left: 13px;">
-                        <i class="fa fa-laptop"></i>
-                        <span class="menu-title" style="font-size: 14px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">
-                           Desktop Central
-                        </span>
-                        <i class="arrow"></i>
-                        </a>
-                    </li>
-                    
-			 ';
+	        if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)&& in_array('Admin',$idModule)))
+	        { 
+	            echo '
+	                    <li>
+	                        <a href="'.base_url().'desktop_management" data-original-title="" title=""  style="padding-left: 13px;">
+	                        <i class="fa fa-laptop"></i>
+	                        <span class="menu-title" style="font-size: 14px; font-family: Roboto Slab, "Open Sans", Arial, sans-serif;">
+	                           Desktop Central
+	                        </span>
+	                        <i class="arrow"></i>
+	                        </a>
+	                    </li>
+	                    
+				 ';
+			}
 		}
 	}
 

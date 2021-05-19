@@ -1669,14 +1669,14 @@
 												<p style="font-size: 12px;">
 													<?= $data->responsible ?>
 													<br>
-													<?= $data->created_date ?>
+													<?= date('m/d/Y',strtotime($data->created_date)) ?>
 												</p>
 											</td>
 											<td style="width: 200px; padding-left: 10px; padding-right: 10px;">
 												<p style="font-size: 12px;">
 													<?= $data->acknowledge ?>
 													<br>
-													<?= $data->created_date ?>
+													<?= date('m/d/Y',strtotime($data->created_date)) ?>
 												</p>
 											</td>
 											<td style="width: 250px; padding-left: 10px; padding-right: 10px;">
@@ -1698,7 +1698,7 @@
 													<?php if(!empty($data->endorse)){ ?>
 													<?= $data->endorse ?>
 													<br>
-													<?= $data->date_endorse ?>
+													<?= date('m/d/Y',strtotime($data->date_endorse)) ?>
 													<?php } else { ?>
 														Not Yet
 													<?php } ?>

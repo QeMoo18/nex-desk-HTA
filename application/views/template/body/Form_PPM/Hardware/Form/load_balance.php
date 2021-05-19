@@ -598,6 +598,21 @@
 									              <textarea id="comment" name="comment" rows="5" cols="50" class="form-control"></textarea>
 									            </div>
 									        </div>
+
+									        <div class="row" id="div_comment_list">
+									        	<div class="col-md-12">
+									        		<table class="table">
+													    <thead>
+													      <tr>
+													        <th>Comment List</th>
+													      </tr>
+													    </thead>
+													    <tbody id="list_comment">
+
+													    </tbody >
+													</table>
+									        	</div>
+									        </div>
 									</div>
 									<div class="col-md-5" style="border-radius: 10px; padding-top: 10px;">
 											<?php if(!empty($this->session->userdata('idModule'))) { ?>
@@ -864,7 +879,7 @@
 	                },
 	                success: function(response){
 
-	                	$("#year").val(response.year);
+	                	//$("#year").val(response.year);
 
 	                	$("#hostname").val(response.hostname);
 	                	$("#location").val(response.location);
@@ -887,7 +902,7 @@
 
 	                	$("#perform_date").val(response.perform_date);
 
-	                	$("#quarter").val(response.quarter);
+	                	//$("#quarter").val(response.quarter);
 	                	//alert(response.quarter);
 	                	//$("input[name*='nation']")
 	                	// $("select[name='physical_1']").val(response.physical_1);
@@ -961,7 +976,7 @@
 	                	$("[name=load_balance_3]").val([response.load_balance_3]);
 	                	$("[name=hard_disk_usage]").val([response.hard_disk_usage]);
 
-	                	$("textarea[name='comment']").val(response.comment);
+	                	//$("textarea[name='comment']").val(response.comment);
 	  					$("#id").val(response.id_number);
 	  
 	  					if((response.status=='Rejected')||(response.status=='Done')){
@@ -977,6 +992,11 @@
 	  					} else {
 	  						//disabled_item();
 	  					}
+
+
+	  					list_comment(response.id_number);
+
+
 
 	                }
 	         });
@@ -1046,7 +1066,7 @@
     	$("[name=load_balance_3]").prop('disabled',true);
     	$("[name=hard_disk_usage]").prop('disabled',true);
 
-    	$("textarea[name='comment']").prop('disabled',true);
+    	//$("textarea[name='comment']").prop('disabled',true);
 	}
 </script>
 
@@ -1116,4 +1136,135 @@
 		}
 
 	});
+</script>
+
+
+<script type="text/javascript">
+    
+
+    $(document).ready(function (){
+    	
+        var id = "<?php if(!empty(hex2bin($_GET['ppm_id']))){echo hex2bin($_GET['ppm_id']);}?>";
+
+        var data =  {
+		                    'id':id,
+		                    '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+		            }
+
+	    $.ajax({
+	                url: '<?= base_url() ?>Form_PPM/detail_ppm',
+	                type: 'POST',
+	                dataType: 'json',
+	                data: data,
+	                beforeSend: function() {
+	                   
+	                },
+	                success: function(response){
+	                	// var start_date = response.start_date;
+	                	// var year = start_date.substr(start_date.length - 4);
+	                	//alert(year);
+	                	var year = response.year;
+	                	$("#year").val(year);
+
+	                	var quarter = response.quarter;
+	                	$("#quarter").val(quarter);
+	                }
+	           });
+        
+    });
+
+</script>
+
+
+
+
+<script type="text/javascript">
+
+	function list_comment(id)
+	{
+
+		var data =  {
+		                    'id':id,
+		                    '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+		            }
+
+	    $.ajax({
+	                url: '<?= base_url() ?>Form_PPM/list_comment',
+	                type: 'POST',
+	                dataType: 'json',
+	                data: data,
+	                beforeSend: function() {
+	                   
+	                },
+	                success: function(response){
+	                	var comment = response.comment;
+	                	var comment_acknowledge = response.comment_acknowledge;
+	                	var comment_endorse = response.comment_endorse;
+	                	var comment_verifier = response.comment_verifier;
+
+
+
+	                	var created_by = response.created_by;
+	                	var created_by_acknowledge = response.created_by_acknowledge;
+	                	var created_by_endorse = response.created_by_endorse;
+	                	var created_by_verifier = response.created_by_verifier;
+
+
+
+	                	if(comment){
+	                		$("#list_comment").append('<tr><td><span id="username_created"></span> : '+comment+'</td></tr>');
+	                		username_created();
+	                	}
+
+
+	                	if(comment_acknowledge){
+	                		$("#list_comment").append('<tr><td>'+created_by_acknowledge+' : '+comment_acknowledge+'</td></tr>');
+
+	                	}
+
+
+	                	if(comment_endorse){
+	                		$("#list_comment").append('<tr><td>'+comment_endorse+'</td></tr>');
+	                	}
+
+
+	                	if(comment_verifier){
+	                		$("#list_comment").append('<tr><td><span id="username_verifier">'+created_by_verifier+' </span>: '+comment_verifier+'</td></tr>');
+	                		username_verifier(created_by_verifier);
+	                	}
+	                }
+	          });
+	}
+
+
+
+	function username_verifier(created_by_verifier)
+	{
+		var data =  {
+		                    'id':created_by_verifier,
+		                    '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+		            }
+
+	    $.ajax({
+	                url: '<?= base_url() ?>Form_PPM/get_name_user',
+	                type: 'POST',
+	                dataType: 'json',
+	                data: data,
+	                beforeSend: function() {
+	                   
+	                },
+	                success: function(response){
+	                	var name = response.first_name;
+	                	$("#username_verifier").html(name);
+	                }
+	           });
+	}
+
+
+
+	function username_created()
+	{
+		var name = $("#responsible").val();
+	    $("#username_created").html(name);
+	}
 </script>

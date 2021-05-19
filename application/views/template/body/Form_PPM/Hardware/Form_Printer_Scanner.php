@@ -66,7 +66,7 @@
 
 								            </div>
 								            <div class="form-group col-md-2">
-								              <label>Perform Date</label>
+								              <label>*Perform Date</label>
 									          <input type="text" class="form-control datepicker" name="perform_date" id="perform_date">
 								            </div>
 								            <div class="form-group col-md-2">
@@ -194,7 +194,7 @@
 						          						
 						          						<div class="row">
 							          						<div class="col-md-4">
-							          							<label for="exampleInputEmail1">Level</label>
+							          							<label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_1" id="cb_1">Level</label>
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
 							          							<input type='text' class='form-control' name='level' id='level'>
@@ -202,7 +202,7 @@
 							          					</div>
 							          					<div class="row">
 							          						<div class="col-md-4">
-							          							<label for="exampleInputEmail1">Department</label>
+							          							<label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_2" id="cb_2">Department</label>
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
 							          							<input type='text' class='form-control' name='department' id='department'>
@@ -210,7 +210,7 @@
 							          					</div>
 							          					<div class="row">
 							          						<div class="col-md-4">
-							          							<label for="exampleInputEmail1">Room Name</label>
+							          							<label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_3" id="cb_3">Room Name</label>
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
 							          							<input type='text' class='form-control' name='room_name' id='room_name'>
@@ -218,7 +218,7 @@
 							          					</div>
 							          					<div class="row">
 							          						<div class="col-md-4">
-							          							<label for="exampleInputEmail1">Room ID</label>
+							          							<label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_4" id="cb_4">Room ID</label>
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
 							          							<input type='text' class='form-control' name='location' id='location'>
@@ -231,7 +231,7 @@
 						          					<div class="well" style="background: #fafafa; padding-bottom: 50px;">
 							          					<div class="row">
 							          						<div class="col-md-4">
-							          							<label for="exampleInputEmail1">Brand</label>
+							          							<label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_5" id="cb_5">Brand</label>
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
 							          							<input type='text' class='form-control' name='brand' id='brand'>
@@ -239,7 +239,7 @@
 							          					</div>
 						          						<div class="row">
 							          						<div class="col-md-4">
-							          							<label for="exampleInputEmail1">Model</label>
+							          							<label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_6" id="cb_6">Model</label>
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
 							          							<input type='text' class='form-control' name='model' id='model'>
@@ -247,7 +247,7 @@
 							          					</div>
 							          					<div class="row">
 							          						<div class="col-md-4">
-							          							<label for="exampleInputEmail1">Serial Number</label>
+							          							<label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_7" id="cb_7">Serial Number</label>
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
 							          							<input type='text' class='form-control' name='serial_number' id='serial_number'>
@@ -259,7 +259,7 @@
 						          					<div class="well" style="background: #fafafa; padding-bottom: 50px;">
 						          						<div class="row">
 							          						<div class="col-md-4">
-							          							<label for="exampleInputEmail1">Local</label>
+							          							<label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_8" id="cb_8">Local</label>
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
 							          							<select class="form-control" name="local" id="local">
@@ -270,7 +270,7 @@
 							          					</div>
 							          					<div class="row">
 							          						<div class="col-md-4">
-							          							<label for="exampleInputEmail1">Network IP</label>
+							          							<label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_9" id="cb_9">Network IP</label>
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
 							          							<input type='text' class='form-control' name='ip' id='ip'>
@@ -278,7 +278,7 @@
 							          					</div>
 							          					<div class="row">
 							          						<div class="col-md-4">
-							          							<label for="exampleInputEmail1">Port</label>
+							          							<label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_10" id="cb_10">Port</label>
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
 							          							<input type='text' class='form-control' name='port' id='port'>
@@ -290,13 +290,13 @@
 						          					<div class="well" style="background: #fafafa; padding-bottom: 50px;">
 						          						<div class="row">
 							          						<div class="col-md-4">
-							          							<label for="exampleInputEmail1">Device In Tag</label>
+							          							<label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_11" id="cb_11">Device In Tag</label>
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
-							          							<select class="form-control" name="device_tag" id="device_tag">
-													            	<option value="">--Select Type --</option>
+							          							<!-- <select class="form-control" name="device_tag" id="device_tag">
+													            	<option value="">--Yes/No--</option>
 													            	<?= yes_or_no() ?>
-													            </select>
+													            </select> -->
 							          						</div>
 							          					</div>
 							          					<div class="row">
@@ -305,7 +305,7 @@
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
 							          							<select class="form-control" name="need_replacement" id="need_replacement">
-													            	<option value="">--Select Type --</option>
+													            	<option value="">--Yes/No--</option>
 													            	<?= yes_or_no() ?>
 													            </select>
 							          						</div>
@@ -320,9 +320,13 @@
 							          					</div>
 							          					<div class="row">
 							          						<div class="col-md-4">
-							          							<label for="exampleInputEmail1">PPM Tag</label>
+							          							<label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_12" id="cb_12">PPM Tag</label>
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
+							          							<!-- <select class="form-control" name="ppm_tag" id="ppm_tag">
+											              			<option value="">--Yes/No --</option>
+											              			<?= yes_or_no() ?>
+											              		</select> -->
 							          							<input type='text' class='form-control' name='ppm_tag' id='ppm_tag'>
 							          						</div>
 							          					</div>
@@ -375,6 +379,16 @@
 									        				<input type="radio" name="checklist_3"  value="Yes" checked> Yes</input>
 								          					<input type="radio" name="checklist_3" value="No"> No</input>
 								          					<input type="radio" name="checklist_3" value="N/A"> N/A</input>
+								          					<br>
+								          					<div class="row">
+								          						<div class="col-md-6">
+								          							<input type="text" class='form-control' name="toner_percent" id="toner_percent" placeholder="">
+								          						</div>
+								          						<div class="col-md-4" style="padding-top: 10px;">
+								          							%
+								          						</div>
+								          					</div>
+								          					
 									          			</div>
 									        		</div>
 
@@ -475,6 +489,24 @@
 									              <textarea id="comment" name="comment" rows="5" cols="50" class="form-control"></textarea>
 									            </div>
 									        </div>
+
+
+
+									        <div class="row" id="div_comment_list">
+									        	<div class="col-md-12">
+									        		<table class="table">
+													    <thead>
+													      <tr>
+													        <th>Comment List</th>
+													      </tr>
+													    </thead>
+													    <tbody id="list_comment">
+
+													    </tbody >
+													</table>
+									        	</div>
+									        </div>
+
 									</div>
 									<div class="col-md-5" style="border-radius: 10px; padding-top: 0px;">
 
@@ -544,7 +576,7 @@
 
 												<?php } ?>
 											<?php } else { ?>
-												<?php if($status == 'Performed'){ ?>
+												<?php if($status == 'Performed & Send'){ ?>
 
 
 
@@ -783,6 +815,9 @@
                 	getLocationDetails(location);
 
                 	$("#brand").val(response.brand);
+
+
+
                 }
                });
 
@@ -873,6 +908,8 @@
 	                },
 	                success: function(response){
 
+	                	$("#toner_percent").val(response.toner_percent);
+
 	                	$("#hostname").val(response.hostname);
 	                	$("#location").val(response.location);
 	                	//$("select[name='type_ppm']").val(response.ppm_type);
@@ -936,7 +973,7 @@
 	                	$("[name=checklist_8]").val([response.checklist_8]);
 
 
-	                	$("textarea[name='comment']").val(response.comment);
+	                	//$("textarea[name='comment']").val(response.comment);
 	  					$("#id").val(response.id_number);
 
 
@@ -947,10 +984,150 @@
 	  					} else {
 
 	  					}
+
+
+	  					list_comment(response.id_number);
+	  					list_checkbox(response.id_number);
 	                }
 	         });
 	}
 
+function list_checkbox(id_number)
+	{
+		var data =  {
+			                    'id_number':id_number,
+			                    '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+			            }
+
+		    $.ajax({
+		                url: '<?= base_url() ?>Form_PPM/list_checkbox',
+		                type: 'POST',
+		                dataType: 'json',
+		                data: data,
+		                beforeSend: function() {
+		                   
+		                },
+		                success: function(response){
+		                	var cb_1 = response.cb_1;
+		                	var cb_2 = response.cb_2;
+		                	var cb_3 = response.cb_3;
+		                	var cb_4 = response.cb_4;
+		                	var cb_5 = response.cb_5;
+		                	var cb_6 = response.cb_6;
+		                	var cb_7 = response.cb_7;
+		                	var cb_8 = response.cb_8;
+		                	var cb_9 = response.cb_9;
+		                	var cb_10 = response.cb_10;
+		                	var cb_11 = response.cb_11;
+		                	var cb_12 = response.cb_12;
+
+
+		                	if(cb_1=='1'){
+		                		$("#cb_1").val('1');
+							    $("#cb_1").attr('checked','true');
+		                	} else {
+		                		$("#cb_1").val('');
+							    $("#cb_1").removeAttr('checked');
+		                	}
+
+
+		                	if(cb_2=='1'){
+		                		$("#cb_2").val('1');
+							    $("#cb_2").attr('checked','true');
+		                	} else {
+		                		$("#cb_2").val('');
+							    $("#cb_2").removeAttr('checked');
+		                	}
+							
+
+							if(cb_3=='1'){
+		                		$("#cb_3").val('1');
+							    $("#cb_3").attr('checked','true');
+		                	} else {
+		                		$("#cb_3").val('');
+							    $("#cb_3").removeAttr('checked');
+		                	}
+
+
+		                	if(cb_4=='1'){
+		                		$("#cb_4").val('1');
+							    $("#cb_4").attr('checked','true');
+		                	} else {
+		                		$("#cb_4").val('');
+							    $("#cb_4").removeAttr('checked');
+		                	}
+
+		                	if(cb_5=='1'){
+		                		$("#cb_5").val('1');
+							    $("#cb_5").attr('checked','true');
+		                	} else {
+		                		$("#cb_5").val('');
+							    $("#cb_5").removeAttr('checked');
+		                	}
+
+
+		                	if(cb_6=='1'){
+		                		$("#cb_6").val('1');
+							    $("#cb_6").attr('checked','true');
+		                	} else {
+		                		$("#cb_6").val('');
+							    $("#cb_6").removeAttr('checked');
+		                	}
+
+		                	if(cb_7==''){
+		                		$("#cb_7").val('1');
+							    $("#cb_7").attr('checked','true');
+		                	} else {
+		                		$("#cb_7").val('');
+							    $("#cb_7").removeAttr('checked');
+		                	}
+
+
+		                	if(cb_8=='1'){
+		                		$("#cb_8").val('1');
+							    $("#cb_8").attr('checked','true');
+		                	} else {
+		                		$("#cb_8").val('');
+							    $("#cb_8").removeAttr('checked');
+		                	}
+
+		                	if(cb_9=='1'){
+		                		$("#cb_9").val('1');
+							    $("#cb_9").attr('checked','true');
+		                	} else {
+		                		$("#cb_9").val('');
+							    $("#cb_9").removeAttr('checked');
+		                	}
+
+
+		                	if(cb_10=='1'){
+		                		$("#cb_10").val('1');
+							    $("#cb_10").attr('checked','true');
+		                	} else {
+		                		$("#cb_10").val('');
+							    $("#cb_10").removeAttr('checked');
+		                	}
+
+
+		                	if(cb_11=='1'){
+		                		$("#cb_11").val('1');
+							    $("#cb_11").attr('checked','true');
+		                	} else {
+		                		$("#cb_11").val('');
+							    $("#cb_11").removeAttr('checked');
+		                	}
+
+
+		                	if(cb_12=='1'){
+		                		$("#cb_12").val('1');
+							    $("#cb_12").attr('checked','true');
+		                	} else {
+		                		$("#cb_12").val('');
+							    $("#cb_12").removeAttr('checked');
+		                	}
+		               	}
+		          })
+	}
 
 </script>
 
@@ -1043,8 +1220,10 @@
 	function acknowledge_confirm()
 	{
 		var id= $("#id").val();
+		var comment= $("#comment").val();
 		var data =  {
 		                    'id':id,
+		                    'comment':comment,
 		                    '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
 		            }
 
@@ -1076,4 +1255,266 @@
 	}
 
 	
+</script>
+
+
+
+
+<script type="text/javascript">
+    
+
+    $(document).ready(function (){
+    	
+        var id = "<?php if(!empty(hex2bin($_GET['ppm_id']))){echo hex2bin($_GET['ppm_id']);}?>";
+
+        var data =  {
+		                    'id':id,
+		                    '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+		            }
+
+	    $.ajax({
+	                url: '<?= base_url() ?>Form_PPM/detail_ppm',
+	                type: 'POST',
+	                dataType: 'json',
+	                data: data,
+	                beforeSend: function() {
+	                   
+	                },
+	                success: function(response){
+	                	// var start_date = response.start_date;
+	                	// var year = start_date.substr(start_date.length - 4);
+	                	//alert(year);
+	                	var year = response.year;
+	                	$("#year").val(year);
+	                }
+	           });
+        
+    });
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+	function list_comment(id)
+	{
+
+		var data =  {
+		                    'id':id,
+		                    '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+		            }
+
+	    $.ajax({
+	                url: '<?= base_url() ?>Form_PPM/list_comment',
+	                type: 'POST',
+	                dataType: 'json',
+	                data: data,
+	                beforeSend: function() {
+	                   
+	                },
+	                success: function(response){
+	                	var comment = response.comment;
+	                	var comment_acknowledge = response.comment_acknowledge;
+	                	var comment_endorse = response.comment_endorse;
+	                	var comment_verifier = response.comment_verifier;
+
+
+
+	                	var created_by = response.created_by;
+	                	var created_by_acknowledge = response.created_by_acknowledge;
+	                	var created_by_endorse = response.created_by_endorse;
+	                	var created_by_verifier = response.created_by_verifier;
+
+
+
+	                	if(comment){
+	                		$("#list_comment").append('<tr><td><span id="username_created"></span> : '+comment+'</td></tr>');
+	                		username_created();
+	                	}
+
+
+	                	if(comment_acknowledge){
+	                		$("#list_comment").append('<tr><td>'+created_by_acknowledge+' : '+comment_acknowledge+'</td></tr>');
+
+	                	}
+
+
+	                	if(comment_endorse){
+	                		$("#list_comment").append('<tr><td>'+comment_endorse+'</td></tr>');
+	                	}
+
+
+	                	if(comment_verifier){
+	                		$("#list_comment").append('<tr><td><span id="username_verifier">'+created_by_verifier+' </span>: '+comment_verifier+'</td></tr>');
+	                		username_verifier(created_by_verifier);
+	                	}
+	                }
+	          });
+	}
+
+
+
+	function username_verifier(created_by_verifier)
+	{
+		var data =  {
+		                    'id':created_by_verifier,
+		                    '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+		            }
+
+	    $.ajax({
+	                url: '<?= base_url() ?>Form_PPM/get_name_user',
+	                type: 'POST',
+	                dataType: 'json',
+	                data: data,
+	                beforeSend: function() {
+	                   
+	                },
+	                success: function(response){
+	                	var name = response.first_name;
+	                	$("#username_verifier").html(name);
+	                }
+	           });
+	}
+
+
+
+	function username_created()
+	{
+		var name = $("#responsible").val();
+	    $("#username_created").html(name);
+	}
+
+
+	function disabled_item()
+	{
+		
+	}
+</script>
+
+<script type="text/javascript">
+
+	$('#cb_1').change(function(){
+	     if(this.checked){
+	          $(this).val('1');
+	          $(this).attr('checked','true');
+	     }else{
+	          $(this).val('');
+	          $(this).removeAttr('checked');
+	     }
+	});
+
+
+	$('#cb_2').change(function(){
+	     if(this.checked){
+	          $(this).val('1');
+	          $(this).attr('checked','true');
+	     }else{
+	          $(this).val('');
+	          $(this).removeAttr('checked');
+	     }
+	});
+
+	$('#cb_3').change(function(){
+	     if(this.checked){
+	          $(this).val('1');
+	          $(this).attr('checked','true');
+	     }else{
+	          $(this).val('');
+	          $(this).removeAttr('checked');
+	     }
+	});
+
+	$('#cb_4').change(function(){
+	     if(this.checked){
+	          $(this).val('1');
+	          $(this).attr('checked','true');
+	     }else{
+	          $(this).val('');
+	          $(this).removeAttr('checked');
+	     }
+	});
+
+	$('#cb_5').change(function(){
+	     if(this.checked){
+	          $(this).val('1');
+	          $(this).attr('checked','true');
+	     }else{
+	          $(this).val('');
+	          $(this).removeAttr('checked');
+	     }
+	});
+
+	$('#cb_6').change(function(){
+	     if(this.checked){
+	          $(this).val('1');
+	          $(this).attr('checked','true');
+	     }else{
+	          $(this).val('');
+	          $(this).removeAttr('checked');
+	     }
+	});
+
+	$('#cb_7').change(function(){
+	     if(this.checked){
+	          $(this).val('1');
+	          $(this).attr('checked','true');
+	     }else{
+	          $(this).val('');
+	          $(this).removeAttr('checked');
+	     }
+	});
+
+	$('#cb_8').change(function(){
+	     if(this.checked){
+	          $(this).val('1');
+	          $(this).attr('checked','true');
+	     }else{
+	          $(this).val('');
+	          $(this).removeAttr('checked');
+	     }
+	});
+
+	$('#cb_9').change(function(){
+	     if(this.checked){
+	          $(this).val('1');
+	          $(this).attr('checked','true');
+	     }else{
+	          $(this).val('');
+	          $(this).removeAttr('checked');
+	     }
+	});
+
+	$('#cb_10').change(function(){
+	     if(this.checked){
+	          $(this).val('1');
+	          $(this).attr('checked','true');
+	     }else{
+	          $(this).val('');
+	          $(this).removeAttr('checked');
+	     }
+	});
+
+	$('#cb_11').change(function(){
+	     if(this.checked){
+	          $(this).val('1');
+	          $(this).attr('checked','true');
+	     }else{
+	          $(this).val('');
+	          $(this).removeAttr('checked');
+	     }
+	});
+
+	$('#cb_12').change(function(){
+	     if(this.checked){
+	          $(this).val('1');
+	          $(this).attr('checked','true');
+	     }else{
+	          $(this).val('');
+	          $(this).removeAttr('checked');
+	     }
+	});
+
 </script>

@@ -10,6 +10,17 @@ class Dbase_lookup extends CI_Model
 	    $this->datatables->set_database('otrs');
 	}
 
+
+	function myrole($userid)
+	{
+		$this->db->where('userid',$userid);
+		$query =  $this->db->get('login')->result();
+		foreach ($query as $data) 
+		{
+			echo $data->role;
+		}
+	}
+
 	function lookup_user_datalist()
 	{
 		$query =  $this->db->get('agent')->result();

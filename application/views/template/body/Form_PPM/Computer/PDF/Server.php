@@ -117,7 +117,7 @@
 					$type_device = $data->ppm_device;
 
 
-					if($type_device=='Physical'){
+					if($type_device=='Server(Physical)'){
 
 						echo '
 								[/] Physical 
@@ -125,7 +125,7 @@
 								[ ] Storage
 							 ';
 
-					} else if($type_device=='Virtual'){
+					} else if($type_device=='Server(Virtual)'){
 
 						echo '
 								[ ] Physical 
@@ -149,7 +149,7 @@
 								[ ] Storage
 							 ';
 
-					}
+					} 
  
 				?>
 
@@ -1380,11 +1380,17 @@
 			    	<p style="color: white; font-size: 13px;">E. REMARK</p>
 			    </th>
 			  </tr>
-			  <tr>
+			  <!-- <tr>
 			  	<td style="padding-left: 30px;">
 			  		<p style="font-size: 12px;"><?= $data->comment; ?></p>
 			  	</td>
-			  </tr>
+			  </tr> -->
+			</table>
+
+			<table>
+				<tbody>
+					<?= $comment_user; ?>
+				</tbody>
 			</table>
 
 
@@ -1417,20 +1423,17 @@
 												<p style="font-size: 12px;">
 													<?= $data->responsible ?>
 													<br>
-													<?= $data->created_date ?>
+													<!-- <?= date('m/d/Y',strtotime($data->created_date)) ?> -->
+													<?= substr($data->created_date,0,-8) ?>
 												</p>
 											</td>
-											<td style="width: 200px; padding-left:
-												</p> 10px; padding-right: 10px;">
+											<td style="width: 200px; padding-left: 10px; padding-right: 10px;">
 												<p style="font-size: 12px;">
-													<?php if(!empty($data->acknowledge)){ ?>
-														<?= $data->acknowledge ?>
-														<br>
-														<?= $data->date_verify ?>
-													<?php } else { ?>
-														Not Yet
-													<?php } ?>
-
+													<?= $data->acknowledge ?>
+													<br>
+													<!-- <?= date('m/d/Y',strtotime($data->created_date)) ?> -->
+													<?= substr($data->date_acknowledge,0,-8) ?>
+												</p>
 											</td>
 											<td style="width: 250px; padding-left: 10px; padding-right: 10px;">
 												<p style="font-size: 12px;">
@@ -1448,15 +1451,19 @@
 														Not Yet
 													<?php } ?> -->
 
+
 													<?php if(!empty($data->endorse)){ ?>
 													<?= $data->endorse ?>
 													<br>
-													<?= $data->date_endorse ?>
+													<!-- <?= date('m/d/Y',strtotime($data->date_endorse)) ?> -->
+
+													<?php 
+														echo substr($data->date_endorsed,0,-8);
+													?>
+
 													<?php } else { ?>
 														Not Yet
 													<?php } ?>
-
-
 
 												</p>
 											</td>

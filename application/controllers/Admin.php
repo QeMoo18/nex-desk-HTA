@@ -4352,6 +4352,9 @@ class Admin extends CI_Controller
                         "brand"=>$HW_brand
                       );
 
+        // var_dump($data);
+        // exit();
+
         // create function dekat model 
         $save = $this->Admin->UpdateDataHardware($data,$other_id); // ini adalah fungsi yg akan buat proses
 

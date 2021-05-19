@@ -46,6 +46,16 @@
 
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3" draggable="true">
+                        <label>* Year</label>
+                         <select class="form-control" name="year" id="year">
+                            <option value="">--Select Year --</option>
+                            <?= lookup_year()?>
+                          </select>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-3" draggable="true">
                       <label>* Start Date</label>
                       <input type="text" class="form-control datepicker" name="start_date" id="start_date" placeholder="" required>
                     </div>
@@ -167,6 +177,7 @@
                         $("#type_ppm").val(response.type_ppm);
                         $("#start_date").val(response.start_date);
                         $("#end_date").val(response.end_date);
+                        $("#year").val(response.year);
 
                     }
               });

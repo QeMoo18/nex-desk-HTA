@@ -36,6 +36,10 @@
 				                  <span id="alert_Hardware_IP"></span> 
 				                </div>
 
+				                <div class="form-group col-md-3">
+				                  <label for="exampleInputEmail1">Mac Address</label>
+				                  <input type='text' class='form-control' name='Hardware_mac' id='Hardware_mac'> 
+				                </div>
 
 				                <div class="form-group col-md-3">
 				                  <label for="exampleInputEmail1">* Network Port</label>
@@ -244,6 +248,7 @@
 						var network_port = $("#network_port").val(response.network_port);
 						var Firmware_Version = $("#Firmware_Version").val(response.firmware_version);
 						var HW_brand = $("#HW_brand").val(response.brand);
+						var Hardware_mac = $("#Hardware_mac").val(response.mac_address);
 	              }
               });
 	}
@@ -273,6 +278,7 @@
 		var Hardware_ip = $("#Hardware_ip").val();
 		var network_port = $("#network_port").val();
 		var Firmware_Version = $("#Firmware_Version").val();
+		var Hardware_mac = $("#Hardware_mac").val();
 
 
 		var HW_brand = $("#HW_brand").val();
@@ -343,6 +349,7 @@
 		                {   
 		                	'HW_name':HW_name,
 		                	'Hardware_ip':Hardware_ip,
+		                	'Hardware_mac':Hardware_mac,
 		                	'network_port':network_port,
 		                	'Firmware_Version':Firmware_Version,
 		                	'HW_deployment_state':HW_deployment_state,

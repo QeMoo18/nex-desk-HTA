@@ -259,6 +259,7 @@ CREATE TABLE `computer` (
   `ups_brand` varchar(255) DEFAULT NULL,
   `ups_model` varchar(255) DEFAULT NULL,
   `ups_serial_no` varchar(255) DEFAULT NULL
+  `mac_address` varchar(255) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -563,6 +564,7 @@ CREATE TABLE `hardware` (
   `ip_address` varchar(255) DEFAULT NULL,
   `network_port` varchar(255) DEFAULT NULL,
   `firmware_version` varchar(255) DEFAULT NULL
+  `mac_address` varchar(255) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

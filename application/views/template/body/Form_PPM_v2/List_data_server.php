@@ -210,7 +210,7 @@
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function printIcon(id)
     {
         $('#pdf_data').attr('action', '<?= base_url()?>Form_PPM/PDF_Computer/'+id);
@@ -222,7 +222,7 @@
         $('#pdf_data').attr('action', '<?= base_url()?>Form_PPM/PDF_Hardware/'+id);
         $("#submit").trigger('click');
     }
-</script>
+</script> -->
 
 <form action="" method="post" id="pdf_data">
     <button type="submit" id="submit" style="display: none">Submit</button>
@@ -614,13 +614,15 @@
 <script type="text/javascript">
     function printIcon(id)
     {
-        $('#pdf_data').attr('action', '<?= base_url()?>Form_PPM/PDF_Computer/'+id);
+        var act = "<?= get_name_activity($this->session->userdata('id_activity'))?>";
+        $('#pdf_data').attr('action', '<?= base_url()?>Form_PPM/PDF_Computer/'+id+'/'+act);
         $("#submit").trigger('click');
     }
 
     function printIcon2(id)
     {
-        $('#pdf_data').attr('action', '<?= base_url()?>Form_PPM/PDF_Hardware/'+id);
+        var act = "<?= get_name_activity($this->session->userdata('id_activity'))?>";
+        $('#pdf_data').attr('action', '<?= base_url()?>Form_PPM/PDF_Hardware/'+id+'/'+act);
         $("#submit").trigger('click');
     }
 </script>

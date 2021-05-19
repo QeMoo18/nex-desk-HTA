@@ -46,6 +46,25 @@
 
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3" draggable="true">
+                        <label>* Year</label>
+                         <select class="form-control" name="year" id="year">
+                            <option value="">--Select Year --</option>
+                            <?= lookup_year()?>
+                          </select>
+                    </div>
+                    <div class="col-md-3" draggable="true">
+                        <label>* Quarter</label>
+                         <select class="form-control" name="quarter" id="quarter">
+                            <option value="Q1">Q1</option>
+                            <option value="Q2">Q2</option>
+                            <option value="Q3">Q3</option>
+                            <option value="Q4">Q4</option>
+                          </select>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-3" draggable="true">
                       <label>* Start Date</label>
                       <input type="text" class="form-control datepicker" name="start_date" id="start_date" placeholder="" required>
                     </div>
@@ -59,7 +78,7 @@
             
                 <div class="row">
                     <div class="col-lg-12" style="padding-top: 30px; padding-bottom: 30px;">
-                        <input type="hidden" name="id_form" value="21287"><div style="float: left"><button class="btn btn-primary" type="submit">Submit</div>
+                        <input type="hidden" name="id_form" value="21287"><div style="float: left"><button class="btn btn-primary" type="submit">Create</div>
                     </div>
                 </button>
 

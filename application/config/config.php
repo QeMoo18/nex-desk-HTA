@@ -27,11 +27,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $config['base_url'] = 'http://localhost/nex-desk_v2/';
 //$config['base_url'] = 'http://10.1.20.96/nex-desk_v2/';
 
-// $config['base_url'] = 'http://10.0.20.81/nex-desk/';
+$config['base_url'] = 'http://10.0.20.81/nex-desk/';
 
 //$config['base_url'] = 'https://appku.my/app/';
 
-$config['base_url'] = 'http://localhost/nex-desk_hta/';
+//$config['base_url'] = 'http://localhost/nex-desk_hta/';
 
 #$config['base_url'] = 'http://0eeb4fdd3b97.ngrok.io/appku/';
 
@@ -169,6 +169,9 @@ $config['composer_autoload'] = FALSE;
 |
 */
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\- ()';
+//$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-@';
+
+
 
 /*
 |--------------------------------------------------------------------------

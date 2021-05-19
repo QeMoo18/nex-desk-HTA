@@ -1,5 +1,23 @@
 <div class="row">
 
+  <?php //var_dump($this->session->userdata('userid')); ?>
+
+  <?php 
+    $userid = $this->session->userdata('userid');
+    $this->db->where('userid',$userid);
+    $role = '';
+    $query =  $this->db->get('login_user')->result();
+    foreach ($query as $data) 
+    {
+      $role = $data->role;
+    }
+
+    //var_dump($role);
+  ?>
+
+
+
+
   <div class="col-md-6">
     <div class="panel panel-info"  style="height: 285px;">
         <div class="panel-heading ui-sortable-handle" style="background-color: #00c70f;">
@@ -8,6 +26,7 @@
         <div class="panel-body">
 
             <div class="row">
+              <?php if($role!='Endorse PPM'){ ?>
               <a href="<?= base_url()?>Ticket/Ticket_StatusView">
                 <div class="col-md-3  col-sm-3 col-xs-4">
                   <center>
@@ -16,6 +35,7 @@
                   </center>
                 </div>
               </a>
+              <?php } ?>
               <a href="<?= base_url()?>menu/overview/cmdb">
                 <div class="col-md-3  col-sm-3 col-xs-4">
                   <center>
@@ -24,6 +44,7 @@
                   </center>
                 </div>
               </a>
+              <?php if($role!='Endorse PPM'){ ?>
               <a href="<?= base_url()?>Report/Report_Search">
                 <div class="col-md-3  col-sm-3 col-xs-4">
                   <center>
@@ -64,6 +85,7 @@
                   </center>
                 </div>
               </a>
+              <?php } ?>
             </div>
 
             
@@ -72,7 +94,7 @@
   </div>
 
 
-
+  <?php if($role!='Endorse PPM'){ ?>
   <div class="col-md-6">
     <div class="panel panel-info" style="height: 220px;">
         <div class="panel-heading ui-sortable-handle" style="background-color: #00c70f;">
@@ -172,6 +194,7 @@
 
   
 </div>
+<?php } ?>
   
 <!-- <div class="row">
   <div class="col-md-4">

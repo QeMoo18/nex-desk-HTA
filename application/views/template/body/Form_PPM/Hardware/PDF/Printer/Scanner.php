@@ -64,25 +64,25 @@
 				    <td style="width: 45%">
 				    	<br>
 				    	<p style="font-weight: 700; font-size: 13px;">LOCATION</p>
-				    	<table style="width:100%; background: #000; padding-top: 30px; padding-bottom: 30px;">
+				    	<table style="width:100%;  padding-top: 30px; padding-bottom: 30px;">
 				    		<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;[ ] Level : <?= $data->level ?></p>
+							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Level : <?= $data->level ?></p>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;[ ] Department : <?= $data->model ?></p>
+							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Department : <?= $data->model ?></p>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;[ ] Room Name : <?= $data->location ?></p>
+							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Room Name : <?= $data->location ?></p>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;[ ] Room ID : <?= $data->model ?></p>
+							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Room ID : <?= $data->model ?></p>
 							    </td>
 							</tr>
 							<br>
@@ -92,20 +92,20 @@
 				    <td style="width: 45%">
 				    	<br>
 				    	<p style="font-weight: 700; font-size: 13px;">DEVICE</p>
-				    	<table style="width:100%; background: #000; padding-top: 30px; padding-bottom: 30px;">
+				    	<table style="width:100%; padding-top: 30px; padding-bottom: 30px;">
 				    		<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;[ ] Brand : <?= $data->brand ?></p>
+							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Brand : <?= $data->brand ?></p>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;[ ] Model : <?= $data->model ?></p>
+							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Model : <?= $data->model ?></p>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;[ ] Serial No : <?= $data->serial_number ?></p>
+							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Serial No : <?= $data->serial_number ?></p>
 							    </td>
 							</tr>
 							<br><br>
@@ -117,20 +117,20 @@
 				    <td style="width: 45%">
 				    	<br>
 				    	<p style="font-weight: 700; font-size: 13px;">NETWORK (<i>for printers only</i>)</p>
-				    	<table style="width:100%; background: #000; padding-top: 30px; padding-bottom: 30px;">
+				    	<table style="width:100%;  padding-top: 30px; padding-bottom: 30px;">
 				    		<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;[ ] Local : <?= $data->local ?></p>
+							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Local : <?= $data->local ?></p>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;[ ] Network IP : <?= $data->network_ip ?></p>
+							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Network IP : <?= $data->network_ip ?></p>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;[ ] Port : <?= $data->port ?></p>
+							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Port : <?= $data->port ?></p>
 							    </td>
 							</tr>
 							<br><br>
@@ -140,15 +140,15 @@
 				    <td style="width: 45%">
 				    	<br>
 				    	<p style="font-weight: 700; font-size: 13px;">TAGGING</p>
-				    	<table style="width:100%; background: #000; padding-top: 30px; padding-bottom: 30px;">
+				    	<table style="width:100%;  padding-top: 30px; padding-bottom: 30px;">
 				    		<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;[ ] Device ID Tag : <?= $data->device_tag ?></p>
+							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Device ID Tag : <?= $data->device_tag ?></p>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Need Replacement : 
+							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Need Replacement : 
 							    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							    		<?php 
 							    			$need = $data->need_replacement; 
@@ -316,9 +316,15 @@
 			  </tr>
 			  <tr>
 			  	<td style="padding-left: 30px;">
-			  		<p style="font-size: 12px;"><?= $data->comment; ?></p>
+			  		<!-- <p style="font-size: 12px;"><?= $data->comment; ?></p> -->
 			  	</td>
 			  </tr>
+			</table>
+
+			<table>
+				<tbody>
+					<?= $comment_user; ?>
+				</tbody>
 			</table>
 
 
@@ -349,31 +355,35 @@
 												<p style="font-size: 12px;">
 													<?= $data->responsible ?>
 													<br>
-													<?= $data->created_date ?>
+													<!-- <?= date('d/m/Y',strtotime($data->created_date)) ?> -->
+
+													<?= substr($data->created_date,0,-5) ?>
+
 												</p>
 											</td>
 											<td style="width: 200px; padding-left: 10px; padding-right: 10px;">
 												<p style="font-size: 12px;">
 													<?= $data->acknowledge ?>
 													<br>
-													<?= $data->created_date ?>
+													<?= substr($data->date_acknowledge,0,-5) ?>
 												</p>
 											</td>
 											<td style="width: 250px; padding-left: 10px; padding-right: 10px;">
 												<p style="font-size: 12px;">
-													
-													<?php if($data->status=='Done'){ ?>
-															<?= $data->endorse ?>
-															<br>
-															<?= $data->date_endorse ?>
-													<?php } else if($data->status=='Rejected'){ ?>
-															<?= $data->endorse ?>
-															<br>
-															<?= $data->date_reject ?>
 
-													<?Php } else { ?>
-														Not Yet
-													<?php } ?>
+													<?php 
+													//var_dump($data->status_ppm);
+													if(($data->status_ppm=='Verified')||($data->status_ppm=='Verified & Send')||($data->status_ppm=='Endorse')||($data->status_ppm=='Endorse & Send')){
+														echo $data->endorse;
+														echo '<br>';
+														echo substr($data->date_verifier,0,-5);
+
+
+													} else {
+														echo 'Not Yet';
+													}
+													?>
+
 												</p>
 											</td>
 										</tr>

@@ -44,12 +44,12 @@
 						                </div>
 						           
 										<div class="form-group col-md-2">
-						                  <label for="exampleInputEmail1">* Username</label>
+						                  <label for="exampleInputEmail1">Username</label>
 						                  <input type='text' class='form-control' name='cmc_uname' id='cmc_uname' onchange="check_uname();"> 
 						                  <font color="red"><span id="alert_username"></span></font>
 						                </div>
 										<div class="form-group col-md-2">
-						                  <label for="exampleInputEmail1">* Password</label>
+						                  <label for="exampleInputEmail1">Password</label>
 						                  <input type='password' class='form-control' name='cmc_pwd' id='cmc_pwd'> 
 						                  <font color="red"><span id="alert_pwd"></span></font>
 						                </div>
@@ -285,7 +285,7 @@
 		var cmc_comment = $("#cmc_comment").val();
 		var cmc_valid = $("#cmc_valid").val();
 
-		if((cmc_fname=='')||(cmc_lname=='')||(cmc_uname=='')||(cmc_pwd=='')||(cmc_email=='')||(cmc_custid==''))
+		if((cmc_fname=='')||(cmc_lname=='')||(cmc_email=='')||(cmc_custid==''))
 		{
 			alert('You have something error..');
 
@@ -302,11 +302,11 @@
 			}
 
 
-			if(cmc_uname){
-				$("#alert_username").html('');
-			} else {
-				$("#alert_username").html('* required field');
-			}
+			// if(cmc_uname){
+			// 	$("#alert_username").html('');
+			// } else {
+			// 	$("#alert_username").html('* required field');
+			// }
 
 			if(cmc_email){
 				$("#alert_email").html('');
@@ -315,11 +315,11 @@
 			}
 
 
-			if(cmc_pwd){
-				$("#alert_pwd").html('');
-			} else {
-				$("#alert_pwd").html('* required field');
-			}
+			// if(cmc_pwd){
+			// 	$("#alert_pwd").html('');
+			// } else {
+			// 	$("#alert_pwd").html('* required field');
+			// }
 
 			if(cmc_custid){
 				$("#alert_custid").html('');

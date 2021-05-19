@@ -20,7 +20,7 @@
             <div class="row">
 
                 <div class="col-md-2" style="padding-bottom: 10px; padding-right: 0px; ">
-                    <a href="<?= base_url()?>Form_PPM/List_activity_server_add "><button class="btn btn-primary btn-block">Add Data</button></a>
+                    <a href="<?= base_url()?>Form_PPM/List_activity_server_add "><button class="btn btn-primary btn-block">Add PPM Activity</button></a>
                 </div>
                 <div class="col-md-6"></div>
                 <div class="col-md-4" style="padding-left: 0px;">
@@ -45,16 +45,20 @@
                  <table class="table">
                     <thead class="thead-dark">
                        <tr>
+                          <th></th>
                           <th>Activity Name</th>
                           <th>Description</th>
                           <th>Type PPM</th>
                           <th>Start Date</th>
                           <th>End Date</th>
+                          <th>Delete</th>
                        </tr>
                     </thead>
                     <?php  foreach($result as $data){ ?>
                     <tbody>
                        <tr>
+
+                          <td><a href="<?= base_url()?>Form_PPM/List_activity_server_update/<?= $data["id"]?>"><i class="fa fa-edit"></i></a></td>
                           <td> 
                               <a onclick="save_session_page('<?= $data["id"]?>');" style="color: #000; font-size: 12px; cursor: pointer;">
                                <?php 
@@ -125,10 +129,16 @@
                                   ?>
                               </a>
                           </td>
+                          <td> 
+                            <a onclick="deleteActivity('<?= $data["id"]?>')">
+                                Delete
+                            </a>
+                          </td>
                        </tr>
                        <?php } ?>
                        <?php if(empty($result)){ ?>
                        <tr>
+                          <td>No Data</td>
                           <td>No Data</td>
                           <td>No Data</td>
                           <td>No Data</td>
@@ -235,3 +245,31 @@
         padding-left: 30p;
     }
 </style>
+
+<script type="text/javascript">
+    function deleteActivity(id)
+    {
+        var r = confirm("Are you sure to delete this PPM ? We keep track your record. ");
+        if (r == true) {
+            var data =  {
+                                "id":id, //declare variable dalam data 
+                                "<?php echo $this->security->get_csrf_token_name(); ?>" : "<?php echo $this->security->get_csrf_hash(); ?>"
+                        }
+
+            $.ajax({
+                        url: "<?= base_url() ?>Form_PPM/deleteActivity", 
+                        type: "POST",
+                        dataType: "html",
+                        data: data,
+                        beforeSend: function() {
+                           
+                        },
+                        success: function(response){
+
+                            location.reload();
+
+                        }
+                  });
+        }
+    }   
+</script>

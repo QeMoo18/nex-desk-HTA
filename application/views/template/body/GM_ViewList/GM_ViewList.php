@@ -129,7 +129,8 @@
             ajax: {
                       data: send_param,
                       "url": "<?=base_url()?>Admin/Dtable_GM_ViewList", 
-                      "type": "POST"
+                      "type": "POST",
+                      // "dataType":"json"
                   },
             columns: [
                 // {

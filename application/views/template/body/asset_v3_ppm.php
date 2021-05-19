@@ -34,7 +34,7 @@
 		                <img src="<?=base_url()?>asset/icon/asset/add.png" alt="Smiley face" width="50px;" style="padding-top: 10px;">
 		                <h4>
 		                    <a href="<?= base_url()?>Form_PPM/List_activity_workstation" aria-expanded="true">
-		                        <font color="#fff" class="font-small">List Workstation <br><br></font>
+		                        <font color="#fff" class="font-small">Workstation <br><br></font>
 		                    </a>
 		                </h4>
 		            </center>
@@ -59,7 +59,7 @@
 		                <img src="<?=base_url()?>asset/icon/asset/add.png" alt="Smiley face" width="50px;" style="padding-top: 10px;">
 		                <h4>
 		                    <a href="<?= base_url()?>Form_PPM/List_activity_server" aria-expanded="true">
-		                        <font color="#fff" class="font-small">List Server <br><br></font>
+		                        <font color="#fff" class="font-small">Server <br><br></font>
 		                    </a>
 		                </h4>
 		            </center>
@@ -85,7 +85,7 @@
 		                <img src="<?=base_url()?>asset/icon/asset/add.png" alt="Smiley face" width="50px;" style="padding-top: 10px;">
 		                <h4>
 		                    <a href="<?= base_url()?>Form_PPM/List_activity_network" aria-expanded="true">
-		                        <font color="#fff" class="font-small">List Network <br><br></font>
+		                        <font color="#fff" class="font-small"> Network <br><br></font>
 		                    </a>
 		                </h4>
 		            </center>

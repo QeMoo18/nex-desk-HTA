@@ -7,7 +7,20 @@
         </ol>
     </div>
 </div>
+	
 
+	<?php 
+	    $userid = $this->session->userdata('userid');
+	    $this->db->where('userid',$userid);
+	    $role = '';
+	    $query =  $this->db->get('login_user')->result();
+	    foreach ($query as $data) 
+	    {
+	      $role = $data->role;
+	    }
+
+	    //var_dump($role);
+	  ?>
 
 
 
@@ -19,6 +32,8 @@
         <!--Panel body-->
         <div class="panel-body">
             
+
+            <?php if($role!='Endorse PPM'){ ?>
         	<div class="col-md-3">
 	            <div class="panel-group">
 	              <div class="panel panel-default" style="border: transparent;">
@@ -168,7 +183,7 @@
 	              </div>
 	            </div>
 	        </div>
-
+	        <?php } ?>
 
 	        <!-- <div class="col-md-3">
 	            <div class="panel-group">
@@ -209,7 +224,7 @@
 	                        <img src="<?=base_url()?>asset/icon/asset/add.png" alt="Smiley face" width="50px;" style="padding-top: 10px;">
 	                        <h4>
 	                            <a href="<?= base_url()?>Form_PPM/Main_PPM" aria-expanded="true">
-	                                <font color="#fff" class="font-small">PPM Module <br><br></font>
+	                                <font color="#fff" class="font-small">Preventive Maintenance<br><br></font>
 	                            </a>
 	                        </h4>
 	                    </center>

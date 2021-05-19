@@ -13,6 +13,9 @@
     $this->load->library('datatables');
     $this->load->model('Test_model','Test');
    }
+
+
+
   public function index()
    {
     $this->data['site_title'] = 'test';
@@ -220,6 +223,12 @@
 	{
 		$check = $this->Test->all_computer();
 		echo $check;
+	}
+
+
+	function din()
+	{
+		$this->load->view('view_belajar');
 	}
 
    }

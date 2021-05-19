@@ -73,6 +73,9 @@ class Admin_model extends CI_Model
 		    } 
 	  }
 
+
+
+
 	  function update_agent_details($data,$userid)
 	  {
 		  	$this->db2->where('userid',$userid);
@@ -654,7 +657,7 @@ class Admin_model extends CI_Model
 		  	$this->datatables->select($where);
 			$this->datatables->from("customer_user"); //set database nama table
 			$this->datatables->where("valid !=","Deleted");
-			$this->datatables->group_by("username");
+			//$this->datatables->group_by("username");
 
 			return $this->datatables->generate();
 		}
@@ -3240,6 +3243,153 @@ class Admin_model extends CI_Model
 	}
 
 
+	function detail_ppm($id)
+	{
+		$select="
+					SELECT * FROM `ppm2_activity`
+					WHERE id='$id'";
+		//var_dump($select); exit();
+	  	$query= $this->db->query($select);
+	    if ($query->num_rows() >0){ 
+	        foreach ($query->result() as $data) {
+	            # code...
+	            $result[] = $data;
+
+	        }
+	    return $result; //hasil dari semua proses ada dimari
+	    } 
+	}
+
+
+	function comment_user($id)
+	{
+		$output = '';
+		$this->db->where('id_number',$id);
+	    $query3 =  $this->db->get('ppm_comment')->result();
+		foreach ($query3 as $data3) 
+		{
+			$comment = $data3->comment;
+			$created_by = $data3->created_by;
+
+
+			$comment_acknowledge = $data3->comment_acknowledge;
+			$created_by_acknowledge = $data3->created_by_acknowledge;
+			if(!empty($created_by_acknowledge)){
+				$created_by_acknowledge =$this->get_name_by_userid($created_by_acknowledge);
+			}
+
+
+
+			$comment_verifier = $data3->comment_verifier;
+			$created_by_verifier = $data3->created_by_verifier;
+			if(!empty($created_by_verifier)){
+				$created_by_verifier =$this->get_name_by_userid($created_by_verifier);
+			}
+
+
+			$comment_endorse = $data3->comment_endorse;
+			$created_by_endorse = $data3->created_by_endorse;
+			if(!empty($created_by_endorse)){
+				$created_by_endorse =$this->get_name_by_userid($created_by_endorse);
+			}
+
+
+			$created_by = $this->get_responsible($id);
+			$created_by_acknowledge = $this->get_acknowledge($id);
+
+
+			if(!empty($comment)){
+				$o1 = '<tr>
+							<td>'.$created_by.' : '.$comment.'</td>
+						</tr>';
+			} else {
+				$o1='';
+			}
+
+
+			if(!empty($comment_acknowledge)){
+				$o2 = '<tr>
+							<td>'.$created_by_acknowledge.' : '.$comment_acknowledge.'</td>
+						</tr>';
+			} else {
+				$o2='';
+			}
+
+
+
+			if(!empty($comment_verifier)){
+				$o3 = '<tr>
+							<td>'.$created_by_verifier.' :'.$comment_verifier.'</td>
+						</tr>';
+			} else {
+				$o3='';
+			}
+
+
+
+			if(!empty($comment_endorse)){
+				$o4 = '<tr>
+							<td>'.$created_by_endorse.' :'.$comment_endorse.'</td>
+						</tr>';
+			} else {
+				$o4='';
+			}
+
+
+			
+
+
+			$output = $o1.$o2.$o3.$o4;
+			
+		}
+
+		return $output;
+	}
+
+
+	function get_acknowledge($id)
+	{
+		$data = '';
+		$this->db->where('id_number',$id);
+	    $query3 =  $this->db->get('ppm_register')->result();
+		foreach ($query3 as $data3) 
+		{
+			$data = $data3->acknowledge;
+		}
+
+		return $data;
+	}
+
+
+
+	function get_responsible($id)
+	{
+		$data = '';
+		$this->db->where('id_number',$id);
+	    $query3 =  $this->db->get('ppm_register')->result();
+		foreach ($query3 as $data3) 
+		{
+			$data = $data3->responsible;
+		}
+
+		return $data;
+	}
+
+
+	function get_name_by_userid($userid)
+	{
+		$first_name = '';
+		$this->db->where('userid',$userid);
+	    $query3 =  $this->db->get('agent')->result();
+		foreach ($query3 as $data3) 
+		{
+			$first_name = $data3->first_name;
+		}
+
+		return $first_name;
+	}
+
+
 	function detail_computer($id)
 	{
 		$select="
@@ -3982,6 +4132,8 @@ class Admin_model extends CI_Model
 			$this->db->like('status_ppm', $status);
 		}
 
+		$this->db->where('status_ppm !=', 'Performed');
+
 
 		// if($user != ''){
 	 //      	$user = hex2bin($user);
@@ -3989,9 +4141,10 @@ class Admin_model extends CI_Model
 		// }
 
 
-		//var_dump($user);
-		//$user = hex2bin($user);
-		//$this->db->where('acknowledge',$user);
+		// var_dump($user);exit();
+		$user = hex2bin($user);
+		//var_dump($ppm_id_find);exit();
+		$this->db->where('acknowledge',$user);
 		$this->db->where('type_ppm_activity',$ppm_id_find);
 
 	    //$this->db->limit(10);
@@ -4032,8 +4185,11 @@ class Admin_model extends CI_Model
 		// }
 
 
-		//$user = hex2bin($user);
-		//$this->db->where('acknowledge',$user);
+		$this->db->where('status_ppm !=', 'Performed');
+
+
+		$user = hex2bin($user);
+		$this->db->where('acknowledge',$user);
 		$this->db->where('type_ppm_activity',$ppm_id_find);
 
 		$this->db->select('count(*) as allcount');
@@ -4075,6 +4231,9 @@ class Admin_model extends CI_Model
 				//var_dump($status_find); exit();
 				$this->db->like('acknowledge',$user_find);
 			}
+
+
+
 
 
 			//$this->db->group_by('parentsku');
@@ -4249,6 +4408,9 @@ class Admin_model extends CI_Model
 			}
 
 
+			
+
+
 			$this->db->group_by('name');
 			$this->db->order_by('name','asc');
 
@@ -4312,10 +4474,11 @@ class Admin_model extends CI_Model
 
 			DROP TABLE ppm_worksation_asset;
 			CREATE TABLE ppm_worksation_asset (
-			    name VARCHAR(128)  NOT NULL,
-			    description VARCHAR(128)  NOT NULL,
-			    type VARCHAR(128)  NOT NULL,
-			    location VARCHAR(128)  NOT NULL
+			    name VARCHAR(255)  NOT NULL,
+			    description VARCHAR(255) NULL,
+			    type VARCHAR(255)  NOT NULL,
+			    location VARCHAR(255)  NOT NULL,
+			    department VARCHAR(255) NULL
 			);
 
 
@@ -4328,6 +4491,12 @@ class Admin_model extends CI_Model
 			SELECT a.name,a.description,a.type,a.location,b.department FROM hardware as a
 			LEFT JOIN location as b ON b.name=a.location
 			WHERE a.type IN ('Printer','Scanner')
+
+
+
+			INSERT INTO ppm_worksation_asset
+			SELECT a.name,a.description,a.type,a.location,b.department FROM hardware as a LEFT JOIN location as b ON b.name=a.location WHERE a.type IN ('Card Reader')
+
 		*/
 		//END
 
@@ -4744,6 +4913,58 @@ class Admin_model extends CI_Model
 
 
 
+	function list_comment($id_number)
+	{
+		$select="SELECT * FROM ppm_comment WHERE id_number='$id_number'";
+
+		//var_dump($select); exit();
+	  	$query= $this->db->query($select);
+	    if ($query->num_rows() >0){ 
+	        foreach ($query->result() as $data) {
+	            # code...
+	            $result[] = $data;
+
+	        }
+	    return $result; //hasil dari semua proses ada dimari
+	    } 
+	}
+
+
+
+	function get_name_user($id)
+	{
+		$select="SELECT * FROM agent WHERE userid='$id'";
+
+		//var_dump($select); exit();
+	  	$query= $this->db->query($select);
+	    if ($query->num_rows() >0){ 
+	        foreach ($query->result() as $data) {
+	            # code...
+	            $result[] = $data;
+
+	        }
+	    return $result; //hasil dari semua proses ada dimari
+	    } 
+	}
+
+
+
+
+	function list_checkbox($id_number)
+	{
+		$select="SELECT * FROM ppm_list_checkbox WHERE id_number='$id_number'";
+
+		//var_dump($select); exit();
+	  	$query= $this->db->query($select);
+	    if ($query->num_rows() >0){ 
+	        foreach ($query->result() as $data) {
+	            # code...
+	            $result[] = $data;
+
+	        }
+	    return $result; //hasil dari semua proses ada dimari
+	    } 
+	}
 
 
 }

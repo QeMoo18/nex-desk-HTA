@@ -68,6 +68,9 @@
 		            </thead>
 		            <?php  foreach($result as $data){ ?>
 
+
+                    
+
                         
 		            <tbody>
 		               <tr>
@@ -146,23 +149,33 @@
                                 ?>
 
 
+
+                                <?php 
+                                    if(!empty($_GET['u'])){
+                                        $u = $_GET['u'];
+                                    } else {
+                                        $u = '';
+                                    }
+                                ?>
+
+
                                 <?php if(($data["ppm_device"]=='Computer')||($data["ppm_device"]=='Desktop')){ ?>
-                                    <a href="<?= base_url()?>Form_PPM/User_Computer?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&department=<?= $d?>&type=<?= $t?>&status=<?= $s?>"><i class="fa fa-edit"></i></a>
+                                    <a href="<?= base_url()?>Form_PPM/User_Computer?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&department=<?= $d?>&type=<?= $t?>&status=<?= $s?>&u=<?= $u?>"><i class="fa fa-edit"></i></a>
                                 <?php } ?>
 
 
                                 <?php if(($data["ppm_device"]=='Laptop')||($data["ppm_device"]=='laptop')||($data["ppm_device"]=='Notebook')||($data["ppm_device"]=='notebook')){ ?>
-                                    <a href="<?= base_url()?>Form_PPM/User_Notebook?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&department=<?= $d?>&type=<?= $t?>&status=<?= $s?>"><i class="fa fa-edit"></i></a>
+                                    <a href="<?= base_url()?>Form_PPM/User_Notebook?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&department=<?= $d?>&type=<?= $t?>&status=<?= $s?>&u=<?= $u?>"><i class="fa fa-edit"></i></a>
                                 <?php } ?>
 
 
                                 <?php if(($data["ppm_device"]=='Printer')||($data["ppm_device"]=='printer')){ ?>
-                                    <a href="<?= base_url()?>Form_PPM/User_PPM_Form_Printer?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&department=<?= $d?>&type=<?= $t?>&status=<?= $s?>"><i class="fa fa-edit"></i></a>
+                                    <a href="<?= base_url()?>Form_PPM/User_PPM_Form_Printer?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&department=<?= $d?>&type=<?= $t?>&status=<?= $s?>&u=<?= $u?>"><i class="fa fa-edit"></i></a>
                                 <?php } ?>
 
 
                                 <?php if(($data["ppm_device"]=='Scanner')||($data["ppm_device"]=='scanner')){ ?>
-                                    <a href="<?= base_url()?>Form_PPM/User_Scanner?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&department=<?= $d?>&type=<?= $t?>&status=<?= $s?>"><i class="fa fa-edit"></i></a>
+                                    <a href="<?= base_url()?>Form_PPM/User_Scanner?hostname=<?= $hostname?>&ppm_id=<?= $ppm_id?>&department=<?= $d?>&type=<?= $t?>&status=<?= $s?>&u=<?= $u?>"><i class="fa fa-edit"></i></a>
                                 <?php } ?>
 
                           </td>

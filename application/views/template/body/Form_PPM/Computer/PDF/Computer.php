@@ -14,10 +14,103 @@
 </style>
 
 
+
+
+
 <?php foreach ($data as $data) { ?>
 <div class="row" style="padding-bottom: 30px;">
 	<div class="content-wrapper">
 		<section class="content">
+
+			<?php 
+				// checklist
+				$getData = "SELECT * FROM ppm_list_checkbox WHERE id_number='".$data->id_number."' ";
+				// var_dump($getData);
+				$queryx= $this->db->query($getData);
+				if ($queryx->num_rows() >0){ 
+				    	//echo $id;
+				        foreach ($queryx->result() as $datax) {
+
+				        	$cb_1 = $datax->cb_1;
+				        	if($cb_1=='1'){$cb_1='/';}else{$cb_1=' ';}
+
+
+				        	$cb_2 = $datax->cb_2;
+				        	if($cb_2=='1'){$cb_2='/';}else{$cb_2=' ';}
+
+
+				        	$cb_3 = $datax->cb_3;
+				        	if($cb_3=='1'){$cb_3='/';}else{$cb_3=' ';}
+
+
+				        	$cb_4 = $datax->cb_4;
+				        	if($cb_4=='1'){$cb_4='/';}else{$cb_4=' ';}
+
+
+				        	$cb_5 = $datax->cb_5;
+				        	if($cb_5=='1'){$cb_5='/';}else{$cb_5=' ';}
+
+
+				        	$cb_6 = $datax->cb_6;
+				        	if($cb_6=='1'){$cb_6='/';}else{$cb_6=' ';}
+
+
+
+
+				        	$cb_7 = $datax->cb_7;
+				        	if($cb_7=='1'){$cb_7='/';}else{$cb_7=' ';}
+
+
+				        	$cb_8 = $datax->cb_8;
+				        	if($cb_8=='1'){$cb_8='/';}else{$cb_8=' ';}
+
+
+				        	$cb_9 = $datax->cb_9;
+				        	if($cb_9=='1'){$cb_9='/';}else{$cb_9=' ';}
+
+
+				        	$cb_10 = $datax->cb_10;
+				        	if($cb_10=='1'){$cb_10='/';}else{$cb_10=' ';}
+
+
+				        	$cb_11 = $datax->cb_11;
+				        	if($cb_11=='1'){$cb_11='/';}else{$cb_11=' ';}
+
+
+				        	$cb_12 = $datax->cb_12;
+				        	if($cb_12=='1'){$cb_12='/';}else{$cb_12=' ';}
+
+
+
+
+
+
+				        	$cb_13 = $datax->cb_13;
+				        	if($cb_13=='1'){$cb_13='/';}else{$cb_13=' ';}
+
+
+				        	$cb_14 = $datax->cb_14;
+				        	if($cb_14=='1'){$cb_14='/';}else{$cb_14=' ';}
+
+
+				        	$cb_15 = $datax->cb_15;
+				        	if($cb_15=='1'){$cb_15='/';}else{$cb_15=' ';}
+
+
+				        	$cb_16 = $datax->cb_16;
+				        	if($cb_16=='1'){$cb_16='/';}else{$cb_16=' ';}
+
+
+				        	$cb_17 = $datax->cb_17;
+				        	if($cb_17=='1'){$cb_17='/';}else{$cb_17=' ';}
+
+
+				        	$cb_18 = $datax->cb_18;
+				        	if($cb_18=='1'){$cb_18='/';}else{$cb_18=' ';}
+
+				        }
+				}
+			?>
 
 
 			<table>
@@ -56,16 +149,24 @@
 							<table>
 								<tbody>
 									<tr>
-										<td style="width: 100%;" class="small">Level : <?= $data->cpu_level ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_1?>]</span>
+											Level : <?= $data->cpu_level ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">Department : <?= $data->department ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_2?>]</span>
+											Department : <?= $data->department ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">Room Name : <?= $data->location ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_3?>]</span>
+											Room Name : <?= $data->location ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">Room ID : <?= $data->location ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_4?>]</span>
+											Room ID : <?= $data->location ?></td>
 									</tr>
 								</tbody>
 							</table>
@@ -76,19 +177,29 @@
 							<table>
 								<tbody>
 									<tr>
-										<td style="width: 100%;" class="small">Brand : <?= $data->cpu_brand ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_5?>]</span>
+											Brand : <?= $data->cpu_brand ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">Model : <?= $data->cpu_model ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_7?>]</span>
+											Model : <?= $data->cpu_model ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">Serial Number : <?= $data->cpu_serial_number ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_9?>]</span>
+											Serial Number : <?= $data->cpu_serial_number ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">Processor Type : <?= $data->cpu_processor_type ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_6?>]</span>
+											Processor Type : <?= $data->cpu_processor_type ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">RAM : <?= $data->cpu_ram ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_8?>]</span>
+											RAM : <?= $data->cpu_ram ?></td>
 									</tr>
 								</tbody>
 							</table>
@@ -98,13 +209,19 @@
 							<table>
 								<tbody>
 									<tr>
-										<td style="width: 100%;" class="small">Brand : <?= $data->monitor_brand ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_10?>]</span>
+											Brand : <?= $data->monitor_brand ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">Model : <?= $data->monitor_model ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_11?>]</span>
+											Model : <?= $data->monitor_model ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">Serial No : <?= $data->monitor_serial_number ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_12?>]</span>
+											Serial No : <?= $data->monitor_serial_number ?></td>
 									</tr>
 								</tbody>
 							</table>
@@ -123,13 +240,19 @@
 							<table>
 								<tbody>
 									<tr>
-										<td style="width: 100%;" class="small">Brand : <?= $data->ups_brand ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_13?>]</span>
+											Brand : <?= $data->ups_brand ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">Model : <?= $data->ups_model ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_14?>]</span>
+											Model : <?= $data->ups_model ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">Serial No : <?= $data->ups_serial_number ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_15?>]</span>
+											Serial No : <?= $data->ups_serial_number ?></td>
 									</tr>
 								</tbody>
 							</table>
@@ -139,13 +262,17 @@
 							<table>
 								<tbody>
 									<tr>
-										<td style="width: 100%;" class="small">Network Port : <?= $data->network_port ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_16?>]</span>
+											Network Port : <?= $data->network_port ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">Type Port : <?= $data->network_type ?></td>
+										<td style="width: 100%;" class="small">
+											Type Port : <?= $data->network_type ?></td>
 									</tr>
 									<tr>
-										<td style="width: 100%;" class="small">IP : <?= $data->network_ip ?></td>
+										<td style="width: 100%;" class="small">
+											IP : <?= $data->network_ip ?></td>
 									</tr>
 								</tbody>
 							</table>
@@ -155,7 +282,9 @@
 							<table>
 								<tbody>
 									<tr>
-										<td style="width: 100%;" class="small">Device In Tag : <?= $data->tagging_device ?></td>
+										<td style="width: 100%;" class="small">
+											<span>[<?= $cb_17?>]</span>
+											Device In Tag : <?= $data->tagging_device ?></td>
 									</tr>
 									<tr>
 										<td style="width: 100%;" class="small">Need Replacement : <?= $data->tagging_replace ?></td>
@@ -372,7 +501,14 @@
 			<div class="col-md-12" style="background: #000">
 				<p style="color: #fff; font-weight: 900; font-size: 12px;">REMARKS</p>
 			</div>
-			<p style="font-size: 12px;"><?= $data->comment ?></p>
+			<!-- <p style="font-size: 12px;"><?= $data->comment ?></p> -->
+
+			<table>
+				<tbody>
+					<?= $comment_user; ?>
+				</tbody>
+			</table>
+
 
 			<br>
 
@@ -401,31 +537,35 @@
 												<p style="font-size: 12px;">
 													<?= $data->responsible ?>
 													<br>
-													<?= $data->created_date ?>
+													<!-- <?= date('d/m/Y',strtotime($data->created_date)) ?> -->
+
+													<?= substr($data->created_date,0,-5) ?>
+
 												</p>
 											</td>
 											<td style="width: 200px; padding-left: 10px; padding-right: 10px;">
 												<p style="font-size: 12px;">
 													<?= $data->acknowledge ?>
 													<br>
-													<?= $data->created_date ?>
+													<?= substr($data->date_acknowledge,0,-5) ?>
 												</p>
 											</td>
 											<td style="width: 250px; padding-left: 10px; padding-right: 10px;">
 												<p style="font-size: 12px;">
-													
-													<?php if($data->status=='Done'){ ?>
-															<?= $data->endorse ?>
-															<br>
-															<?= $data->date_endorse ?>
-													<?php } else if($data->status=='Rejected'){ ?>
-															<?= $data->endorse ?>
-															<br>
-															<?= $data->date_reject ?>
 
-													<?Php } else { ?>
-														Not Yet
-													<?php } ?>
+													<?php 
+													//var_dump($data->status_ppm);
+													if(($data->status_ppm=='Verified')||($data->status_ppm=='Verified & Send')||($data->status_ppm=='Endorse')||($data->status_ppm=='Endorse & Send')){
+														echo $data->endorse;
+														echo '<br>';
+														echo substr($data->date_verifier,0,-5);
+
+
+													} else {
+														echo 'Not Yet';
+													}
+													?>
+
 												</p>
 											</td>
 										</tr>

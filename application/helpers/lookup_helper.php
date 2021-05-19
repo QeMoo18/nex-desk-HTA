@@ -5819,3 +5819,13 @@ function list_email_team_it()
   $ci->load->model('Dbase_lookup','lookup');
   return $ci->lookup->list_email_team_it();
 }
+
+
+
+function myrole($user_id)
+{
+  $ci =& get_instance();
+  $ci->load->helper('url');
+  $ci->load->model('Dbase_lookup','lookup');
+  return $ci->lookup->myrole($user_id);
+}

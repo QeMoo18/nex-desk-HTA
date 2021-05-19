@@ -1,4 +1,4 @@
-
+i
 		
 <div class="content-wrapper">
 	<section class="content">
@@ -32,6 +32,12 @@
 				                  <label for="exampleInputEmail1">*IP Address</label>
 				                  <input type='text' class='form-control' name='COMP_ip' id='COMP_ip'> 
 				                  <span id="alert_COMP_IP"></span> 
+				                </div>
+
+				                <div class="form-group col-md-3">
+				                  <label for="exampleInputEmail1">Mac Address</label>
+				                  <input type='text' class='form-control' name='COMP_mac' id='COMP_mac'> 
+				                  <span id="alert_COMP_mac"></span> 
 				                </div>
 
 				                <div class="form-group col-md-3">
@@ -294,6 +300,7 @@
 		var COMP_validity = $("#COMP_validity").val();
 		
 		var COMP_ip = $("#COMP_ip").val();
+		var COMP_mac = $("#COMP_mac").val();
 
 
 		var network_port = $("#network_port").val();
@@ -383,6 +390,7 @@
 		                	'COMP_Location':COMP_Location,
 		                	'COMP_validity':COMP_validity,
 		                	'COMP_ip':COMP_ip,
+		                	'COMP_mac':COMP_mac,
 		                	'network_port':network_port,
 							'cpu_model':cpu_model,
 							'cpu_serial_no':cpu_serial_no,

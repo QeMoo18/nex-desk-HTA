@@ -338,6 +338,23 @@ class Form_PPM extends CI_Controller
       } 
   }
 
+
+
+  function Card_Reader()
+  {
+      $idModule = $this->session->userdata('idModule');
+      if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)))
+      { 
+          $this->data['site_title'] = 'Add_Agent';
+          $this->load->view('template/header/header');
+          $this->load->view('template/body/Form_PPM/Hardware/Form_PS/card_reader',$this->data);
+          $this->load->view('template/footer/footer');
+
+      } else { 
+          $this->load->view('login');
+      } 
+  }
+
   function Computer()
   {
       $idModule = $this->session->userdata('idModule');
@@ -512,6 +529,54 @@ class Form_PPM extends CI_Controller
     $perform_date = $this->input->post('perform_date');
 
     //var_dump($perform_date); exit();
+
+
+    /* CHECK BOX */
+    $cb_1 = $this->input->post('cb_1'); if(empty($cb_1)){$cb_1='';}
+    $cb_2 = $this->input->post('cb_2'); if(empty($cb_2)){$cb_2='';}
+    $cb_3 = $this->input->post('cb_3'); if(empty($cb_3)){$cb_3='';}
+    $cb_4 = $this->input->post('cb_4'); if(empty($cb_4)){$cb_4='';}
+    $cb_5 = $this->input->post('cb_5'); if(empty($cb_5)){$cb_5='';}
+    $cb_6 = $this->input->post('cb_6'); if(empty($cb_6)){$cb_6='';}
+    $cb_7 = $this->input->post('cb_7'); if(empty($cb_7)){$cb_7='';}
+    $cb_8 = $this->input->post('cb_8'); if(empty($cb_8)){$cb_8='';}
+    $cb_9 = $this->input->post('cb_9'); if(empty($cb_9)){$cb_9='';}
+    $cb_10 = $this->input->post('cb_10'); if(empty($cb_10)){$cb_10='';}
+    $cb_11 = $this->input->post('cb_11'); if(empty($cb_11)){$cb_11='';}
+    $cb_12 = $this->input->post('cb_12'); if(empty($cb_12)){$cb_12='';}
+    $cb_13 = $this->input->post('cb_13'); if(empty($cb_13)){$cb_13='';}
+    $cb_14 = $this->input->post('cb_14'); if(empty($cb_14)){$cb_14='';}
+    $cb_15 = $this->input->post('cb_15'); if(empty($cb_15)){$cb_15='';}
+    $cb_16 = $this->input->post('cb_16'); if(empty($cb_16)){$cb_16='';}
+    $cb_17 = $this->input->post('cb_17'); if(empty($cb_17)){$cb_17='';}
+    $cb_18 = $this->input->post('cb_18'); if(empty($cb_18)){$cb_18='';}
+
+
+    // ppm_computer_device
+    $ppm_list_checkbox = array(
+                    "id_number"=>$id_number,
+                    "cb_1"=>$cb_1,
+                    "cb_2"=>$cb_2,
+                    "cb_3"=>$cb_3,
+                    "cb_4"=>$cb_4,
+                    "cb_5"=>$cb_5,
+                    "cb_6"=>$cb_6,
+                    "cb_7"=>$cb_7,
+                    "cb_8"=>$cb_8,
+                    "cb_9"=>$cb_9,
+                    "cb_10"=>$cb_10,
+                    "cb_11"=>$cb_11,
+                    "cb_12"=>$cb_12,
+                    "cb_13"=>$cb_13,
+                    "cb_14"=>$cb_14,
+                    "cb_15"=>$cb_15,
+                    "cb_16"=>$cb_16,
+                    "cb_17"=>$cb_17,
+                    "cb_18"=>$cb_18
+                 );
+
+    $this->db->insert('ppm_list_checkbox',$ppm_list_checkbox);
+    /* CHECK BOX */
 
 
     $data = array(
@@ -782,6 +847,58 @@ class Form_PPM extends CI_Controller
     } else {
       $date_endorse = '';
     }
+
+
+
+    /* CHECK BOX */
+    $cb_1 = $this->input->post('cb_1'); if(empty($cb_1)){$cb_1='';}
+    $cb_2 = $this->input->post('cb_2'); if(empty($cb_2)){$cb_2='';}
+    $cb_3 = $this->input->post('cb_3'); if(empty($cb_3)){$cb_3='';}
+    $cb_4 = $this->input->post('cb_4'); if(empty($cb_4)){$cb_4='';}
+    $cb_5 = $this->input->post('cb_5'); if(empty($cb_5)){$cb_5='';}
+    $cb_6 = $this->input->post('cb_6'); if(empty($cb_6)){$cb_6='';}
+    $cb_7 = $this->input->post('cb_7'); if(empty($cb_7)){$cb_7='';}
+    $cb_8 = $this->input->post('cb_8'); if(empty($cb_8)){$cb_8='';}
+    $cb_9 = $this->input->post('cb_9'); if(empty($cb_9)){$cb_9='';}
+    $cb_10 = $this->input->post('cb_10'); if(empty($cb_10)){$cb_10='';}
+    $cb_11 = $this->input->post('cb_11'); if(empty($cb_11)){$cb_11='';}
+    $cb_12 = $this->input->post('cb_12'); if(empty($cb_12)){$cb_12='';}
+    $cb_13 = $this->input->post('cb_13'); if(empty($cb_13)){$cb_13='';}
+    $cb_14 = $this->input->post('cb_14'); if(empty($cb_14)){$cb_14='';}
+    $cb_15 = $this->input->post('cb_15'); if(empty($cb_15)){$cb_15='';}
+    $cb_16 = $this->input->post('cb_16'); if(empty($cb_16)){$cb_16='';}
+    $cb_17 = $this->input->post('cb_17'); if(empty($cb_17)){$cb_17='';}
+    $cb_18 = $this->input->post('cb_18'); if(empty($cb_18)){$cb_18='';}
+
+
+    // ppm_computer_device
+    $ppm_list_checkbox = array(
+                    "cb_1"=>$cb_1,
+                    "cb_2"=>$cb_2,
+                    "cb_3"=>$cb_3,
+                    "cb_4"=>$cb_4,
+                    "cb_5"=>$cb_5,
+                    "cb_6"=>$cb_6,
+                    "cb_7"=>$cb_7,
+                    "cb_8"=>$cb_8,
+                    "cb_9"=>$cb_9,
+                    "cb_10"=>$cb_10,
+                    "cb_11"=>$cb_11,
+                    "cb_12"=>$cb_12,
+                    "cb_13"=>$cb_13,
+                    "cb_14"=>$cb_14,
+                    "cb_15"=>$cb_15,
+                    "cb_16"=>$cb_16,
+                    "cb_17"=>$cb_17,
+                    "cb_18"=>$cb_18
+                 );
+
+    //var_dump($ppm_list_checkbox); exit();
+    $this->db->where('id_number',$id_number);
+    $this->db->update('ppm_list_checkbox',$ppm_list_checkbox);
+    /* CHECK BOX */
+
+    //exit();
 
 
     //if($get_agent==$this->session->userdata('first_name')){
@@ -1111,6 +1228,43 @@ class Form_PPM extends CI_Controller
 
     $perform_date = $this->input->post('perform_date');
 
+
+    /* CHECK BOX */
+    $cb_1 = $this->input->post('cb_1'); if(empty($cb_1)){$cb_1='';}
+    $cb_2 = $this->input->post('cb_2'); if(empty($cb_2)){$cb_2='';}
+    $cb_3 = $this->input->post('cb_3'); if(empty($cb_3)){$cb_3='';}
+    $cb_4 = $this->input->post('cb_4'); if(empty($cb_4)){$cb_4='';}
+    $cb_5 = $this->input->post('cb_5'); if(empty($cb_5)){$cb_5='';}
+    $cb_6 = $this->input->post('cb_6'); if(empty($cb_6)){$cb_6='';}
+    $cb_7 = $this->input->post('cb_7'); if(empty($cb_7)){$cb_7='';}
+    $cb_8 = $this->input->post('cb_8'); if(empty($cb_8)){$cb_8='';}
+    $cb_9 = $this->input->post('cb_9'); if(empty($cb_9)){$cb_9='';}
+    $cb_10 = $this->input->post('cb_10'); if(empty($cb_10)){$cb_10='';}
+    $cb_11 = $this->input->post('cb_11'); if(empty($cb_11)){$cb_11='';}
+    $cb_12 = $this->input->post('cb_12'); if(empty($cb_12)){$cb_12='';}
+
+
+    $ppm_list_checkbox = array(
+                    "id_number"=>$id_number,
+                    "cb_1"=>$cb_1,
+                    "cb_2"=>$cb_2,
+                    "cb_3"=>$cb_3,
+                    "cb_4"=>$cb_4,
+                    "cb_5"=>$cb_5,
+                    "cb_6"=>$cb_6,
+                    "cb_7"=>$cb_7,
+                    "cb_8"=>$cb_8,
+                    "cb_9"=>$cb_9,
+                    "cb_10"=>$cb_10,
+                    "cb_11"=>$cb_11,
+                    "cb_12"=>$cb_12
+                 );
+
+    $this->db->insert('ppm_list_checkbox',$ppm_list_checkbox);
+    /* CHECK BOX */
+
+
+
     $data = array(
                     "hostname"=>$hostname,
                     "location"=>$location,
@@ -1407,6 +1561,40 @@ class Form_PPM extends CI_Controller
 
     //if($get_agent==$this->session->userdata('first_name')){
     
+    /* CHECK BOX */
+    $cb_1 = $this->input->post('cb_1'); if(empty($cb_1)){$cb_1='';}
+    $cb_2 = $this->input->post('cb_2'); if(empty($cb_2)){$cb_2='';}
+    $cb_3 = $this->input->post('cb_3'); if(empty($cb_3)){$cb_3='';}
+    $cb_4 = $this->input->post('cb_4'); if(empty($cb_4)){$cb_4='';}
+    $cb_5 = $this->input->post('cb_5'); if(empty($cb_5)){$cb_5='';}
+    $cb_6 = $this->input->post('cb_6'); if(empty($cb_6)){$cb_6='';}
+    $cb_7 = $this->input->post('cb_7'); if(empty($cb_7)){$cb_7='';}
+    $cb_8 = $this->input->post('cb_8'); if(empty($cb_8)){$cb_8='';}
+    $cb_9 = $this->input->post('cb_9'); if(empty($cb_9)){$cb_9='';}
+    $cb_10 = $this->input->post('cb_10'); if(empty($cb_10)){$cb_10='';}
+    $cb_11 = $this->input->post('cb_11'); if(empty($cb_11)){$cb_11='';}
+    $cb_12 = $this->input->post('cb_12'); if(empty($cb_12)){$cb_12='';}
+
+    $ppm_list_checkbox = array(
+                    "cb_1"=>$cb_1,
+                    "cb_2"=>$cb_2,
+                    "cb_3"=>$cb_3,
+                    "cb_4"=>$cb_4,
+                    "cb_5"=>$cb_5,
+                    "cb_6"=>$cb_6,
+                    "cb_7"=>$cb_7,
+                    "cb_8"=>$cb_8,
+                    "cb_9"=>$cb_9,
+                    "cb_10"=>$cb_10,
+                    "cb_11"=>$cb_11,
+                    "cb_12"=>$cb_12
+                 );
+
+    //var_dump($ppm_list_checkbox); exit();
+    $this->db->where('id_number',$id_number);
+    $this->db->update('ppm_list_checkbox',$ppm_list_checkbox);
+
+
       $this->db->where("id_number",$id_number);
       $data = array(
                       "hostname"=>$hostname,
@@ -2277,8 +2465,50 @@ class Form_PPM extends CI_Controller
     // exit();
 
 
+    // if($type_direction=='send_perfomed'){
+    //   $status_ppm = 'Performed';
+    // } else if($type_direction=='send_endorse'){
+    //   $status_ppm = 'Endorse';
+
+    //   $user = $this->get_full_name($this->session->userdata('userid'));
+    //   date_default_timezone_set("Asia/Kuala_Lumpur");
+    //   $timeReg =date("H:i:s");
+    //   $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    //   $this->db->where('id_number',$id_number);
+    //   $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+    //   $this->db->update('ppm_register',$data_user);
+
+    // } else if($type_direction=='send_verify'){
+    //   $status_ppm = 'Verified';
+
+    //   $user = $this->get_full_name($this->session->userdata('userid'));
+    //   date_default_timezone_set("Asia/Kuala_Lumpur");
+    //   $timeReg =date("H:i:s");
+    //   $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    //   $this->db->where('id_number',$id_number);
+    //   $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+    //   $this->db->update('ppm_register',$data_user);
+    //   // get_details_verified 
+    // }
+
+
+
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment"=>$comment,
+                      "created_by"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     } else if($type_direction=='send_endorse'){
       $status_ppm = 'Endorse';
 
@@ -2287,8 +2517,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg,'date_endorsed'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
+
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_endorse"=>$comment,
+                      "created_by_endorse"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
 
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
@@ -2298,9 +2542,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg,'date_acknowledge'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
       // get_details_verified 
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_verifier"=>$comment,
+                      "created_by_verifier"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     }
 
 //
@@ -2539,12 +2796,12 @@ class Form_PPM extends CI_Controller
         $this->db->update('ppm_server_checklist',$data3);
 
 
-        $this->db->where('id_number',$id_number);
-        $data4 = array(
-                        "comment"=>$comment
-                      );
+        // $this->db->where('id_number',$id_number);
+        // $data4 = array(
+        //                 "comment"=>$comment
+        //               );
 
-        $this->db->update('ppm_comment',$data4);
+        // $this->db->update('ppm_comment',$data4);
 
 
         $data_asset= array("location"=>$location);
@@ -2916,8 +3173,50 @@ class Form_PPM extends CI_Controller
 
 
 
+    // if($type_direction=='send_perfomed'){
+    //   $status_ppm = 'Performed';
+    // } else if($type_direction=='send_endorse'){
+    //   $status_ppm = 'Endorse';
+
+    //   $user = $this->get_full_name($this->session->userdata('userid'));
+    //   date_default_timezone_set("Asia/Kuala_Lumpur");
+    //   $timeReg =date("H:i:s");
+    //   $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    //   $this->db->where('id_number',$id_number);
+    //   $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+    //   $this->db->update('ppm_register',$data_user);
+
+    // } else if($type_direction=='send_verify'){
+    //   $status_ppm = 'Verified';
+
+    //   $user = $this->get_full_name($this->session->userdata('userid'));
+    //   date_default_timezone_set("Asia/Kuala_Lumpur");
+    //   $timeReg =date("H:i:s");
+    //   $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    //   $this->db->where('id_number',$id_number);
+    //   $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+    //   $this->db->update('ppm_register',$data_user);
+    //   // get_details_verified 
+    // }
+
+
+
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment"=>$comment,
+                      "created_by"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     } else if($type_direction=='send_endorse'){
       $status_ppm = 'Endorse';
 
@@ -2926,8 +3225,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg,'date_endorsed'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
+
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_endorse"=>$comment,
+                      "created_by_endorse"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
 
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
@@ -2937,9 +3250,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg,'date_acknowledge'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
       // get_details_verified 
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_verifier"=>$comment,
+                      "created_by_verifier"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     }
 
 
@@ -3073,13 +3399,13 @@ class Form_PPM extends CI_Controller
       $this->db->update('ppm_hardware_checklist',$data3);
 
 
-      $this->db->where('id_number',$id_number);
+      // $this->db->where('id_number',$id_number);
 
-      $data4 = array(
-                      "comment"=>$comment
-                    );
+      // $data4 = array(
+      //                 "comment"=>$comment
+      //               );
 
-      $this->db->update('ppm_comment',$data4);
+      // $this->db->update('ppm_comment',$data4);
 
       $data_asset= array("location"=>$location);
       $this->db->where('name',$hostname);
@@ -3417,6 +3743,20 @@ class Form_PPM extends CI_Controller
 
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment"=>$comment,
+                      "created_by"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     } else if($type_direction=='send_endorse'){
       $status_ppm = 'Endorse';
 
@@ -3425,8 +3765,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg,'date_endorsed'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
+
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_endorse"=>$comment,
+                      "created_by_endorse"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
 
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
@@ -3436,9 +3790,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg,'date_acknowledge'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
       // get_details_verified 
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_verifier"=>$comment,
+                      "created_by_verifier"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     }
 
 
@@ -3559,12 +3926,12 @@ class Form_PPM extends CI_Controller
       $this->db->update('ppm_hardware_checklist',$data3);
 
 
-      $this->db->where('id_number',$id_number);
-      $data4 = array(
-                      "comment"=>$comment
-                    );
+      // $this->db->where('id_number',$id_number);
+      // $data4 = array(
+      //                 "comment"=>$comment
+      //               );
 
-      $this->db->update('ppm_comment',$data4);
+      // $this->db->update('ppm_comment',$data4);
 
     
 
@@ -3927,8 +4294,53 @@ class Form_PPM extends CI_Controller
     // } else if($type_direction=='send_verify'){
     //   $status_ppm = 'Verified';
     // }
+    
+
+    // if($type_direction=='send_perfomed'){
+    //   $status_ppm = 'Performed';
+    // } else if($type_direction=='send_endorse'){
+    //   $status_ppm = 'Endorse';
+
+    //   $user = $this->get_full_name($this->session->userdata('userid'));
+    //   date_default_timezone_set("Asia/Kuala_Lumpur");
+    //   $timeReg =date("H:i:s");
+    //   $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    //   $this->db->where('id_number',$id_number);
+    //   $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+    //   $this->db->update('ppm_register',$data_user);
+
+    // } else if($type_direction=='send_verify'){
+    //   $status_ppm = 'Verified';
+
+    //   $user = $this->get_full_name($this->session->userdata('userid'));
+    //   date_default_timezone_set("Asia/Kuala_Lumpur");
+    //   $timeReg =date("H:i:s");
+    //   $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    //   $this->db->where('id_number',$id_number);
+    //   $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+    //   $this->db->update('ppm_register',$data_user);
+    //   // get_details_verified 
+    // }
+
+
+
+
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment"=>$comment,
+                      "created_by"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     } else if($type_direction=='send_endorse'){
       $status_ppm = 'Endorse';
 
@@ -3937,8 +4349,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg,'date_endorsed'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
+
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_endorse"=>$comment,
+                      "created_by_endorse"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
 
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
@@ -3948,9 +4374,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg,'date_acknowledge'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
       // get_details_verified 
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_verifier"=>$comment,
+                      "created_by_verifier"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     }
 
 
@@ -4047,12 +4486,12 @@ class Form_PPM extends CI_Controller
       $this->db->update('ppm_hardware_checklist',$data3);
 
 
-      $this->db->where('id_number',$id_number);
-      $data4 = array(
-                      "comment"=>$comment
-                    );
+      // $this->db->where('id_number',$id_number);
+      // $data4 = array(
+      //                 "comment"=>$comment
+      //               );
 
-      $this->db->update('ppm_comment',$data4);
+      // $this->db->update('ppm_comment',$data4);
 
       $data_asset= array("location"=>$location);
       $this->db->where('name',$hostname);
@@ -4496,8 +4935,52 @@ class Form_PPM extends CI_Controller
     // }
 
     $type_direction = $this->input->post('type_direction');
+    // if($type_direction=='send_perfomed'){
+    //   $status_ppm = 'Performed';
+    // } else if($type_direction=='send_endorse'){
+    //   $status_ppm = 'Endorse';
+
+    //   $user = $this->get_full_name($this->session->userdata('userid'));
+    //   date_default_timezone_set("Asia/Kuala_Lumpur");
+    //   $timeReg =date("H:i:s");
+    //   $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    //   $this->db->where('id_number',$id_number);
+    //   $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+    //   $this->db->update('ppm_register',$data_user);
+
+    // } else if($type_direction=='send_verify'){
+    //   $status_ppm = 'Verified';
+
+    //   $user = $this->get_full_name($this->session->userdata('userid'));
+    //   date_default_timezone_set("Asia/Kuala_Lumpur");
+    //   $timeReg =date("H:i:s");
+    //   $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    //   $this->db->where('id_number',$id_number);
+    //   $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+    //   $this->db->update('ppm_register',$data_user);
+    //   // get_details_verified 
+    // }
+
+
+
+
+
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment"=>$comment,
+                      "created_by"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     } else if($type_direction=='send_endorse'){
       $status_ppm = 'Endorse';
 
@@ -4506,8 +4989,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg,'date_endorsed'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
+
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_endorse"=>$comment,
+                      "created_by_endorse"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
 
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
@@ -4517,9 +5014,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg,'date_acknowledge'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
       // get_details_verified 
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_verifier"=>$comment,
+                      "created_by_verifier"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     }
 
 
@@ -4671,12 +5181,12 @@ class Form_PPM extends CI_Controller
       $this->db->update('ppm_hardware_checklist',$data3);
 
 
-      $this->db->where('id_number',$id_number);
-      $data4 = array(
-                      "comment"=>$comment
-                    );
+      // $this->db->where('id_number',$id_number);
+      // $data4 = array(
+      //                 "comment"=>$comment
+      //               );
 
-      $this->db->update('ppm_comment',$data4);
+      // $this->db->update('ppm_comment',$data4);
 
     
 
@@ -5030,8 +5540,50 @@ class Form_PPM extends CI_Controller
     }
 
     $type_direction = $this->input->post('type_direction');
+    // if($type_direction=='send_perfomed'){
+    //   $status_ppm = 'Performed';
+    // } else if($type_direction=='send_endorse'){
+    //   $status_ppm = 'Endorse';
+
+    //   $user = $this->get_full_name($this->session->userdata('userid'));
+    //   date_default_timezone_set("Asia/Kuala_Lumpur");
+    //   $timeReg =date("H:i:s");
+    //   $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    //   $this->db->where('id_number',$id_number);
+    //   $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+    //   $this->db->update('ppm_register',$data_user);
+
+    // } else if($type_direction=='send_verify'){
+    //   $status_ppm = 'Verified';
+
+    //   $user = $this->get_full_name($this->session->userdata('userid'));
+    //   date_default_timezone_set("Asia/Kuala_Lumpur");
+    //   $timeReg =date("H:i:s");
+    //   $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    //   $this->db->where('id_number',$id_number);
+    //   $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+    //   $this->db->update('ppm_register',$data_user);
+    //   // get_details_verified 
+    // }
+
+
+
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment"=>$comment,
+                      "created_by"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     } else if($type_direction=='send_endorse'){
       $status_ppm = 'Endorse';
 
@@ -5040,8 +5592,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg,'date_endorsed'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
+
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_endorse"=>$comment,
+                      "created_by_endorse"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
 
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
@@ -5051,9 +5617,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg,'date_acknowledge'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
       // get_details_verified 
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_verifier"=>$comment,
+                      "created_by_verifier"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     }
 
 
@@ -5171,12 +5750,12 @@ class Form_PPM extends CI_Controller
       $this->db->update('ppm_hardware_checklist',$data3);
 
 
-      $this->db->where('id_number',$id_number);
-      $data4 = array(
-                      "comment"=>$comment
-                    );
+      // $this->db->where('id_number',$id_number);
+      // $data4 = array(
+      //                 "comment"=>$comment
+      //               );
 
-      $this->db->update('ppm_comment',$data4);
+      // $this->db->update('ppm_comment',$data4);
 
     
 
@@ -5498,8 +6077,49 @@ class Form_PPM extends CI_Controller
       
 
     $type_direction = $this->input->post('type_direction');
+    // if($type_direction=='send_perfomed'){
+    //   $status_ppm = 'Performed';
+    // } else if($type_direction=='send_endorse'){
+    //   $status_ppm = 'Endorse';
+
+    //   $user = $this->get_full_name($this->session->userdata('userid'));
+    //   date_default_timezone_set("Asia/Kuala_Lumpur");
+    //   $timeReg =date("H:i:s");
+    //   $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    //   $this->db->where('id_number',$id_number);
+    //   $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+    //   $this->db->update('ppm_register',$data_user);
+
+    // } else if($type_direction=='send_verify'){
+    //   $status_ppm = 'Verified';
+
+    //   $user = $this->get_full_name($this->session->userdata('userid'));
+    //   date_default_timezone_set("Asia/Kuala_Lumpur");
+    //   $timeReg =date("H:i:s");
+    //   $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    //   $this->db->where('id_number',$id_number);
+    //   $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+    //   $this->db->update('ppm_register',$data_user);
+    //   // get_details_verified 
+    // }
+
+
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment"=>$comment,
+                      "created_by"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     } else if($type_direction=='send_endorse'){
       $status_ppm = 'Endorse';
 
@@ -5508,8 +6128,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg);
+      $data_user = array('endorse'=>$user,'date_endorse'=>$dateReg.' '.$timeReg,'date_endorsed'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
+
+
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_endorse"=>$comment,
+                      "created_by_endorse"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
 
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
@@ -5519,9 +6153,22 @@ class Form_PPM extends CI_Controller
       $timeReg =date("H:i:s");
       $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
       $this->db->where('id_number',$id_number);
-      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg);
+      $data_user = array('acknowledge'=>$user,'date_verify'=>$dateReg.' '.$timeReg,'date_acknowledge'=>$dateReg.' '.$timeReg);
       $this->db->update('ppm_register',$data_user);
       // get_details_verified 
+
+      $user_id = $this->session->userdata('userid');
+
+      // add komen 
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment_verifier"=>$comment,
+                      "created_by_verifier"=>$user_id
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+
     }
 
     $reject_ppm_task = $this->input->post('reject_ppm_task');
@@ -5637,12 +6284,12 @@ class Form_PPM extends CI_Controller
 
       $this->db->update('ppm_hardware_checklist',$data3);
 
-      $this->db->where('id_number',$id_number);
-      $data4 = array(
-                      "comment"=>$comment
-                    );
+      // $this->db->where('id_number',$id_number);
+      // $data4 = array(
+      //                 "comment"=>$comment
+      //               );
 
-      $this->db->update('ppm_comment',$data4);
+      // $this->db->update('ppm_comment',$data4);
 
       $data_asset= array("location"=>$location);
       $this->db->where('name',$hostname);
@@ -5666,6 +6313,9 @@ class Form_PPM extends CI_Controller
 
   function Add_printer()
   {
+    $toner_percent = $this->input->post('toner_percent');
+    // var_dump($toner_percent);exit();
+
     $ppm_id = $this->input->post('ppm_id');
 
     $type_ppm = $this->input->post('type_ppm');
@@ -5798,6 +6448,43 @@ class Form_PPM extends CI_Controller
 
     $this->db->insert('ppm_register',$data);
 
+
+/* CHECK BOX */
+    $cb_1 = $this->input->post('cb_1'); if(empty($cb_1)){$cb_1='';}
+    $cb_2 = $this->input->post('cb_2'); if(empty($cb_2)){$cb_2='';}
+    $cb_3 = $this->input->post('cb_3'); if(empty($cb_3)){$cb_3='';}
+    $cb_4 = $this->input->post('cb_4'); if(empty($cb_4)){$cb_4='';}
+    $cb_5 = $this->input->post('cb_5'); if(empty($cb_5)){$cb_5='';}
+    $cb_6 = $this->input->post('cb_6'); if(empty($cb_6)){$cb_6='';}
+    $cb_7 = $this->input->post('cb_7'); if(empty($cb_7)){$cb_7='';}
+    $cb_8 = $this->input->post('cb_8'); if(empty($cb_8)){$cb_8='';}
+    $cb_9 = $this->input->post('cb_9'); if(empty($cb_9)){$cb_9='';}
+    $cb_10 = $this->input->post('cb_10'); if(empty($cb_10)){$cb_10='';}
+    $cb_11 = $this->input->post('cb_11'); if(empty($cb_11)){$cb_11='';}
+    $cb_12 = $this->input->post('cb_12'); if(empty($cb_12)){$cb_12='';}
+
+
+    // ppm_computer_device
+    $ppm_list_checkbox = array(
+                    "id_number"=>$id_number,
+                    "cb_1"=>$cb_1,
+                    "cb_2"=>$cb_2,
+                    "cb_3"=>$cb_3,
+                    "cb_4"=>$cb_4,
+                    "cb_5"=>$cb_5,
+                    "cb_6"=>$cb_6,
+                    "cb_7"=>$cb_7,
+                    "cb_8"=>$cb_8,
+                    "cb_9"=>$cb_9,
+                    "cb_10"=>$cb_10,
+                    "cb_11"=>$cb_11,
+                    "cb_12"=>$cb_12
+                 );
+
+    $this->db->insert('ppm_list_checkbox',$ppm_list_checkbox);
+    /* CHECK BOX */
+
+
     //ppm_hardware_device
     $data2 = array(
                     "id_number"=>$id_number,
@@ -5830,6 +6517,7 @@ class Form_PPM extends CI_Controller
                     "checklist_6"=>$checklist_6,
                     "checklist_7"=>$checklist_7,
                     "checklist_8"=>$checklist_8,
+                    "toner_percent"=>$toner_percent
                   );
 
     $this->db->insert('ppm_printer_checklist',$data3);
@@ -5872,6 +6560,8 @@ class Form_PPM extends CI_Controller
 
   function Update_Printer()
   {
+    $toner_percent = $this->input->post('toner_percent');
+
     $id_number = $this->input->post('id');
     $get_agent = $this->get_agent($id_number);
 
@@ -5986,6 +6676,9 @@ class Form_PPM extends CI_Controller
 
       $perform_date = $this->input->post('perform_date');
 
+      $id_reference = $this->input->post('id_reference');
+      $code = $this->input->post('code');
+
        $data = array(
                     "hostname"=>$hostname,
                     "location"=>$location,
@@ -6005,6 +6698,43 @@ class Form_PPM extends CI_Controller
 
 
       $this->db->update('ppm_register',$data);
+
+/* CHECK BOX */
+    $cb_1 = $this->input->post('cb_1'); if(empty($cb_1)){$cb_1='';}
+    $cb_2 = $this->input->post('cb_2'); if(empty($cb_2)){$cb_2='';}
+    $cb_3 = $this->input->post('cb_3'); if(empty($cb_3)){$cb_3='';}
+    $cb_4 = $this->input->post('cb_4'); if(empty($cb_4)){$cb_4='';}
+    $cb_5 = $this->input->post('cb_5'); if(empty($cb_5)){$cb_5='';}
+    $cb_6 = $this->input->post('cb_6'); if(empty($cb_6)){$cb_6='';}
+    $cb_7 = $this->input->post('cb_7'); if(empty($cb_7)){$cb_7='';}
+    $cb_8 = $this->input->post('cb_8'); if(empty($cb_8)){$cb_8='';}
+    $cb_9 = $this->input->post('cb_9'); if(empty($cb_9)){$cb_9='';}
+    $cb_10 = $this->input->post('cb_10'); if(empty($cb_10)){$cb_10='';}
+    $cb_11 = $this->input->post('cb_11'); if(empty($cb_11)){$cb_11='';}
+    $cb_12 = $this->input->post('cb_12'); if(empty($cb_12)){$cb_12='';}
+
+
+    // ppm_computer_device
+    $ppm_list_checkbox = array(
+                    "cb_1"=>$cb_1,
+                    "cb_2"=>$cb_2,
+                    "cb_3"=>$cb_3,
+                    "cb_4"=>$cb_4,
+                    "cb_5"=>$cb_5,
+                    "cb_6"=>$cb_6,
+                    "cb_7"=>$cb_7,
+                    "cb_8"=>$cb_8,
+                    "cb_9"=>$cb_9,
+                    "cb_10"=>$cb_10,
+                    "cb_11"=>$cb_11,
+                    "cb_12"=>$cb_12
+                 );
+
+    //var_dump($ppm_list_checkbox); exit();
+    $this->db->where('id_number',$id_number);
+    $this->db->update('ppm_list_checkbox',$ppm_list_checkbox);
+    /* CHECK BOX */
+
 
       //ppm_hardware_device
       $this->db->where('id_number',$id_number);
@@ -6029,7 +6759,7 @@ class Form_PPM extends CI_Controller
       $this->db->update('ppm_printer_device',$data2);
 
 
-      $this->db->where('id_number',$id_number);
+      
       $data3 = array(
                       "checklist_1"=>$checklist_1,
                       "checklist_2"=>$checklist_2,
@@ -6039,17 +6769,23 @@ class Form_PPM extends CI_Controller
                       "checklist_6"=>$checklist_6,
                       "checklist_7"=>$checklist_7,
                       "checklist_8"=>$checklist_8,
+                      "toner_percent"=>$toner_percent,  
                     );
-
+      $this->db->where('id_number',$id_number);
       $this->db->update('ppm_printer_checklist',$data3);
 
 
-      $this->db->where('id_number',$id_number);
-      $data4 = array(
+      
+
+      if(!empty($comment)){
+        $this->db->where('id_number',$id_number);
+        $data4 = array(
                       "comment"=>$comment
                     );
 
-      $this->db->update('ppm_comment',$data4);
+        $this->db->update('ppm_comment',$data4);
+      }
+      
 
     // } else {
 
@@ -6244,6 +6980,42 @@ class Form_PPM extends CI_Controller
                  );
 
     $this->db->insert('ppm_register',$data);
+
+/* CHECK BOX */
+    $cb_1 = $this->input->post('cb_1'); if(empty($cb_1)){$cb_1='';}
+    $cb_2 = $this->input->post('cb_2'); if(empty($cb_2)){$cb_2='';}
+    $cb_3 = $this->input->post('cb_3'); if(empty($cb_3)){$cb_3='';}
+    $cb_4 = $this->input->post('cb_4'); if(empty($cb_4)){$cb_4='';}
+    $cb_5 = $this->input->post('cb_5'); if(empty($cb_5)){$cb_5='';}
+    $cb_6 = $this->input->post('cb_6'); if(empty($cb_6)){$cb_6='';}
+    $cb_7 = $this->input->post('cb_7'); if(empty($cb_7)){$cb_7='';}
+    $cb_8 = $this->input->post('cb_8'); if(empty($cb_8)){$cb_8='';}
+    $cb_9 = $this->input->post('cb_9'); if(empty($cb_9)){$cb_9='';}
+    $cb_10 = $this->input->post('cb_10'); if(empty($cb_10)){$cb_10='';}
+    $cb_11 = $this->input->post('cb_11'); if(empty($cb_11)){$cb_11='';}
+    $cb_12 = $this->input->post('cb_12'); if(empty($cb_12)){$cb_12='';}
+
+
+    // ppm_computer_device
+    $ppm_list_checkbox = array(
+                    "id_number"=>$id_number,
+                    "cb_1"=>$cb_1,
+                    "cb_2"=>$cb_2,
+                    "cb_3"=>$cb_3,
+                    "cb_4"=>$cb_4,
+                    "cb_5"=>$cb_5,
+                    "cb_6"=>$cb_6,
+                    "cb_7"=>$cb_7,
+                    "cb_8"=>$cb_8,
+                    "cb_9"=>$cb_9,
+                    "cb_10"=>$cb_10,
+                    "cb_11"=>$cb_11,
+                    "cb_12"=>$cb_12
+                 );
+
+    $this->db->insert('ppm_list_checkbox',$ppm_list_checkbox);
+    /* CHECK BOX */
+
 
     //ppm_hardware_device
     $data2 = array(
@@ -6525,6 +7297,43 @@ class Form_PPM extends CI_Controller
     // }
 
 
+/* CHECK BOX */
+    $cb_1 = $this->input->post('cb_1'); if(empty($cb_1)){$cb_1='';}
+    $cb_2 = $this->input->post('cb_2'); if(empty($cb_2)){$cb_2='';}
+    $cb_3 = $this->input->post('cb_3'); if(empty($cb_3)){$cb_3='';}
+    $cb_4 = $this->input->post('cb_4'); if(empty($cb_4)){$cb_4='';}
+    $cb_5 = $this->input->post('cb_5'); if(empty($cb_5)){$cb_5='';}
+    $cb_6 = $this->input->post('cb_6'); if(empty($cb_6)){$cb_6='';}
+    $cb_7 = $this->input->post('cb_7'); if(empty($cb_7)){$cb_7='';}
+    $cb_8 = $this->input->post('cb_8'); if(empty($cb_8)){$cb_8='';}
+    $cb_9 = $this->input->post('cb_9'); if(empty($cb_9)){$cb_9='';}
+    $cb_10 = $this->input->post('cb_10'); if(empty($cb_10)){$cb_10='';}
+    $cb_11 = $this->input->post('cb_11'); if(empty($cb_11)){$cb_11='';}
+    $cb_12 = $this->input->post('cb_12'); if(empty($cb_12)){$cb_12='';}
+
+
+    // ppm_computer_device
+    $ppm_list_checkbox = array(
+                    "cb_1"=>$cb_1,
+                    "cb_2"=>$cb_2,
+                    "cb_3"=>$cb_3,
+                    "cb_4"=>$cb_4,
+                    "cb_5"=>$cb_5,
+                    "cb_6"=>$cb_6,
+                    "cb_7"=>$cb_7,
+                    "cb_8"=>$cb_8,
+                    "cb_9"=>$cb_9,
+                    "cb_10"=>$cb_10,
+                    "cb_11"=>$cb_11,
+                    "cb_12"=>$cb_12
+                 );
+
+    //var_dump($ppm_list_checkbox); exit();
+    $this->db->where('id_number',$id_number);
+    $this->db->update('ppm_list_checkbox',$ppm_list_checkbox);
+    /* CHECK BOX */
+
+
     //update computer
     $data_asset = array(
                   "location"=>$location,
@@ -6675,6 +7484,24 @@ class Form_PPM extends CI_Controller
   }
 
 
+
+  function detail_ppm()
+  {
+      $id = $this->input->post('id');  
+      $query = $this->Admin->detail_ppm($id);
+
+      if(empty($query)){
+        echo 'Tiada Data Ditemui';
+      } else {
+        foreach ($query as $data) 
+        {
+        
+        }
+        echo json_encode($data);
+      }
+  }
+
+
   function detail_computer()
   {
       $id = $this->input->post('id');  
@@ -6744,10 +7571,14 @@ class Form_PPM extends CI_Controller
 
 
 
+
+
   function PDF_Computer()
   {
     $data = [];
     $data['id'] = $this->uri->segment(3);
+    $hostname = $this->get_hostname($this->uri->segment(3));
+    $act = $this->uri->segment(4);
     
 
     $id = $this->uri->segment(3);
@@ -6757,30 +7588,36 @@ class Form_PPM extends CI_Controller
 
       case 'SV':
         $data['data'] = $this->Admin->detail_server($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
         $html=$this->load->view('template/body/Form_PPM/Computer/PDF/Server', $data, true);
         $title = 'Server_';
         break;
 
       case 'P':
         $data['data'] = $this->Admin->detail_server($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
         $html=$this->load->view('template/body/Form_PPM/Computer/PDF/Server', $data, true);
         $title = 'Physical_';
         break;
 
       case 'V':
         $data['data'] = $this->Admin->detail_server($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
         $html=$this->load->view('template/body/Form_PPM/Computer/PDF/Server', $data, true);
         $title = 'Virtual_';
         break;
 
       case 'S':
         $data['data'] = $this->Admin->detail_server($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
         $html=$this->load->view('template/body/Form_PPM/Computer/PDF/Server', $data, true);
         $title = 'Storage_';
         break;
 
       case 'C':
         $data['data'] = $this->Admin->detail_computer($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
+
         //var_dump($query);exit();
         $html=$this->load->view('template/body/Form_PPM/Computer/PDF/Computer', $data, true);
         $title = 'Computer_';
@@ -6788,6 +7625,7 @@ class Form_PPM extends CI_Controller
 
       case 'N':
         $data['data'] = $this->Admin->detail_computer($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
         $html=$this->load->view('template/body/Form_PPM/Computer/PDF/Notebook', $data, true);
         $title = 'Notebook_';
         break;
@@ -6801,13 +7639,15 @@ class Form_PPM extends CI_Controller
    //var_dump($html); 
    //exit();
     
-    $this->generate_pdf($html,$title);
+    $this->generate_pdf($html,$title,$hostname,$act);
   }
 
   function PDF_Hardware()
   {
     $data = [];
     $data['id'] = $this->uri->segment(3);
+    $hostname = $this->get_hostname($this->uri->segment(3));
+    $act = $this->uri->segment(4);
     // $html=$this->load->view('template/body/Form_PPM/Hardware/PDF/UPS', $data, true);
     //$html=$this->load->view('template/body/Form_PPM/Hardware/PDF/Printer/Printer', $data, true);
 
@@ -6822,6 +7662,7 @@ class Form_PPM extends CI_Controller
 
       case 'SW':
         $data['data'] = $this->Admin->detail_network($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
         $html=$this->load->view('template/body/Form_PPM/Hardware/PDF/Switch', $data, true);
         $title = 'switch_';
         break;
@@ -6829,6 +7670,7 @@ class Form_PPM extends CI_Controller
 
       case 'U':
         $data['data'] = $this->Admin->detail_network($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
         $html=$this->load->view('template/body/Form_PPM/Hardware/PDF/UPS', $data, true);
         $title = 'ups_';
         break;
@@ -6836,6 +7678,7 @@ class Form_PPM extends CI_Controller
 
       case 'FW':
         $data['data'] = $this->Admin->detail_network($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
         $html=$this->load->view('template/body/Form_PPM/Hardware/PDF/Firewall', $data, true);
         $title = 'firewall_';
         break;
@@ -6843,20 +7686,24 @@ class Form_PPM extends CI_Controller
 
       case 'LB':
         $data['data'] = $this->Admin->detail_network($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
         $html=$this->load->view('template/body/Form_PPM/Hardware/PDF/Load_Balance', $data, true);
-        $title = 'load_balance_';
+        $title = 'load_balancer_';
         break;
 
 
       case 'AP':
         $data['data'] = $this->Admin->detail_network($id);
+        $data['comment_user'] = $this->Admin->comment_user($id); //var_dump($data); exit();
         $html=$this->load->view('template/body/Form_PPM/Hardware/PDF/Access_point', $data, true);
-        $title = 'access_point_';
+        // $title = 'access_point_';
+        $title = 'network_';
         break;
 
 
       case 'PR':
         $data['data'] = $this->Admin->detail_printer($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
         $html=$this->load->view('template/body/Form_PPM/Hardware/PDF/Printer/Printer', $data, true);
         $title = 'printer_';
         break;
@@ -6864,6 +7711,7 @@ class Form_PPM extends CI_Controller
 
       case 'SC':
         $data['data'] = $this->Admin->detail_printer($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
         $html=$this->load->view('template/body/Form_PPM/Hardware/PDF/Printer/Scanner', $data, true);
         $title = 'scanner_';
         break;
@@ -6873,13 +7721,16 @@ class Form_PPM extends CI_Controller
         break;
     }
 
-    $this->generate_pdf($html,$title);
+    $this->generate_pdf($html,$title,$hostname,$act);
   }
 
-  function generate_pdf($html,$title)
+  function generate_pdf($html,$title,$hostname,$act)
   {
+
+
     $rand = rand();
-    $pdfFilePath = $title.$rand.".pdf";
+    //$pdfFilePath = $title.$rand.".pdf";
+    $pdfFilePath = $act.'-'.$hostname.".pdf";
     $this->load->library('M_pdf');
     $stylesheet = file_get_contents('asset_template/beauty/css/bootstrap.min.css');
     $this->m_pdf->pdf->WriteHTML($stylesheet, 1); // CSS Script goes here.
@@ -7202,6 +8053,10 @@ class Form_PPM extends CI_Controller
     $end_date = $this->input->post('end_date');
     $project_id = $this->session->userdata('project_id');
 
+    $year = $this->input->post('year');
+
+    $quarter = $this->input->post('quarter');
+
     $uid = $this->session->userdata('userid');
     
     $type = $this->input->post('type');
@@ -7220,6 +8075,10 @@ class Form_PPM extends CI_Controller
                   'created_by' => $uid,
 
                   'type' =>$type,
+
+                  'year' =>$year,
+
+                  'quarter' =>$quarter
               );
 
     $this->db->insert('ppm2_activity',$data);
@@ -7255,6 +8114,10 @@ class Form_PPM extends CI_Controller
 
     $type = $this->input->post('type');
 
+    $year = $this->input->post('year');
+
+    $quarter = $this->input->post('quarter');
+
     $data = array(
                   'activitiy_name' => $activitiy_name,
 
@@ -7268,7 +8131,11 @@ class Form_PPM extends CI_Controller
 
                   'created_by' => $uid, 
 
-                  'type' =>$type
+                  'type' =>$type, 
+
+                  'year' =>$year,
+
+                  'quarter' =>$quarter
                  );
 
     $id = $this->uri->segment(3);
@@ -7897,15 +8764,87 @@ class Form_PPM extends CI_Controller
   }
 
 
+  function fix_bugs($user_find,$ppm_id)
+  {
+    $nameFile_zip = time().'F'.rand();
+    
+    $hostname = array();
+    $this->db->where('acknowledge',$user_find);
+    $this->db->where('type_ppm_activity',$ppm_id);
+    $query =  $this->db->get('ppm_register')->result();
+    foreach ($query as $data) 
+    {
+      $type_f = $data->ppm_type;
+      $type = bin2hex($type_f);
+
+      $id_number = $data->id_number;
+
+      $h = $data->hostname;
+
+
+      $link_url = bin2hex($h);
+      $link_ppm = bin2hex($ppm_id);
+
+
+
+      $ppm_device = $data->ppm_device;
+
+      if($ppm_device=='Computer'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Notebook'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Printer'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Scanner'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Server(Physical)'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Server(Virtual)'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Switch'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Controller'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Load Balance'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Firewall'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='UPS'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device==''){
+
+      } 
+
+      //var_dump($type_f); 
+
+      // var_dump($link_url);
+      //$type = 'PDF_Computer';
+      $this->test_download($type,$id_number,$nameFile_zip);
+
+
+      echo $id_number; echo '<br>';
+ 
+      $hostname[]=$h;
+    }
+  }
+
+
   function Workstation_Send_Email()
   {
     $ppm_id = $this->input->post('ppm_id');
     $user_find = $this->input->post('user_find');
+
+    //$this->fix_bugs($user_find,$ppm_id);
+    //exit();
     // find email by username
 
     $d = $this->input->post('d');
     $t = $this->input->post('t');
     $s = $this->input->post('s');
+
+    // $user_find = bin2hex($user_find);
+    // var_dump($user_find);
+    // exit();
 
 
     if($t=='Desktop'){
@@ -7924,24 +8863,298 @@ class Form_PPM extends CI_Controller
       $email = $data->email;
     }
 
+    //var_dump($email);
+
 
     //$email = 'mediummyofficial@gmail.com';
     //$email = 'sufianmohdhassan19@gmail.com';
-    $data_array = array();
-    $role = $this->session->userdata('idModule');
-    for($i=0;$i<count($role); $i++){
-      $data_array[] = $role[$i];
+    // $data_array = array();
+    // $role = $this->session->userdata('idModule');
+    // for($i=0;$i<count($role); $i++){
+    //   $data_array[] = $role[$i];
+    // }
+
+    // if (in_array("PPM_Endorse", $data_array)) 
+    // { 
+    //   //var_dump($data_array); exit();
+    //   // $this->workstation_acknowledge_email($ppm_id,$user_find,$d,$t,$s,$email);
+    //   //$this->workstation_acknowledge_email_2($ppm_id,$user_find,$d,$t,$s,$email);
+      
+    //   // status verified 
+    //   // verified 
+    //   // attachment 
+
+    // } else {
+    //   //var_dump($data_array); exit();
+    //   // $this->workstation_verified_send_email($ppm_id,$user_find,$d,$t,$s,$email);
+    //   //$this->workstation_verified_send_email_2($ppm_id,$user_find,$d,$t,$s,$email);
+      
+    //   // status performed 
+    //   // attachment tu link 
+
+    // }
+
+
+
+
+
+    $this->send_email_workstation($ppm_id,$user_find,$d,$t,$s,$email);
+
+
+
+
+
+  }
+
+
+
+
+  function send_email_workstation($ppm_id,$user_find,$d,$t,$s,$email)
+  {
+    $this->workstation_acknowledge_email_2($ppm_id,$user_find,$d,$t,$s,$email);
+    $this->workstation_verified_send_email_2($ppm_id,$user_find,$d,$t,$s,$email);
+  }
+
+
+
+  function workstation_acknowledge_email_2($ppm_id,$user_find,$d,$t,$s,$email)
+  {
+    //echo 'acknowledge';
+
+
+
+
+    //$email = 'sufianmohdhassan19@gmail.com';
+
+
+    //$subject = 'Verify Nex-Desk';
+    $this->db->where('id',$ppm_id);
+    $query2 =  $this->db->get('ppm2_activity')->result();
+    foreach ($query2 as $data2) 
+    {
+      $activitiy_name = $data2->activitiy_name;
+      $activitiy_name = str_replace(' ', '_', $activitiy_name);
+      $activitiy_name = str_replace('(', '_', $activitiy_name);
+      $activitiy_name = str_replace(')', '_', $activitiy_name);
+
+      $activitiy_name = $activitiy_name.'-'.rand();
     }
 
-    if (in_array("PPM_Endorse", $data_array)) 
-    { 
-      $this->workstation_acknowledge_email($ppm_id,$user_find,$d,$t,$s,$email);
+    $subject = $activitiy_name;
+
+    $u = bin2hex($user_find);
+    // var_dump($user_find);
+    // exit();
+
+    $s = 'Performed';
+    $body = 'Assalamualaikum dan selamat sejahtera, kami dari Pihak IT Hospital Tunku Azizah telah menyelenggara perkakas "Computer" mengikut jadual yang ditetapkan.<br><br>
+      <a href="'.base_url().'Form_PPM/Form_PPM_Client_Work/1?q='.$ppm_id.'&d='.$d.'&t='.$t.'&s='.$s.'&u='.$u.'">Sila klik disini untuk lihat dan buat tindakan</a>. <br><br>';
+
+
+    //var_dump($body);
+    //Load email library
+    $this->load->library('email');
+    
+    //SMTP & mail configuration
+    $config = array(
+        'protocol'  => 'smtp',
+        'smtp_host' => '72.18.130.33',
+        'smtp_port' => 587,
+        'smtp_user' => 'hafiz@nexquadrant.com',
+        'smtp_pass' => 'Abc@123',
+        'mailtype'  => 'html',
+        'charset'   => 'utf-8'
+    );
+    $this->email->initialize($config);
+    $this->email->set_mailtype("html");
+    $this->email->set_newline("\r\n");
+
+
+    $this->email->from('hafiz@nexquadrant.com');
+
+    //$subject='testing email';
+    //$email='hafiz.shahipurullah@bit.com.my';
+
+    //var_dump($email);
+
+    $this->email->to($email);  // replace it with receiver mail id
+    $this->email->subject($subject); // replace it with relevant subject
+
+
+        // $body = $this->load->view('email/reset_password.php',$data,TRUE);
+        
+    //var_dump($body);
+
+    //$body = '<h1>Computer/Notebook anda telah diselengara oleh Pihak ICT Hospital Tunku Azizah.  Sila tekan <a href="'.base_url().'Form_PPM/PDF_Computer/9681" download>Disini</a> untuk muaturun bukti selengaraan </h1>';
+        
+    $this->email->message($body);  
+    if($this->email->send()){
+      echo 'sent';
     } else {
-      $this->workstation_verified_send_email($ppm_id,$user_find,$d,$t,$s,$email);
+      echo 'xsent';
+    }
+    echo $this->email->print_debugger();
+
+
+
+    $this->db->where('status_ppm','Performed');
+    $this->db->where('type_ppm_activity',$ppm_id);
+    $query =  $this->db->get('ppm_register')->result();
+    foreach ($query as $data) 
+    {
+      $hostname = $data->hostname;
+      //echo $hostname.'<br>';
+
+      $data_update = array('status_ppm'=>'Performed & Send');
+      $this->db->where('type_ppm_activity',$ppm_id);
+      $this->db->where('hostname',$hostname);
+      $this->db->where('status_ppm','Performed');
+      $this->db->update('ppm_register',$data_update);
     }
 
 
   }
+
+
+
+  function workstation_verified_send_email_2($ppm_id,$user_find,$d,$t,$s,$email)
+  {
+    //echo 'verified';
+    //var_dump($ppm_id);
+
+    //$email = 'sufianmohdhassan19@gmail.com';
+
+
+    $subject = 'PPM - '.rand();
+
+
+    $body = 'Assalamualaikum dan selamat sejahtera, kami dari Pihak IT Hospital Tunku Azizah telah menyelengara perkakas "Computer" mengikut jadual yang ditetapkan.<br><br>
+      Sila log masuk ke Nex-Desk dan klik senarai rujukkan lampiran dibawah bagi salinan penyelengaraan <br><br>';
+
+
+    $nameFile_zip = time().'F'.rand();
+    $folder = 'folder_'.rand();
+
+    $link2='';
+
+    $this->db->where('status_ppm','Verified');
+    $this->db->where('type_ppm_activity',$ppm_id);
+    $query =  $this->db->get('ppm_register')->result();
+    foreach ($query as $data) 
+    {
+      $hostname = $data->hostname;
+      //echo $hostname.'<br>';
+
+
+
+      $data_update = array('status_ppm'=>'Verified & Send');
+      $this->db->where('type_ppm_activity',$ppm_id);
+      $this->db->where('hostname',$hostname);
+      $this->db->where('status_ppm','Verified');
+      $this->db->update('ppm_register',$data_update);
+
+
+
+      $h = $hostname;
+      $link_url = bin2hex($h);
+      $link_ppm = bin2hex($ppm_id);
+
+
+
+      $type_f = $data->ppm_type;
+      $type = bin2hex($type_f);
+
+      $id_number = $data->id_number;
+
+
+      $ppm_device = $data->ppm_device;
+
+      $type_ppm_activity = $data->type_ppm_activity;
+
+
+      //var_dump($type_f);
+
+
+
+      $activitiy_name = rand();
+
+      $this->db->where('id',$type_ppm_activity);
+      $query2 =  $this->db->get('ppm2_activity')->result();
+      foreach ($query2 as $data2) 
+      {
+        $activitiy_name = $data2->activitiy_name;
+        $activitiy_name = str_replace(' ', '_', $activitiy_name);
+        $activitiy_name = str_replace('(', '_', $activitiy_name);
+        $activitiy_name = str_replace(')', '_', $activitiy_name);
+
+        $activitiy_name = $activitiy_name.'-'.$h.'-'.rand();
+
+
+        $subject = $activitiy_name.'-'.rand();
+      }
+
+
+      //var_dump($ppm_device);
+
+      if($ppm_device=='Computer'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Notebook'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Printer'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Scanner'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Server(Physical)'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Server(Virtual)'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Switch'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Controller'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Load Balance'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Firewall'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='UPS'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device==''){
+
+      } 
+
+
+      $this->test_download2($type,$id_number,$activitiy_name,$h,$folder);
+
+
+
+
+
+
+    }
+
+
+
+    $this->zip_folder($folder);
+
+
+    $zip = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$folder.'.zip';
+    $this->send_email($email,$subject,$body,$zip);
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8001,6 +9214,8 @@ class Form_PPM extends CI_Controller
       //$subject='testing email';
       //$email='hafiz.shahipurullah@bit.com.my';
 
+      //var_dump($email);
+
       $this->email->to($email);  // replace it with receiver mail id
       $this->email->subject($subject); // replace it with relevant subject
 
@@ -8033,7 +9248,7 @@ class Form_PPM extends CI_Controller
     
 
     
-    $nameFile_zip = time().'F'.rand();
+    
 
 
     if(!empty($d)){
@@ -8048,6 +9263,9 @@ class Form_PPM extends CI_Controller
     if(!empty($s)){
       $this->db->like('status_ppm',$s);
     }
+
+
+    $h = rand();
 
 
     $hostname = array();
@@ -8068,7 +9286,36 @@ class Form_PPM extends CI_Controller
       $link_ppm = bin2hex($ppm_id);
 
       // var_dump($link_url);
-      $type = 'PDF_Computer';
+      //$type = 'PDF_Computer';
+      $ppm_device = $data->ppm_device;
+
+      if($ppm_device=='Computer'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Notebook'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Printer'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Scanner'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Server(Physical)'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Server(Virtual)'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Switch'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Controller'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Load Balance'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Firewall'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='UPS'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device==''){
+
+      } 
+
+
       $this->test_download($type,$id_number,$nameFile_zip);
 
       $hostname[]=$h;
@@ -8101,6 +9348,9 @@ class Form_PPM extends CI_Controller
 
     }
 
+
+    $nameFile_zip = $h;
+
     //var_dump($hostname); exit();
 
     $this->zip($ppm_id,$type,$id_number,$nameFile_zip,$hostname);
@@ -8127,10 +9377,11 @@ class Form_PPM extends CI_Controller
       Sila log masuk ke Nex-Desk dan klik senarai rujukkan lampiran dibawah bagi salinan penyelengaraan <br><br>';
     
 
-    
+    //$h = rand();
     $nameFile_zip = time().'F'.rand();
 
     $link2='';
+    $folder = 'folder_'.rand();
     for($i=0;$i<count($hostname);$i++){
       $h = $hostname[$i];
       $link_url = bin2hex($h);
@@ -8142,7 +9393,7 @@ class Form_PPM extends CI_Controller
       $type_f = '';
       $type = '';
       $this->db->where('hostname',$h);
-      $this->db->where('status_ppm','Endorse');
+      //$this->db->where('status_ppm','Endorse');
       $this->db->where('type_ppm_activity',$ppm_id);
       $query =  $this->db->get('ppm_register')->result();
       foreach ($query as $data) 
@@ -8152,9 +9403,34 @@ class Form_PPM extends CI_Controller
 
         $id_number = $data->id_number;
 
+
+        $type_ppm_activity = $data->type_ppm_activity;
+
+        //$type = 'PDF_Computer';
+        $ppm_device = $data->ppm_device;
+        //var_dump($ppm_device);
+
+        $activitiy_name = rand();
+
+        $this->db->where('id',$type_ppm_activity);
+        $query2 =  $this->db->get('ppm2_activity')->result();
+        foreach ($query2 as $data2) 
+        {
+          $activitiy_name = $data2->activitiy_name;
+          $activitiy_name = str_replace(' ', '_', $activitiy_name);
+          $activitiy_name = str_replace('(', '_', $activitiy_name);
+          $activitiy_name = str_replace(')', '_', $activitiy_name);
+
+          $activitiy_name = $activitiy_name.'-'.$h.'-'.rand();
+        }
+
+        //var_dump($activitiy_name); exit();
+
         //var_dump($id_number); exit();
 
         // update to Verify & send
+        
+        // unrun temprorary
         $data_status = array('status_ppm'=>'Endorse & Send');
         $this->db->where('id_number',$id_number);
         $this->db->where('status_ppm','Endorse');
@@ -8163,26 +9439,57 @@ class Form_PPM extends CI_Controller
       }
 
 
-      $type = 'PDF_Computer';
-      $this->test_download($type,$id_number,$nameFile_zip);
+      
+
+      if($ppm_device=='Computer'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Notebook'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Printer'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Scanner'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Server(Physical)'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Server(Virtual)'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Switch'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Controller'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Load Balance'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Firewall'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='UPS'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device==''){
+
+      } 
+
+
+
+      $this->test_download2($type,$id_number,$activitiy_name,$h,$folder);
 
     }
 
 
-
-    $this->zip($ppm_id,$type,$id_number,$nameFile_zip,$hostname);
+    $this->zip_folder($folder);
+    //$this->zip($ppm_id,$type,$id_number,$nameFile_zip,$hostname);
     
 
   
     //var_dump($body); exit();
+    $zip = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$folder.'.zip';
     
-    $this->send_email($email,$subject,$body,$nameFile_zip);
+    $this->send_email($email,$subject,$body,$zip);
   }
 
 
 
   function Network_Send_Email()
   {
+    $ppm_device = '';
     $ppm_id = $this->input->post('ppm_id');
     $hostname = $this->input->post('hostname');
     $email_selected = $this->input->post('email_selected');
@@ -8198,6 +9505,7 @@ class Form_PPM extends CI_Controller
 
     
     $nameFile_zip = time().'F'.rand();
+    $folder = 'folder_'.rand();
 
     $link2='';
     for($i=0;$i<count($hostname);$i++){
@@ -8211,52 +9519,225 @@ class Form_PPM extends CI_Controller
       $type_f = '';
       $type = '';
       $this->db->where('hostname',$h);
-      $this->db->where('status_ppm','Endorse');
+      //$this->db->where('status_ppm','Endorse');
       $this->db->where('type_ppm_activity',$ppm_id);
       $query =  $this->db->get('ppm_register')->result();
       foreach ($query as $data) 
       {
+
+        //var_dump($data); 
         $type_f = $data->ppm_type;
         $type = bin2hex($type_f);
 
         $id_number = $data->id_number;
 
 
+        $ppm_device = $data->ppm_device;
+
+        $type_ppm_activity = $data->type_ppm_activity;
+
+
         // update to Verify & send
-        $data_status = array('status_ppm'=>'Endorse & Send');
-        $this->db->where('id_number',$id_number);
-        $this->db->where('status_ppm','Endorse');
-        $this->db->update('ppm_register',$data_status);
+        // $data_status = array('status_ppm'=>'Endorse & Send');
+        // $this->db->where('id_number',$id_number);
+        // $this->db->where('status_ppm','Endorse');
+        // $this->db->update('ppm_register',$data_status);
+
+
+         $activitiy_name = rand();
+
+        $this->db->where('id',$type_ppm_activity);
+        $query2 =  $this->db->get('ppm2_activity')->result();
+        foreach ($query2 as $data2) 
+        {
+          $activitiy_name = $data2->activitiy_name;
+          $activitiy_name = str_replace(' ', '_', $activitiy_name);
+          $activitiy_name = str_replace('(', '_', $activitiy_name);
+          $activitiy_name = str_replace(')', '_', $activitiy_name);
+
+          //$activitiy_name = $activitiy_name.'-'.$h.'-'.rand();
+
+        }
+
+
 
 
       }
 
 
-      $type = 'PDF_Hardware';
-      $this->test_download($type,$id_number,$nameFile_zip);
+      //$type = 'PDF_Hardware';
+      //var_dump($ppm_device); exit();
+
+      if($ppm_device=='Computer'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Notebook'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Printer'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Scanner'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Server(Physical)'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Server(Virtual)'){
+        $type = 'PDF_Computer';
+      } else if($ppm_device=='Switch'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Controller'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Load Balance'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Firewall'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Access Point'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='UPS'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device==''){
+
+      } 
+
+
+      //var_dump($type); exit();
+
+      $hostname = $this->get_hostname($id_number);
+      $activitiy_name = $activitiy_name.'-'.$hostname.'-'.rand();
+      //$this->test_download($type,$id_number,$h);
+      $this->test_download2($type,$id_number,$activitiy_name,$h,$folder);
 
     }
 
 
-
-    $this->zip($ppm_id,$type,$id_number,$nameFile_zip,$hostname);
+    $this->zip_folder($folder);
+    //$this->zip($ppm_id,$type,$id_number,$nameFile_zip,$hostname);
     
 
   
     //var_dump($body); exit();
     
-    $this->send_email($email,$subject,$body,$nameFile_zip);
+    $zip = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$folder.'.zip';
+    $this->send_email($email,$subject,$body,$zip);
   }
 
 
-  function test_download($type,$id_number,$nameFile_zip)
+  function get_hostname($id_number)
   {
+    $hostname = rand();
+    $this->db->where('id_number',$id_number);
+    $query =  $this->db->get('ppm_register')->result();
+    foreach ($query as $data) 
+    {
+
+      //var_dump($data); 
+      $hostname = $data->hostname;
+    }
+
+    return $hostname;
+  }
+
+
+  function test_download2($type,$id_number,$nameFile_zip,$h,$folder)
+  {
+
+    
+    //var_dump($nameFile_zip); exit();
+
+
+    //var_dump($nameFile_zip); exit();
     // Initialize a file URL to the variable 
     // $url = 'http://10.0.20.81/nex-desk/Form_PPM/PDF_Hardware/11204';
 
     $url = 'http://10.0.20.81/nex-desk/Form_PPM/'.$type.'/'.$id_number; 
 
+    //var_dump($url); exit();
     // $url = 'http://localhost/nex-desk_hta/Form_PPM/'.$type.'/'.$id_number; 
+
+    // var_dump($type);
+    // var_dump($url);
+    // exit();
+
+      
+    // Use basename() function to return the base name of file  
+    $file_name = basename($url);
+
+    $filename = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$folder;
+    // $filename = $_SERVER["DOCUMENT_ROOT"].'/nex-desk_hta/zip/'.$nameFile_zip;
+
+    if (!file_exists($filename)) {
+      mkdir($filename);
+      echo 'create file '.$filename.'<br>';
+    } 
+
+    $root = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$folder.'/'.$nameFile_zip.'.pdf';
+    // $root = $_SERVER["DOCUMENT_ROOT"].'/nex-desk_hta/zip/'.$nameFile_zip.'/'.$file_name.'.pdf';
+    //var_dump($root); exit();
+
+
+    if(file_put_contents($root,file_get_contents($url))) { 
+        echo "File downloaded successfully<br>"; 
+        echo $url;
+        
+    } 
+    else { 
+        echo "File downloading failed.<br>"; 
+    } 
+  }
+
+
+  function zip_folder($folder)
+  {
+    $rootPath = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$folder;
+    $zip = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$folder.'.zip';
+
+        // Get real path for our folder
+    //$rootPath = realpath('folder-to-zip');
+
+    // Initialize archive object
+    $zip = new ZipArchive();
+    $zip->open('zip/'.$folder.'.zip', ZipArchive::CREATE | ZipArchive::OVERWRITE);
+
+    // Create recursive directory iterator
+    /** @var SplFileInfo[] $files */
+    $files = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($rootPath),
+        RecursiveIteratorIterator::LEAVES_ONLY
+    );
+
+    foreach ($files as $name => $file)
+    {
+        // Skip directories (they would be added automatically)
+        if (!$file->isDir())
+        {
+            // Get real and relative path for current file
+            $filePath = $file->getRealPath();
+            $relativePath = substr($filePath, strlen($rootPath) + 1);
+
+            // Add current file to archive
+            $zip->addFile($filePath, $relativePath);
+        }
+    }
+
+    // Zip archive will be created only after closing object
+    $zip->close();
+
+  }
+
+
+  function test_download($type,$id_number,$nameFile_zip,$h)
+  {
+
+
+    //var_dump($nameFile_zip); exit();
+    // Initialize a file URL to the variable 
+    // $url = 'http://10.0.20.81/nex-desk/Form_PPM/PDF_Hardware/11204';
+
+    $url = 'http://10.0.20.81/nex-desk/Form_PPM/'.$type.'/'.$id_number; 
+
+    //var_dump($url); exit();
+    // $url = 'http://localhost/nex-desk_hta/Form_PPM/'.$type.'/'.$id_number; 
+
+    // var_dump($type);
+    // var_dump($url);
+    // exit();
 
       
     // Use basename() function to return the base name of file  
@@ -8267,19 +9748,21 @@ class Form_PPM extends CI_Controller
 
     if (!file_exists($filename)) {
       mkdir($filename);
+      echo 'create file '.$filename.'<br>';
     } 
 
-    $root = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$nameFile_zip.'/'.$file_name.'.pdf';
+    $root = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$nameFile_zip.'/'.$h.'.pdf';
     // $root = $_SERVER["DOCUMENT_ROOT"].'/nex-desk_hta/zip/'.$nameFile_zip.'/'.$file_name.'.pdf';
     //var_dump($root); exit();
 
 
     if(file_put_contents($root,file_get_contents($url))) { 
-        //echo "File downloaded successfully"; 
+        echo "File downloaded successfully<br>"; 
+        echo $url;
         
     } 
     else { 
-        echo "File downloading failed."; 
+        echo "File downloading failed.<br>"; 
     } 
   }
 
@@ -8427,13 +9910,16 @@ class Form_PPM extends CI_Controller
 
             //$subject='testing email';
             //$email='hafiz.shahipurullah@bit.com.my';
-      
+        
+            //$this->email->to('sufianmohdhassan19@gmail.com');
             $this->email->to($email);  // replace it with receiver mail id
             $this->email->subject($subject); // replace it with relevant subject
 
             $nameFile = 'Test';
 
-            $fileKompresi = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$nameFile_zip.'/'.$nameFile_zip.".zip";
+            $fileKompresi = $nameFile_zip;
+
+           // $fileKompresi = $_SERVER["DOCUMENT_ROOT"].'/nex-desk/zip/'.$nameFile_zip.'/'.$nameFile_zip.".zip";
             //$fileKompresi = $_SERVER["DOCUMENT_ROOT"].'/nex-desk_hta/zip/'.$nameFile_zip.'/'.$nameFile_zip.".zip";
 
             $this->email->attach($fileKompresi);
@@ -8492,6 +9978,7 @@ class Form_PPM extends CI_Controller
 
         $paging_by_find = $this->session->userdata('paging_by_find');
         $type_devices_find = $this->session->userdata('type_devices_find');
+
         $user_find = $this->session->userdata('user_find');
         $department_find = $this->session->userdata('department_find');
         $status_find = $this->session->userdata('status_find');
@@ -8638,6 +10125,8 @@ class Form_PPM extends CI_Controller
     $data['id_activity'] = $id_activity;
 
 
+    // var_dump($data); 
+
 
     $this->load->view('template/user_ppm/header/header');
     $this->load->view('template/user_ppm/body/List_data_workstation',$data);
@@ -8720,7 +10209,15 @@ class Form_PPM extends CI_Controller
         
         $idn = $id_number[$i];
         $this->db->where('id_number',$idn);
-        $data = array('status_ppm'=>'Acknowledge');
+
+        $updateBy = $this->session->userdata('userid'); // id yang login system
+        date_default_timezone_set("Asia/Kuala_Lumpur");
+        $timeReg =date("H:i");
+        $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+        $datetime = $dateReg.' '.$timeReg; //current date 
+
+
+        $data = array('status_ppm'=>'Acknowledge','date_acknowledge'=>$datetime);
         $this->db->update('ppm_register',$data);
 
         //var_dump($idn);
@@ -8738,9 +10235,46 @@ class Form_PPM extends CI_Controller
 
   function Form_PPM_Client_Acknowledge_From_Details()
   {
+
+      // add comment 
+      $id = $this->input->post('id');
+      $comment = $this->input->post('comment');
+
+      $acknowledge = '';
+      $this->db->where('id_number',$id);
+      $query =  $this->db->get('ppm_register')->result();
+      foreach ($query as $data) 
+      {
+        $acknowledge = $data->acknowledge;
+      } 
+
+      if(!empty($comment)){
+        $data_comment = array('comment_acknowledge'=>$comment,'created_by_acknowledge'=>$acknowledge);
+        $this->db->where('id_number',$id);
+        $this->db->update('ppm_comment',$data_comment);
+
+      }
+      // end
+
+
+
+      $updateBy = $this->session->userdata('userid'); // id yang login system
+      date_default_timezone_set("Asia/Kuala_Lumpur");
+      $timeReg =date("H:i");
+      $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+      $datetime = $dateReg.' '.$timeReg; //current date 
+
+
+      // $first_name = $this->session->userdata('first_name');
+      // $last_name = $this->session->userdata('last_name');
+
+      // $fname = $first_name.' '.$last_name;
+      
+
+
       $id = $this->input->post('id');
       $this->db->where('id_number',$id);
-      $data = array('status_ppm'=>'Acknowledge');
+      $data = array('status_ppm'=>'Acknowledge','date_acknowledge'=>$datetime);
       $this->db->update('ppm_register',$data);
   }
 
@@ -9733,6 +11267,22 @@ class Form_PPM extends CI_Controller
 
 
 
+    if(($type=='Card Reader')||($type=='card reader')){
+      $query =  $this->db->get('hardware')->result();
+      foreach ($query as $data) 
+      {
+        $type = $data->type;
+
+        $hostname = bin2hex($hostname);
+        $ppm_id = bin2hex($ppm_id);
+        $type = bin2hex($type);
+
+        echo '<a href="'.base_url().'Form_PPM/Card_Reader?hostname='.$hostname.'&ppm_id='.$ppm_id.'&type='.$type.'" target="_blank"><i class="fa fa-edit"></i></a>';
+      }
+    }
+
+
+
     if(($type=='Server(Physical)')||($type=='Server(Virtual)')||($type=='Storage')){
       $query =  $this->db->get('computer')->result();
       foreach ($query as $data) 
@@ -9873,6 +11423,22 @@ class Form_PPM extends CI_Controller
 
 
 
+    if(($type=='Card Reader')||($type=='card reader')){
+      $query =  $this->db->get('hardware')->result();
+      foreach ($query as $data) 
+      {
+        $type = $data->type;
+
+        $hostname = bin2hex($hostname);
+        $ppm_id = bin2hex($ppm_id);
+        $type = bin2hex($type);
+
+        echo '<a onclick="printIcon2('.$id_number.')"><i class="fa fa-print"></i></a>';
+      }
+    }
+
+
+
     if(($type=='Server(Virtual)')||($type=='Server(Physical)')||($type=='Storage')){
       $query =  $this->db->get('computer')->result();
       foreach ($query as $data) 
@@ -9889,7 +11455,7 @@ class Form_PPM extends CI_Controller
 
 
 
-    if(($type=='Firewall')||($type=='firewall')||($type=='UPS')||($type=='Ups')||($type=='Load Balance')||($type=='load balance')||($type=='Access Point')||($type=='Access point')||($type=='Controller')||($type=='controller')){
+    if(($type=='Firewall')||($type=='firewall')||($type=='UPS')||($type=='Ups')||($type=='Load Balancer')||($type=='load balancer')||($type=='Access Point')||($type=='Access point')||($type=='Controller')||($type=='controller')||($type=='Switch')||($type=='switch')){
       $query =  $this->db->get('hardware')->result();
       foreach ($query as $data) 
       {
@@ -10124,12 +11690,47 @@ class Form_PPM extends CI_Controller
 
   function Update_Computer_Verify()
   {
+      // $id = $this->input->get('id');
+      // $ppm_id = $this->input->get('ppm_id');
+      // var_dump($ppm_id);
+      // exit();
+
+      // add comment 
+      $id = $this->input->get('id');
+      $comment = $this->input->get('comment');
+
+      $acknowledge = '';
+      $user_id = $this->session->userdata('userid');
+
+      if(!empty($comment)){
+        $data_comment = array('comment_verifier'=>$comment,'created_by_verifier'=>$user_id);
+        $this->db->where('id_number',$id);
+        $this->db->update('ppm_comment',$data_comment);
+      }
+      // end
+
+
+
+
+      $updateBy = $this->session->userdata('userid'); // id yang login system
+      date_default_timezone_set("Asia/Kuala_Lumpur");
+      $timeReg =date("H:i");
+      $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+      $datetime = $dateReg.' '.$timeReg; //current date 
+
+
+      $first_name = $this->session->userdata('first_name');
+      $last_name = $this->session->userdata('last_name');
+
+      $fname = $first_name.' '.$last_name;
+
+
       $id = $this->input->get('id');
       $ppm_id = $this->input->get('ppm_id');
 
       $this->db->where('id_number ',$id);
       $this->db->where('type_ppm_activity ',$ppm_id);
-      $data = array('status_ppm'=>'Verified');
+      $data = array('status_ppm'=>'Verified','endorse'=>$fname,'date_verifier'=>$datetime);
       $this->db->update('ppm_register',$data);
 
       redirect('form_ppm/work_station_list');
@@ -10259,6 +11860,88 @@ class Form_PPM extends CI_Controller
     else 
       var_dump($this->email->print_debugger());
 
+
+  }
+
+
+  function deleteActivity()
+  {
+    $id = $this->input->post('id');
+    $user_id = $this->session->userdata('userid');
+
+    $data = array('userid'=>$user_id,'activity'=>'Delete PPM ID '.$id);
+    $this->db->insert('user_log',$data);
+
+    $this->db->where('id',$id);
+    $this->db->delete('ppm2_activity');
+  }
+
+
+
+
+  function list_comment()
+  {
+    $id = $this->input->post('id');
+
+
+    // $this->db->where('hostname',$id);
+
+    // $query =  $this->db->get('ppm_register')->result();
+    // foreach ($query as $data) 
+    // {
+    //   $id_number = $data->id_number;
+    // }
+
+    //var_dump($id); exit();
+
+    $query = $this->Admin->list_comment($id);
+
+    if(empty($query)){
+      echo 'Tiada Data Ditemui';
+    } else {
+      foreach ($query as $data) 
+      {
+      
+      }
+      echo json_encode($data);
+    }
+  }
+
+
+
+  function get_name_user()
+  {
+    $id = $this->input->post('id');
+
+    $query = $this->Admin->get_name_user($id);
+
+    if(empty($query)){
+      echo 'Tiada Data Ditemui';
+    } else {
+      foreach ($query as $data) 
+      {
+      
+      }
+      echo json_encode($data);
+    }
+  }
+
+
+  function list_checkbox()
+  {
+    $id_number = $this->input->post('id_number');
+
+    $query = $this->Admin->list_checkbox($id_number);
+
+    if(empty($query)){
+      echo 'Tiada Data Ditemui';
+    } else {
+      foreach ($query as $data) 
+      {
+      
+      }
+      echo json_encode($data);
+    }
 
   }
 }

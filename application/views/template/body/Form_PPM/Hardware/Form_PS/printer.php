@@ -280,7 +280,7 @@
 							          						</div>
 							          						<div class="col-md-8" style="padding-bottom: 10px;">
 							          							<select class="form-control" name="need_replacement" id="need_replacement">
-													            	<option value="">--Select Type --</option>
+													            	<option value="">--Yes/No--</option>
 													            	<?= yes_or_no() ?>
 													            </select>
 							          						</div>
@@ -980,4 +980,40 @@
 	}
 
 	
+</script>
+
+
+
+
+<script type="text/javascript">
+    
+
+    $(document).ready(function (){
+    	
+        var id = "<?php if(!empty(hex2bin($_GET['ppm_id']))){echo hex2bin($_GET['ppm_id']);}?>";
+
+        var data =  {
+		                    'id':id,
+		                    '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+		            }
+
+	    $.ajax({
+	                url: '<?= base_url() ?>Form_PPM/detail_ppm',
+	                type: 'POST',
+	                dataType: 'json',
+	                data: data,
+	                beforeSend: function() {
+	                   
+	                },
+	                success: function(response){
+	                	// var start_date = response.start_date;
+	                	// var year = start_date.substr(start_date.length - 4);
+	                	//alert(year);
+	                	var year = response.year;
+	                	$("#year").val(year);
+	                }
+	           });
+        
+    });
+
 </script>
