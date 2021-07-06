@@ -150,10 +150,12 @@ class CMDB extends CI_Controller  {
 
 
 			$COMP_ip = $this->input->post('COMP_ip');
+			$COMP_mac = $this->input->post('COMP_ip');
 
 
 			$network_port = $this->input->post('network_port');
 			$cpu_model = $this->input->post('cpu_model');
+			$cpu_core = $this->input->post('cpu_core');
 			$cpu_serial_no = $this->input->post('cpu_serial_no');
 			$processor_type = $this->input->post('processor_type');
 			$monitor_brand = $this->input->post('monitor_brand');
@@ -162,7 +164,7 @@ class CMDB extends CI_Controller  {
 			$ups_brand = $this->input->post('ups_brand');
 			$ups_model = $this->input->post('ups_model');
 			$ups_serial_no = $this->input->post('ups_serial_no');
-
+			
 
 			$data = array(
 							"name"=>$cmdb_computer_name,
@@ -195,6 +197,7 @@ class CMDB extends CI_Controller  {
                           	"ip"=>$COMP_ip,
 							"network_port"=>$network_port,
 							"cpu_model"=>$cpu_model,
+							"cpu_core"=>$cpu_core,
 							"cpu_serial_no"=>$cpu_serial_no,
 							"processor_type"=>$processor_type,
 							"monitor_brand"=>$monitor_brand,
@@ -203,6 +206,7 @@ class CMDB extends CI_Controller  {
 							"ups_brand"=>$ups_brand,
 							"ups_model"=>$ups_model,
 							"ups_serial_no"=>$ups_serial_no,
+							"mac_address"=>$COMP_mac
 						 );
 
 			$this->CMDB->cmdb_computer_add($data);

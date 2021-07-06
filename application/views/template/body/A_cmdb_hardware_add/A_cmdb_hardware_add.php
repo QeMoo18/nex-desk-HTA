@@ -39,7 +39,7 @@
 				                </div>
 
 				                <div class="form-group col-md-3">
-				                  <label for="exampleInputEmail1">* Network Port</label>
+				                  <label for="exampleInputEmail1">Network Port</label>
 				                  <input type='text' class='form-control' name='network_port' id='network_port'> 
 				                  <span id="alert_Network_Port"></span> 
 				                </div>
@@ -241,12 +241,12 @@
 		}
 
 
-		if(network_port)
-		{ 
-			$("#alert_Network_Port").html('');
-		} else {
-			$("#alert_Network_Port").html('<font color="red"> required field </font>');
-		}
+		// if(network_port)
+		// { 
+		// 	$("#alert_Network_Port").html('');
+		// } else {
+		// 	$("#alert_Network_Port").html('<font color="red"> required field </font>');
+		// }
 
 
 		if(HW_deployment_state)

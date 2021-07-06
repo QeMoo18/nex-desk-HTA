@@ -119,6 +119,11 @@
 				                </div>
 
 				                <div class="form-group col-md-3">
+				                  <label for="exampleInputEmail1">CPU Core</label>
+				                  <input type='text' class='form-control' name='cpu_core' id='cpu_core'> 
+				                </div>
+
+				                <div class="form-group col-md-3">
 				                  <label for="exampleInputEmail1">CPU Serial No</label>
 				                  <input type='text' class='form-control' name='cpu_serial_no' id='cpu_serial_no'> 
 				                </div>
@@ -330,13 +335,14 @@
 						var COMP_Notes = $("#COMP_Notes").val(response.note);
 						var COMP_Location = $("#COMP_Location").val(response.location);
 						var COMP_validity = $("#COMP_validity").val(response.validity);
-						var COMP_mac = $("#COMP_mac").val(response.mac);
+						var COMP_mac = $("#COMP_mac").val(response.mac_address);
 
 						var COMP_ip = $("#COMP_ip").val(response.ip);
 
 
 						var network_port = $("#network_port").val(response.network_port);
 						var cpu_model = $("#cpu_model").val(response.cpu_model);
+						var cpu_core = $("#cpu_core").val(response.cpu_core);
 						var cpu_serial_no = $("#cpu_serial_no").val(response.cpu_serial_no);
 						var processor_type = $("#processor_type").val(response.processor_type);
 						var monitor_brand = $("#monitor_brand").val(response.monitor_brand);
@@ -389,6 +395,7 @@
 
 		var network_port = $("#network_port").val();
 		var cpu_model = $("#cpu_model").val();
+		var cpu_core = $("#cpu_core").val();
 		var cpu_serial_no = $("#cpu_serial_no").val();
 		var processor_type = $("#processor_type").val();
 		var monitor_brand = $("#monitor_brand").val();
@@ -411,12 +418,12 @@
 			$("#alert_COMP_Name").html('<font color="red"> required field </font>');
 		}
 
-		if(COMP_ip)
-		{ 
-			$("#alert_COMP_IP").html('');
-		} else {
-			$("#alert_COMP_IP").html('<font color="red"> required field </font>');
-		}
+		// if(COMP_ip)
+		// { 
+		// 	$("#alert_COMP_IP").html('');
+		// } else {
+		// 	$("#alert_COMP_IP").html('<font color="red"> required field </font>');
+		// }
 
 		if(COMP_Deployment_State)
 		{ 
@@ -485,6 +492,7 @@
 		                	'COMP_mac':COMP_mac,
 		                	'network_port':network_port,
 							'cpu_model':cpu_model,
+							'cpu_core':cpu_core,
 							'cpu_serial_no':cpu_serial_no,
 							'processor_type':processor_type,
 							'monitor_brand':monitor_brand,

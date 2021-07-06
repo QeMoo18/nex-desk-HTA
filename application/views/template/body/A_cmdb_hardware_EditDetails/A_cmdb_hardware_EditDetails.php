@@ -42,7 +42,7 @@
 				                </div>
 
 				                <div class="form-group col-md-3">
-				                  <label for="exampleInputEmail1">* Network Port</label>
+				                  <label for="exampleInputEmail1">Network Port</label>
 				                  <input type='text' class='form-control' name='network_port' id='network_port'> 
 				                  <span id="alert_Network_Port"></span> 
 				                </div>
@@ -248,7 +248,7 @@
 						var network_port = $("#network_port").val(response.network_port);
 						var Firmware_Version = $("#Firmware_Version").val(response.firmware_version);
 						var HW_brand = $("#HW_brand").val(response.brand);
-						var Hardware_mac = $("#Hardware_mac").val(response.mac_address);
+						var Hardware_mac = $("#Hardware_mac").val(response.mac_addr);
 	              }
               });
 	}
@@ -278,10 +278,10 @@
 		var Hardware_ip = $("#Hardware_ip").val();
 		var network_port = $("#network_port").val();
 		var Firmware_Version = $("#Firmware_Version").val();
-		var Hardware_mac = $("#Hardware_mac").val();
 
 
 		var HW_brand = $("#HW_brand").val();
+		var Hardware_mac = $("#Hardware_mac").val();
 
 		
 
@@ -302,12 +302,12 @@
 		}
 
 
-		if(network_port)
-		{ 
-			$("#alert_Network_Port").html('');
-		} else {
-			$("#alert_Network_Port").html('<font color="red"> required field </font>');
-		}
+		// if(network_port)
+		// { 
+		// 	$("#alert_Network_Port").html('');
+		// } else {
+		// 	$("#alert_Network_Port").html('<font color="red"> required field </font>');
+		// }
 
 		if(HW_deployment_state)
 		{ 
@@ -339,7 +339,7 @@
 
 
 		//check to submit
-		if((HW_name=='')||(HW_deployment_state=='')||(HW_incident_state=='')||(HW_location=='')||(HW_validity=='')||(Hardware_ip=='')||(network_port=='')){
+		if((HW_name=='')||(HW_deployment_state=='')||(HW_incident_state=='')||(HW_location=='')||(HW_validity=='')||(Hardware_ip=='')){
 
 		} else {
 

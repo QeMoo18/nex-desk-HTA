@@ -2152,6 +2152,7 @@ class Form_PPM extends CI_Controller
                         "network_port"=>$port,
                         "Ram"=>$ram,
                         "serial_number"=>$serial_number,
+                        "mac_address"=>$mac_address
                       );
     $this->db->where('name',$hostname);
     $this->db->update('computer',$data_update);
@@ -2704,6 +2705,7 @@ class Form_PPM extends CI_Controller
                             "network_port"=>$port,
                             "Ram"=>$ram,
                             "serial_number"=>$serial_number,
+                            "mac_address"=>$mac_address,
                           );
         $this->db->where('name',$hostname);
         $this->db->update('computer',$data_update);
@@ -3015,7 +3017,8 @@ class Form_PPM extends CI_Controller
                           'serial_number'=>$serial_number,
                           'ip_address'=>$ip,
                           'firmware_version'=>$firmware,
-                          'location'=>$location
+                          'location'=>$location,
+                          'mac_addr'=>$mac_address
                         );
       $this->db->where('name',$hostname);
       $this->db->update('hardware',$data_update);
@@ -3351,7 +3354,8 @@ class Form_PPM extends CI_Controller
                           'serial_number'=>$serial_number,
                           'ip_address'=>$ip,
                           'firmware_version'=>$firmware,
-                          'location'=>$location
+                          'location'=>$location,
+                          'mac_addr'=>$mac_address
                         );
       $this->db->where('name',$hostname);
       $this->db->update('hardware',$data_update);

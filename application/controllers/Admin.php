@@ -2711,6 +2711,7 @@ class Admin extends CI_Controller
           $other_id = rand();
 
           $COMP_ip = $this->input->post('COMP_ip');
+          $COMP_mac = $this->input->post('COMP_mac');
 
 
 
@@ -2738,6 +2739,7 @@ class Admin extends CI_Controller
 
           $network_port = $this->input->post('network_port');
           $cpu_model = $this->input->post('cpu_model');
+          $cpu_core = $this->input->post('cpu_core');
           $cpu_serial_no = $this->input->post('cpu_serial_no');
           $processor_type = $this->input->post('processor_type');
           $monitor_brand = $this->input->post('monitor_brand');
@@ -2775,10 +2777,12 @@ class Admin extends CI_Controller
                           "created"=>$datetime, 
                           "other_id"=>$other_id,
                           "ip"=>$COMP_ip,
+                          "mac_address"=>$COMP_mac,
                           "qr_code"=>$random_name,
                           "config_id"=>$config_id,
                           "network_port"=>$network_port,
                           "cpu_model"=>$cpu_model,
+                          "cpu_core"=>$cpu_core,
                           "cpu_serial_no"=>$cpu_serial_no,
                           "processor_type"=>$processor_type,
                           "monitor_brand"=>$monitor_brand,
@@ -2851,6 +2855,7 @@ class Admin extends CI_Controller
       $other_id = rand();
 
       $COMP_ip = $this->input->post('COMP_ip');
+      $COMP_mac = $this->input->post('COMP_mac');
 
 
       $check = $this->Admin->checkName_Computer($COMP_Name);
@@ -2883,6 +2888,7 @@ class Admin extends CI_Controller
                       "changed"=>$datetime, 
                       // "other_id"=>$other_id,
                       "ip"=>$COMP_ip,
+                      "mac_address"=>$COMP_mac,
                       "Status"=>$Status
                  );
 
@@ -2965,6 +2971,7 @@ class Admin extends CI_Controller
           $COMP_validity = $this->input->post('COMP_validity');
 
           $COMP_ip = $this->input->post('COMP_ip');
+          $COMP_mac = $this->input->post('COMP_mac');
 
           //default data 
           $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -2979,6 +2986,7 @@ class Admin extends CI_Controller
 
           $network_port = $this->input->post('network_port');
           $cpu_model = $this->input->post('cpu_model');
+          $cpu_core = $this->input->post('cpu_core');
           $cpu_serial_no = $this->input->post('cpu_serial_no');
           $processor_type = $this->input->post('processor_type');
           $monitor_brand = $this->input->post('monitor_brand');
@@ -2991,6 +2999,7 @@ class Admin extends CI_Controller
           // ini adalah data yang kau nak update 
           $data = array(  "name"=>$COMP_Name,
                           "ip"=>$COMP_ip,
+                          "mac_address"=>$COMP_mac,
                           "deployment_state"=>$COMP_Deployment_State,
                           "incident_state"=>$COMP_Incident_State,
                           "vendor"=>$COMP_vendor,
@@ -3016,6 +3025,7 @@ class Admin extends CI_Controller
                           "changed"=>$datetime, // kita letak tarikh kau changed ,
                           "network_port"=>$network_port,
                           "cpu_model"=>$cpu_model,
+                          "cpu_core" =>$cpu_core,
                           "cpu_serial_no"=>$cpu_serial_no,
                           "processor_type"=>$processor_type,
                           "monitor_brand"=>$monitor_brand,
@@ -4214,6 +4224,7 @@ class Admin extends CI_Controller
         $HW_location = $this->input->post('HW_location');
         $HW_validity = $this->input->post('HW_validity');
         $HW_brand = $this->input->post('HW_brand');
+        $Hardware_mac = $this->input->post('Hardware_mac');
 
         $Hardware_ip = $this->input->post('Hardware_ip');
         $network_port = $this->input->post('network_port');
@@ -4266,7 +4277,8 @@ class Admin extends CI_Controller
                         "other_id"=>$other_id,
                         "qr_code"=>$random_name,
                         "config_id"=>$config_id,
-                        "brand"=>$HW_brand
+                        "brand"=>$HW_brand,
+                        "mac_addr"=>$Hardware_mac
                       );
 
         // create function dekat model 
@@ -4326,6 +4338,7 @@ class Admin extends CI_Controller
         $Hardware_ip = $this->input->post('Hardware_ip');
         $network_port = $this->input->post('network_port');
         $Firmware_Version = $this->input->post('Firmware_Version');
+        $Hardware_mac = $this->input->post('Hardware_mac');
 
 
         $HW_brand = $this->input->post('HW_brand');
@@ -4349,7 +4362,8 @@ class Admin extends CI_Controller
                         "location"=>$HW_location,
                         "validity"=>$HW_validity,
                         "changed"=>$datetime, 
-                        "brand"=>$HW_brand
+                        "brand"=>$HW_brand,
+                        "mac_addr"=>$Hardware_mac
                       );
 
         // var_dump($data);

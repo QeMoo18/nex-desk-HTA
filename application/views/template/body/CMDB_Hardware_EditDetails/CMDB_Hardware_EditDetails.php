@@ -49,6 +49,12 @@
 			                  <label for="exampleInputEmail1">* IP address</label>
 			                  <input type='text' class='form-control' name='cmdb_hardware_ip' id='cmdb_hardware_ip'> 
 			                </div>
+
+
+			                <div class="form-group col-md-3">
+			                  <label for="exampleInputEmail1">* MAC address</label>
+			                  <input type='text' class='form-control' name='cmdb_hardware_mac' id='cmdb_hardware_mac'> 
+			                </div>
 					
 							<div class="form-group col-md-3">
 			                  <label for="exampleInputEmail1">Vendor</label>
@@ -194,6 +200,7 @@
 								var cmdb_hardware_valid = $("#cmdb_hardware_valid").val(response.valid);
 
 								var cmdb_hardware_ip = $("#cmdb_hardware_ip").val(response.ip_address);
+								var cmdb_hardware_mac = $("#cmdb_hardware_mac").val(response.mac_addr);
 	                    }
 	              });
                				
