@@ -117,9 +117,9 @@
 					<tr style="padding-bottom: 30px;">
 						<td style="width: 100;" class="small"><img src="<?= base_url()?>Prohawk_Logo.png" style="width: 220px;"><br> <h4><b>COMPUTER & NOTEBOOK</b> </h4>  <p>Update and verify inventory by checking and ticking boxes below</p></td>
 						<td style="width: 50;"></td>
-						<td style="width: 100%;" class="small"><h4><b>PLANNED PREVENTIVE MAINTENANCE </b></h4>  <h5>HOSPITAL TUANKU AZIZAH</h5>
+						<td style="width: 100%;" class="small"><h4><b>PLANNED PREVENTIVE MAINTENANCE </b></h4>  <h5>HOSPITAL TUNKU AZIZAH</h5>
 						<br><br>
-							<h4><b>YEAR : 2020</b></h4>
+								<h4><b>YEAR : 2021</b></h4>
 
 						<br><br>
 						</td>
@@ -259,7 +259,7 @@
 
 
 			<div class="col-md-12">
-				Computer
+				NOTEBOOK
 			</div>
 
 

@@ -129,7 +129,7 @@ i
 				                </div>
 							
 								<div class="form-group col-md-3">
-				                  <label for="exampleInputEmail1">RAM</label>
+				                  <label for="exampleInputEmail1">RAM (GB)</label>
 				                  <input type='text' class='form-control' name='COMP_RAM' id='COMP_RAM'> 
 				                </div>
 
@@ -328,12 +328,12 @@ i
 			$("#alert_COMP_Name").html('<font color="red"> required field </font>');
 		}
 
-		// if(COMP_ip)
-		// { 
-		// 	$("#alert_COMP_IP").html('');
-		// } else {
-		// 	$("#alert_COMP_IP").html('<font color="red"> required field </font>');
-		// }
+		if(COMP_ip)
+		{ 
+			$("#alert_COMP_IP").html('');
+		} else {
+			$("#alert_COMP_IP").html('<font color="red"> required field </font>');
+		}
 
 		if(COMP_Deployment_State)
 		{ 

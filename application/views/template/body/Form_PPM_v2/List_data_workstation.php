@@ -150,33 +150,36 @@
         var d = $("select[name='department_find']").val();
         var s = $("select[name='status_find']").val();
         
+        if(s==''){
+          alert('Please select PPM current status before you send email');
+        } else {
+          if(user_find){
+              var data = 
+                          {   'ppm_id':ppm_id,
+                              'user_find':user_find,
+                              'subject':subject,
+                              't':t,
+                              's':s,
+                              'd':d,
+                              '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+                          }
 
-        if(user_find){
-            var data = 
-                        {   'ppm_id':ppm_id,
-                            'user_find':user_find,
-                            'subject':subject,
-                            't':t,
-                            's':s,
-                            'd':d,
-                            '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
-                        }
-
-                    
-            $.ajax({
-                    url: '<?= base_url() ?>Form_PPM/Workstation_Send_Email',
-                    type: 'POST',
-                    dataType: 'html',
-                    data: data,
-                    beforeSend: function() {
-                        alert("Please wait, we are preparing the necessary documents to be sent to the target. Please click 'Ok' and wait for this page to appear popup popup.");
-                    },
-                    success: function(response){
-                        alert("PPM Form already send");
-                        //location.reload();
-                    }
-            });
-        } 
+                      
+              $.ajax({
+                      url: '<?= base_url() ?>Form_PPM/Workstation_Send_Email',
+                      type: 'POST',
+                      dataType: 'html',
+                      data: data,
+                      beforeSend: function() {
+                          alert("Please wait, we are preparing the necessary documents to be sent to the target. Please click 'Ok' and wait for this page to appear popup popup.");
+                      },
+                      success: function(response){
+                          alert("PPM Form already send");
+                          //location.reload();
+                      }
+              });
+          } 
+        }
     }
 </script>
 

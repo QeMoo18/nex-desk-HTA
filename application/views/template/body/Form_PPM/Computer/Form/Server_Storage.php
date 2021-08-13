@@ -153,7 +153,7 @@
 				          							<legend style="font-size: 15px; font-weight: 700;">Physical Check</legend>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Check connection (Data cable and power connection)</label>
+								          					<label for="exampleInputEmail1">1. Check connection (Data cable and power connection)</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 															<input type="radio" name="physical_1"  value="Yes" checked> Yes</input>
@@ -167,7 +167,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Check the power sources(Plugged into protected outlets)</label>
+								          					<label for="exampleInputEmail1">2. Check the power sources(Plugged into protected outlets)</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 															<input type="radio" name="physical_2"  value="Yes" checked> Yes</input>
@@ -181,7 +181,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Check the fan (CPU's cooling fan is working & the airflow isn't impeded by dust)</label>
+								          					<label for="exampleInputEmail1">3. Check the fan (CPU's cooling fan is working & the airflow isn't impeded by dust)</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 															<input type="radio" name="physical_3"  value="Yes" checked> Yes</input>
@@ -194,9 +194,9 @@
 								          				</div>
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
-								          				<div class="col-md-12"><label>Check LED signal function</label> </div>
+								          				<div class="col-md-12"><label>4. Check LED signal function</label> </div>
 								          				<div class="col-md-8" style="padding-left: 30px;">
-								          					<label for="exampleInputEmail1"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Make sure LED signal for Hard Disk is functioning</label>
+								          					<label for="exampleInputEmail1"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>4.1 Make sure LED signal for Hard Disk is functioning</label>
 								          				</div>
 								          				<div class="col-md-4 font_class" style="padding-bottom: 10px;">
 															<input type="radio" name="physical_4"  value="Yes" checked> Yes</input>
@@ -209,7 +209,7 @@
 								          				</div>
 								          				
 								          				<div class="col-md-8" style="padding-left: 30px;">
-								          					<label for="exampleInputEmail1"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Make sure LED signal for Monitor is functioning</label>
+								          					<label for="exampleInputEmail1"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>4.2 Make sure LED signal for Monitor is functioning</label>
 								          				</div>
 								          				<div class="col-md-4 font_class" style="padding-bottom: 10px;">
 															<input type="radio" name="physical_5"  value="Yes" checked> Yes</input>
@@ -222,7 +222,7 @@
 								          				</div>
 
 								          				<div class="col-md-8" style="padding-left: 30px;">
-								          					<label for="exampleInputEmail1"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Make sure LED signal for Network is functioning</label>
+								          					<label for="exampleInputEmail1"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>4.3 Make sure LED signal for Network is functioning</label>
 								          				</div>
 								          				<div class="col-md-4 font_class" style="padding-bottom: 10px;">
 								          					<input type="radio" name="physical_6"  value="Yes" checked> Yes</input>
@@ -237,7 +237,7 @@
 
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Check UPS (Make sure UPS is connected properly and functioning)</label>
+								          					<label for="exampleInputEmail1">5. Check UPS (Make sure UPS is connected properly and functioning)</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="physical_7"  value="Yes" checked> Yes</input>
@@ -253,7 +253,7 @@
 
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Update and verify inventory (Check and verify serial number)</label>
+								          					<label for="exampleInputEmail1">6. Update and verify inventory (Check and verify serial number)</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 															<input type="radio" name="physical_8"  value="Yes" checked> Yes</input>
@@ -268,7 +268,7 @@
 
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Check and verify CPU</label>
+								          					<label for="exampleInputEmail1">7. Check and verify CPU</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="physical_9"  value="Yes" checked> Yes</input>
@@ -290,13 +290,20 @@
 								          					<input type="text" class="form-control" name="cpu_speed">
 								          				</div>
 
+								          				<div class="col-md-3 font_class">
+								          					CPU Core
+								          				</div>
+								          				<div class="col-md-4 font_class">
+								          					<input type="text" class="form-control" name="cpu_core">
+								          				</div>
+
 								          			</div>
 
 
 
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Check and verify physical memory</label>
+								          					<label for="exampleInputEmail1">8. Check and verify physical memory</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="physical_27"  value="Yes" checked> Yes</input>
@@ -323,11 +330,11 @@
 
 
 								          			<div class="row" style="padding-bottom: 30px;">
-								          				<div class="col-md-12"><label>Check Disk Space Available</label> </div>
+								          				<div class="col-md-12"><label>9. Check Disk Space Available</label> </div>
 								          				<div class="row" style="padding-left: 15px;">
 									          				<div class="col-md-8">
 									          					<div class="col-md-6">
-									          						<label>Hard Disk Space : C (GB)</label>
+									          						<label>9.1 Hard Disk Space : C (GB)</label>
 									          						<input type="text" class="form-control" name="physical_10" id="physical_10">
 									          					</div>
 									          					<div class="col-md-6">
@@ -348,7 +355,7 @@
 									          			<div class="row" style="padding-left: 15px;">
 									          				<div class="col-md-8">
 									          					<div class="col-md-6">
-									          						<label>Hard Disk Space : D (GB)</label>
+									          						<label>9.2 Hard Disk Space : D (GB)</label>
 									          						<input type="text" class="form-control" name="physical_13" id="physical_13">
 									          					</div>
 									          					<div class="col-md-6">
@@ -369,7 +376,7 @@
 									          			<div class="row" style="padding-left: 15px;">
 									          				<div class="col-md-8">
 									          					<div class="col-md-6">
-									          						<label>Hard Disk Space : E (GB)</label>
+									          						<label>9.3 Hard Disk Space : E (GB)</label>
 									          						<input type="text" class="form-control" name="physical_16" id="physical_16">
 									          					</div>
 									          					<div class="col-md-6">
@@ -391,7 +398,7 @@
 
 								          			<div class="row">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Check KVM switch functionality</label>
+								          					<label for="exampleInputEmail1">10. Check KVM switch functionality</label>
 								          				</div>
 								          				<div class="col-md-4 font_class" style="padding-bottom: 10px;">
 								          					<input type="radio" name="physical_19"  value="Yes" checked> Yes</input>
@@ -417,7 +424,7 @@
 
 								          			<div class="row">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Check tape library functionality</label>
+								          					<label for="exampleInputEmail1">11. Check tape library functionality</label>
 								          				</div>
 								          				<div class="col-md-4 font_class" style="padding-bottom: 10px;">
 															<input type="radio" name="physical_20"  value="Yes" checked> Yes</input>
@@ -440,11 +447,11 @@
 
 								          			</div>
 								          			<div class="row">
-									          			<div class="col-md-12"><label>Storage</label> </div>
+									          			<div class="col-md-12"><label>12. Storage</label> </div>
 									          			<div class="row" style="padding-left: 15px;">
 									          				<div class="col-md-8">
 									          					<div class="col-md-6">
-									          						<label>Total Disk</label>
+									          						<label>12.1. Total Disk</label>
 									          						<input type="text" class="form-control" name="physical_21" id="physical_21">
 									          					</div>
 									          					<div class="col-md-6">
@@ -465,7 +472,7 @@
 									          			<div class="row" style="padding-left: 15px;">
 									          				<div class="col-md-8">
 									          					<div class="col-md-6">
-									          						<label>Total Space</label>
+									          						<label>12.2. Total Space</label>
 									          						<input type="text" class="form-control" name="physical_24" id="physical_24">
 									          					</div>
 									          					<div class="col-md-6">
@@ -491,7 +498,7 @@
 				          							<legend style="font-size: 15px; font-weight: 700;">Setting & Configuration</legend>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Run ScanDisk on system drive</label>
+								          					<label for="exampleInputEmail1">1. Run ScanDisk on system drive</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 															<input type="radio" name="setting_1"  value="Yes" checked> Yes</input>
@@ -505,7 +512,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Run Disk Defragmentation (applicable to all drive)</label>
+								          					<label for="exampleInputEmail1">2. Run Disk Defragmentation (applicable to all drive)</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="setting_2"  value="Yes" checked> Yes</input>
@@ -519,7 +526,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Check and install driver updates</label>
+								          					<label for="exampleInputEmail1">3. Check and install driver updates</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="setting_3"  value="Yes" checked> Yes</input>
@@ -533,7 +540,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Check and update service pack</label>
+								          					<label for="exampleInputEmail1">4. Check and update service pack</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="setting_4"  value="Yes" checked> Yes</input>
@@ -555,12 +562,12 @@
 								          				</div>
 								          			</div>
 
-								          			<div class="row"><div class="col-md-12"><label>Check and record average CPU Utilization dated for one month</label></div></div>
+								          			<div class="row"><div class="col-md-12"><label>5. Check and record average CPU Utilization dated for one month</label></div></div>
 
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8" style="padding-left: 30px;">
 								          					<div class="col-md-6">
-								          						<label for="exampleInputEmail1">CPU Utilization : Min</label>
+								          						<label for="exampleInputEmail1">5.1 CPU Utilization : Min</label>
 								          					</div>
 								          					<div class="col-md-6">
 								          						<input type="text" class="form-control" name="setting_5" id="setting_5">
@@ -579,7 +586,7 @@
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8" style="padding-left: 30px;">
 								          					<div class="col-md-6">
-								          						<label for="exampleInputEmail1">CPU Utilization : Max</label>
+								          						<label for="exampleInputEmail1">5.2 CPU Utilization : Max</label>
 								          					</div>
 								          					<div class="col-md-6">
 								          						<input type="text" class="form-control" name="setting_7" id="setting_7">
@@ -598,7 +605,7 @@
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8" style="padding-left: 30px;">
 								          					<div class="col-md-6">
-								          						<label for="exampleInputEmail1">CPU Utilization : Avg</label>
+								          						<label for="exampleInputEmail1">5.3 CPU Utilization : Avg</label>
 								          					</div>
 								          					<div class="col-md-6">
 								          						<input type="text" class="form-control" name="setting_9" id="setting_9">
@@ -620,12 +627,12 @@
 
 
 
-								          			<div class="row"><div class="col-md-12"><label>Check and record average Memory Utilization dated for one month</label></div></div>
+								          			<div class="row"><div class="col-md-12"><label>6. Check and record average Memory Utilization dated for one month</label></div></div>
 
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8" style="padding-left: 30px;">
 								          					<div class="col-md-6">
-								          						<label for="exampleInputEmail1">Memory Utilization : Min</label>
+								          						<label for="exampleInputEmail1">6.1 Memory Utilization : Min</label>
 								          					</div>
 								          					<div class="col-md-6">
 								          						<input type="text" class="form-control" name="setting_18" id="setting_18">
@@ -644,7 +651,7 @@
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8" style="padding-left: 30px;">
 								          					<div class="col-md-6">
-								          						<label for="exampleInputEmail1">Memory Utilization : Max</label>
+								          						<label for="exampleInputEmail1">6.2 Memory Utilization : Max</label>
 								          					</div>
 								          					<div class="col-md-6">
 								          						<input type="text" class="form-control" name="setting_20" id="setting_20">
@@ -663,7 +670,7 @@
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8" style="padding-left: 30px;">
 								          					<div class="col-md-6">
-								          						<label for="exampleInputEmail1">Memory Utilization : Avg</label>
+								          						<label for="exampleInputEmail1">6.3 Memory Utilization : Avg</label>
 								          					</div>
 								          					<div class="col-md-6">
 								          						<input type="text" class="form-control" name="setting_22" id="setting_22">
@@ -682,9 +689,9 @@
 
 
 
-								          			<div class="row" style="padding-bottom: 10px; padding-top: 30px;">
+								          			<div class="row" style="padding-bottom: 10px; font-size:15px; padding-top: 30px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Check and install latest Hotfix if needed</label>
+								          					<label for="exampleInputEmail1">7. Check and install latest Hotfix if needed</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="setting_11"  value="Yes" checked> Yes</input>
@@ -696,10 +703,10 @@
 															</select> -->
 								          				</div>
 								          			</div>
-								          			<p style="padding-top: 10px; font-size:15px;">Check and record software or application (data applicable for live server)</p>
+								          			<p style="padding-top: 10px; font-size:15px;">8. Check and record software or application (data applicable for live server)</p>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-4">
-								          					<label for="exampleInputEmail1">Application</label>
+								          					<label for="exampleInputEmail1">8.1 Application</label>
 								          				</div>
 								          				<div class="col-md-4">
 								          					<input type="text" class="form-control" name="setting_12" id="setting_12">
@@ -716,7 +723,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-4">
-								          					<label for="exampleInputEmail1">Application</label>
+								          					<label for="exampleInputEmail1">8.2 Application</label>
 								          				</div>
 								          				<div class="col-md-4">
 								          					<input type="text" class="form-control" name="setting_14" id="setting_14">
@@ -733,7 +740,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-4">
-								          					<label for="exampleInputEmail1">Application</label>
+								          					<label for="exampleInputEmail1">8.3 Application</label>
 								          				</div>
 								          				<div class="col-md-4">
 								          					<input type="text" class="form-control" name="setting_16" id="setting_16">
@@ -767,13 +774,13 @@
 
 				          							<div class="row">
 					          							<div class="form-group col-md-12">
-											              <label for="exampleInputEmail1">Clean other physical peripheral devices if there is any :</label>
+											              <label for="exampleInputEmail1">1. Clean other physical peripheral devices if there is any :</label>
 											            </div>
 											        </div>
 
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1" style="padding-left: 10px;">Monitor</label>
+								          					<label for="exampleInputEmail1" style="padding-left: 10px;">1.1 Monitor</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="house_keeping_1"  value="Yes" checked> Yes</input>
@@ -787,7 +794,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1" style="padding-left: 10px;">CPU</label>
+								          					<label for="exampleInputEmail1" style="padding-left: 10px;">1.2 CPU</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="house_keeping_2"  value="Yes" checked> Yes</input>
@@ -801,7 +808,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1" style="padding-left: 10px;">Keyboard</label>
+								          					<label for="exampleInputEmail1" style="padding-left: 10px;">1.3 Keyboard</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="house_keeping_3"  value="Yes" checked> Yes</input>
@@ -815,7 +822,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px; ">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1" style="padding-left: 10px;">Mouse</label>
+								          					<label for="exampleInputEmail1" style="padding-left: 10px;">1.4 Mouse</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="house_mouse_3"  value="Yes" checked> Yes</input>
@@ -829,7 +836,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Delete .tmp files</label>
+								          					<label for="exampleInputEmail1">2. Delete .tmp files</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="house_keeping_4"  value="Yes" checked> Yes</input>
@@ -843,7 +850,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Delete and clean unused temporary internet files</label>
+								          					<label for="exampleInputEmail1">3. Delete and clean unused temporary internet files</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="house_keeping_5"  value="Yes" checked> Yes</input>
@@ -857,7 +864,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Empty the Recycle Bin</label>
+								          					<label for="exampleInputEmail1">4. Empty the Recycle Bin</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="house_keeping_6"  value="Yes" checked> Yes</input>
@@ -871,7 +878,7 @@
 								          			</div>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Device ID Tagging</label>
+								          					<label for="exampleInputEmail1">5. Device ID Tagging</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="house_keeping_7"  value="Yes" checked> Yes</input>
@@ -884,7 +891,7 @@
 								          				</div>
 								          				
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1" style="padding-left: 10px;"> a. Need Replacement </label>
+								          					<label for="exampleInputEmail1" style="padding-left: 10px;"> 5.1 Need Replacement </label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<!-- <input type="text" class="form-control" name="need_replacement_houskeeping"> -->
@@ -896,7 +903,7 @@
 
 								          			<div class="row">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">PPM Tag</label>
+								          					<label for="exampleInputEmail1">6. PPM Tag</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="house_ppm_tag_3"  value="Yes" checked> Yes</input>
@@ -914,7 +921,7 @@
 				          							<legend style="font-size: 15px; font-weight: 700;">Security</legend>
 								          			<div class="row" style="padding-bottom: 10px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Change password (twice a year)</label>
+								          					<label for="exampleInputEmail1">1. Change password (twice a year)</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="security_1"  value="Yes" checked> Yes</input>
@@ -929,14 +936,14 @@
 
 
 								          			<div class="row">
-								          				<div class="col-md-12"><label>List of username : </label></div>
+								          				<div class="col-md-12"><label>2. List of username : </label></div>
 								          			</div>
 
 								          			<div class="row">
 									          			<div class="row" style="padding-left: 15px;">
 									          				<div class="col-md-8">
 									          					<div class="col-md-6">
-									          						<label>Username</label>
+									          						<label>2.1 Username</label>
 									          						<input type="text" class="form-control" name="security_2" id="security_2">
 									          					</div>
 									          					<div class="col-md-6">
@@ -957,7 +964,7 @@
 									          			<div class="row" style="padding-left: 15px;">
 									          				<div class="col-md-8">
 									          					<div class="col-md-6">
-									          						<label>Username</label>
+									          						<label>2.2 Username</label>
 									          						<input type="text" class="form-control" name="security_5" id="security_5">
 									          					</div>
 									          					<div class="col-md-6">
@@ -979,7 +986,7 @@
 
 									          		<div class="row" style="padding-bottom: 20px; padding-top: 30px;">
 								          				<div class="col-md-8">
-								          					<label for="exampleInputEmail1">Check for backup job (Backup is successfully performed)</label>
+								          					<label for="exampleInputEmail1">3. Check for backup job (Backup is successfully performed)</label>
 								          				</div>
 								          				<div class="col-md-4 font_class">
 								          					<input type="radio" name="security_8"  value="Yes" checked> Yes</input>
@@ -993,9 +1000,11 @@
 								          			</div>
 
 								          			<div class="row">
-								          				<div class="col-md-12"><label>Antivirus (Symantec Endpoint Protection)</label></div>
+								          				<div class="col-md-12"><label>4. Antivirus (Symantec Endpoint Protection)</label></div>
 								          				<div class="row" style="padding-left: 15px;">
 									          				<div class="col-md-8">
+									          					<div class="col-md-12"><label>4.1 Check the latest antivirus software definition</label>
+									          					</div>
 									          					<div class="col-md-6">
 									          						<label>Version</label>
 									          						<input type="text" class="form-control" name="security_9" id="security_9">
@@ -1019,7 +1028,7 @@
 
 									          			<div class="row" style="padding-left: 30px;">
 									          				<div class="col-md-8">
-									          					<label>Perform full antivirus</label>
+									          					<label>4.2 Perform full antivirus</label>
 									          				</div>
 									          				<div class="col-md-4 font_class" style="padding-bottom: 10px; padding-right: 30px;">
 									          					<input type="radio" name="security_12"  value="Yes" checked> Yes</input>
@@ -1605,6 +1614,7 @@
 
 
 	                	$("[name=cpu_speed]").val([response.cpu_speed]);
+	                	$("[name=cpu_core]").val([response.cpu_core]);
 	                	$("[name=capacity]").val([response.capacity]);
 	                	$("[name=sn_kvm]").val([response.sn_kvm]);
 	                	$("[name=sn_tape]").val([response.sn_tape]);
@@ -1771,6 +1781,7 @@
 		$("[name=security_12]").prop('disabled',true); 
 
 		$("[name=cpu_speed]").prop('disabled',true); 
+		$("[name=cpu_core]").prop('disabled',true);
 		$("[name=capacity]").prop('disabled',true); 
 		$("[name=sn_kvm]").prop('disabled',true); 
 		$("[name=sn_tape]").prop('disabled',true); 

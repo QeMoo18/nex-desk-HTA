@@ -481,6 +481,7 @@ class Form_PPM extends CI_Controller
     $acknowledge = $this->input->post('acknowledge');
 
     $id_number = rand();
+    $id_number = $this->check_id_number($id_number); // ni function
 
     //default data 
     $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -1180,6 +1181,7 @@ class Form_PPM extends CI_Controller
     $acknowledge = $this->input->post('acknowledge');
 
     $id_number = rand();
+    $id_number = $this->check_id_number($id_number);
 
     //default data 
     $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -1972,6 +1974,7 @@ class Form_PPM extends CI_Controller
 
     $physical_27 = $this->input->post('physical_27');
     $cpu_speed = $this->input->post('cpu_speed');
+    $cpu_core = $this->input->post('cpu_core');
     $capacity = $this->input->post('capacity');
     $sn_kvm = $this->input->post('sn_kvm');
     $sn_tape = $this->input->post('sn_tape');
@@ -1998,6 +2001,7 @@ class Form_PPM extends CI_Controller
     $acknowledge = $this->input->post('acknowledge');
 
     $id_number = rand();
+    $id_number = $this->check_id_number($id_number);
 
     //default data 
     $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -2056,7 +2060,7 @@ class Form_PPM extends CI_Controller
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
     }
@@ -2233,6 +2237,7 @@ class Form_PPM extends CI_Controller
                     "security_12"=>$security_12,
                     "physical_27"=>$physical_27,
                     "cpu_speed"=>$cpu_speed,
+                    "cpu_core"=>$cpu_core,
                     "capacity"=>$capacity,
                     "sn_kvm"=>$sn_kvm,
                     "sn_tape"=>$sn_tape,
@@ -2404,6 +2409,7 @@ class Form_PPM extends CI_Controller
 
     $physical_27 = $this->input->post('physical_27');
     $cpu_speed = $this->input->post('cpu_speed');
+    $cpu_core = $this->input->post('cpu_core');
     $capacity = $this->input->post('capacity');
     $sn_kvm = $this->input->post('sn_kvm');
     $sn_tape = $this->input->post('sn_tape');
@@ -2469,7 +2475,7 @@ class Form_PPM extends CI_Controller
     // if($type_direction=='send_perfomed'){
     //   $status_ppm = 'Performed';
     // } else if($type_direction=='send_endorse'){
-    //   $status_ppm = 'Endorse';
+    //   $status_ppm = 'Endorsed';
 
     //   $user = $this->get_full_name($this->session->userdata('userid'));
     //   date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -2511,7 +2517,7 @@ class Form_PPM extends CI_Controller
 
 
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
 
       $user = $this->get_full_name($this->session->userdata('userid'));
       date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -2645,6 +2651,7 @@ class Form_PPM extends CI_Controller
                             "operating_system"=>$os,
                             "ip"=>$ip,
                             "location"=>$location,
+                            'mac_address'=>$mac_address
                           );
       $this->db->where('name',$hostname);
       $this->db->update('computer',$data_update);
@@ -2705,7 +2712,7 @@ class Form_PPM extends CI_Controller
                             "network_port"=>$port,
                             "Ram"=>$ram,
                             "serial_number"=>$serial_number,
-                            "mac_address"=>$mac_address,
+                            "mac_address"=>$mac_address
                           );
         $this->db->where('name',$hostname);
         $this->db->update('computer',$data_update);
@@ -2788,6 +2795,7 @@ class Form_PPM extends CI_Controller
                         "security_12"=>$security_12,
                         "physical_27"=>$physical_27,
                         "cpu_speed"=>$cpu_speed,
+                        "cpu_core"=>$cpu_core,
                         "capacity"=>$capacity,
                         "sn_kvm"=>$sn_kvm,
                         "sn_tape"=>$sn_tape,
@@ -2884,6 +2892,7 @@ class Form_PPM extends CI_Controller
     $acknowledge = $this->input->post('acknowledge');
 
     $id_number = rand();
+    $id_number = $this->check_id_number($id_number);
 
     //default data 
     $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -2927,7 +2936,7 @@ class Form_PPM extends CI_Controller
     // if($type_direction=='send_perfomed'){
     //   $status_ppm = 'Performed';
     // } else if($type_direction=='send_endorse'){
-    //   $status_ppm = 'Endorse';
+    //   $status_ppm = 'Endorsed';
     // } else if($type_direction=='send_verify'){
     //   $status_ppm = 'Verified';
     // }
@@ -2936,7 +2945,7 @@ class Form_PPM extends CI_Controller
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
 
       $user = $this->get_full_name($this->session->userdata('userid'));
       date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -3169,7 +3178,7 @@ class Form_PPM extends CI_Controller
     // if($type_direction=='send_perfomed'){
     //   $status_ppm = 'Performed';
     // } else if($type_direction=='send_endorse'){
-    //   $status_ppm = 'Endorse';
+    //   $status_ppm = 'Endorsed';
     // } else if($type_direction=='send_verify'){
     //   $status_ppm = 'Verified';
     // }
@@ -3179,7 +3188,7 @@ class Form_PPM extends CI_Controller
     // if($type_direction=='send_perfomed'){
     //   $status_ppm = 'Performed';
     // } else if($type_direction=='send_endorse'){
-    //   $status_ppm = 'Endorse';
+    //   $status_ppm = 'Endorsed';
 
     //   $user = $this->get_full_name($this->session->userdata('userid'));
     //   date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -3221,7 +3230,7 @@ class Form_PPM extends CI_Controller
 
 
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
 
       $user = $this->get_full_name($this->session->userdata('userid'));
       date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -3489,6 +3498,7 @@ class Form_PPM extends CI_Controller
     $acknowledge = $this->input->post('acknowledge');
 
     $id_number = rand();
+    $id_number = $this->check_id_number($id_number);
 
     //default data 
     $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -3531,7 +3541,7 @@ class Form_PPM extends CI_Controller
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
     }
@@ -3594,7 +3604,8 @@ class Form_PPM extends CI_Controller
                           'serial_number'=>$serial_number,
                           'ip_address'=>$ip,
                           'firmware_version'=>$firmware,
-                          'location'=>$location
+                          'location'=>$location,
+                          'mac_addr'=>$mac_address
                         );
     $this->db->where('name',$hostname);
     $this->db->update('hardware',$data_update);
@@ -3739,7 +3750,7 @@ class Form_PPM extends CI_Controller
     // if($type_direction=='send_perfomed'){
     //   $status_ppm = 'Performed';
     // } else if($type_direction=='send_endorse'){
-    //   $status_ppm = 'Endorse';
+    //   $status_ppm = 'Endorsed';
     // } else if($type_direction=='send_verify'){
     //   $status_ppm = 'Verified';
     // }
@@ -3762,7 +3773,7 @@ class Form_PPM extends CI_Controller
 
 
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
 
       $user = $this->get_full_name($this->session->userdata('userid'));
       date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -3887,7 +3898,8 @@ class Form_PPM extends CI_Controller
                           'serial_number'=>$serial_number,
                           'ip_address'=>$ip,
                           'firmware_version'=>$firmware,
-                          'location'=>$location
+                          'location'=>$location,
+                          'mac_addr'=>$mac_address
                         );
       $this->db->where('name',$hostname);
       $this->db->update('hardware',$data_update);
@@ -4019,6 +4031,7 @@ class Form_PPM extends CI_Controller
     $acknowledge = $this->input->post('acknowledge');
 
     $id_number = rand();
+    $id_number = $this->check_id_number($id_number);
 
     //default data 
     $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -4062,7 +4075,7 @@ class Form_PPM extends CI_Controller
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
     }
@@ -4126,7 +4139,8 @@ class Form_PPM extends CI_Controller
                           'serial_number'=>$serial_number,
                           'ip_address'=>$ip,
                           'firmware_version'=>$firmware,
-                          'location'=>$location
+                          'location'=>$location,
+                          'mac_addr'=>$mac_address
                         );
     $this->db->where('name',$hostname);
     $this->db->update('hardware',$data_update);
@@ -4294,7 +4308,7 @@ class Form_PPM extends CI_Controller
     // if($type_direction=='send_perfomed'){
     //   $status_ppm = 'Performed';
     // } else if($type_direction=='send_endorse'){
-    //   $status_ppm = 'Endorse';
+    //   $status_ppm = 'Endorsed';
     // } else if($type_direction=='send_verify'){
     //   $status_ppm = 'Verified';
     // }
@@ -4303,7 +4317,7 @@ class Form_PPM extends CI_Controller
     // if($type_direction=='send_perfomed'){
     //   $status_ppm = 'Performed';
     // } else if($type_direction=='send_endorse'){
-    //   $status_ppm = 'Endorse';
+    //   $status_ppm = 'Endorsed';
 
     //   $user = $this->get_full_name($this->session->userdata('userid'));
     //   date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -4346,7 +4360,7 @@ class Form_PPM extends CI_Controller
 
 
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
 
       $user = $this->get_full_name($this->session->userdata('userid'));
       date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -4448,7 +4462,8 @@ class Form_PPM extends CI_Controller
                           'serial_number'=>$serial_number,
                           'ip_address'=>$ip,
                           'firmware_version'=>$firmware,
-                          'location'=>$location
+                          'location'=>$location,
+                          'mac_addr'=>$mac_address
                         );
       $this->db->where('name',$hostname);
       $this->db->update('hardware',$data_update);
@@ -4618,6 +4633,7 @@ class Form_PPM extends CI_Controller
     $acknowledge = $this->input->post('acknowledge');
 
     $id_number = rand();
+    $id_number = $this->check_id_number($id_number);
 
     //default data 
     $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -4661,7 +4677,7 @@ class Form_PPM extends CI_Controller
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
     }
@@ -4728,7 +4744,8 @@ class Form_PPM extends CI_Controller
                           'serial_number'=>$serial_number,
                           'ip_address'=>$ip,
                           'firmware_version'=>$firmware,
-                          'location'=>$location
+                          'location'=>$location,
+                          'mac_addr'=>$mac_address
                         );
     $this->db->where('name',$hostname);
     $this->db->update('hardware',$data_update);
@@ -4933,7 +4950,7 @@ class Form_PPM extends CI_Controller
     // if($type_direction=='send_perfomed'){
     //   $status_ppm = 'Performed';
     // } else if($type_direction=='send_endorse'){
-    //   $status_ppm = 'Endorse';
+    //   $status_ppm = 'Endorsed';
     // } else if($type_direction=='send_verify'){
     //   $status_ppm = 'Verified';
     // }
@@ -4942,7 +4959,7 @@ class Form_PPM extends CI_Controller
     // if($type_direction=='send_perfomed'){
     //   $status_ppm = 'Performed';
     // } else if($type_direction=='send_endorse'){
-    //   $status_ppm = 'Endorse';
+    //   $status_ppm = 'Endorsed';
 
     //   $user = $this->get_full_name($this->session->userdata('userid'));
     //   date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -4986,7 +5003,7 @@ class Form_PPM extends CI_Controller
 
 
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
 
       $user = $this->get_full_name($this->session->userdata('userid'));
       date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -5114,7 +5131,8 @@ class Form_PPM extends CI_Controller
                             'serial_number'=>$serial_number,
                             'ip_address'=>$ip,
                             'firmware_version'=>$firmware,
-                            'location'=>$location
+                            'location'=>$location,
+                            'mac_addr'=>$mac_address
                           );
       $this->db->where('name',$hostname);
       $this->db->update('hardware',$data_update);
@@ -5284,6 +5302,7 @@ class Form_PPM extends CI_Controller
     $acknowledge = $this->input->post('acknowledge');
 
     $id_number = rand();
+    $id_number = $this->check_id_number($id_number);
 
     //default data 
     $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -5325,7 +5344,7 @@ class Form_PPM extends CI_Controller
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
     }
@@ -5386,7 +5405,8 @@ class Form_PPM extends CI_Controller
                           'serial_number'=>$serial_number,
                           'ip_address'=>$ip,
                           'firmware_version'=>$firmware,
-                          'location'=>$location
+                          'location'=>$location,
+                          'mac_addr'=>$mac_address
                         );
     $this->db->where('name',$hostname);
     $this->db->update('hardware',$data_update);
@@ -5547,7 +5567,7 @@ class Form_PPM extends CI_Controller
     // if($type_direction=='send_perfomed'){
     //   $status_ppm = 'Performed';
     // } else if($type_direction=='send_endorse'){
-    //   $status_ppm = 'Endorse';
+    //   $status_ppm = 'Endorsed';
 
     //   $user = $this->get_full_name($this->session->userdata('userid'));
     //   date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -5589,7 +5609,7 @@ class Form_PPM extends CI_Controller
 
 
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
 
       $user = $this->get_full_name($this->session->userdata('userid'));
       date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -5708,6 +5728,16 @@ class Form_PPM extends CI_Controller
 
       $this->db->update('ppm_hardware_device',$data2);
 
+      $data_update = array(
+                          'model'=>$model,
+                          'serial_number'=>$serial_number,
+                          'ip_address'=>$ip,
+                          'firmware_version'=>$firmware,
+                          'location'=>$location,
+                          'mac_addr'=>$mac_address
+                        );
+    $this->db->where('name',$hostname);
+    $this->db->update('hardware',$data_update);
 
       $this->db->where('id_number',$id_number);
       $data3 = array(
@@ -5839,6 +5869,7 @@ class Form_PPM extends CI_Controller
     $acknowledge = $this->input->post('acknowledge');
 
     $id_number = rand();
+    $id_number = $this->check_id_number($id_number);
 
     //default data 
     $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -5881,7 +5912,7 @@ class Form_PPM extends CI_Controller
     if($type_direction=='send_perfomed'){
       $status_ppm = 'Performed';
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
     } else if($type_direction=='send_verify'){
       $status_ppm = 'Verified';
     }
@@ -5941,7 +5972,8 @@ class Form_PPM extends CI_Controller
                           'serial_number'=>$serial_number,
                           'ip_address'=>$ip,
                           'firmware_version'=>$firmware,
-                          'location'=>$location
+                          'location'=>$location,
+                          'mac_addr'=>$mac_address
                         );
     $this->db->where('name',$hostname);
     $this->db->update('hardware',$data_update);
@@ -6084,7 +6116,7 @@ class Form_PPM extends CI_Controller
     // if($type_direction=='send_perfomed'){
     //   $status_ppm = 'Performed';
     // } else if($type_direction=='send_endorse'){
-    //   $status_ppm = 'Endorse';
+    //   $status_ppm = 'Endorsed';
 
     //   $user = $this->get_full_name($this->session->userdata('userid'));
     //   date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -6125,7 +6157,7 @@ class Form_PPM extends CI_Controller
 
 
     } else if($type_direction=='send_endorse'){
-      $status_ppm = 'Endorse';
+      $status_ppm = 'Endorsed';
 
       $user = $this->get_full_name($this->session->userdata('userid'));
       date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -6248,7 +6280,8 @@ class Form_PPM extends CI_Controller
                             'serial_number'=>$serial_number,
                             'ip_address'=>$ip,
                             'firmware_version'=>$firmware,
-                            'location'=>$location
+                            'location'=>$location,
+                            'mac_addr'=>$mac_address
                           );
       $this->db->where('name',$hostname);
       $this->db->update('hardware',$data_update);
@@ -6359,6 +6392,7 @@ class Form_PPM extends CI_Controller
     $acknowledge = $this->input->post('acknowledge');
 
     $id_number = rand();
+    $id_number = $this->check_id_number($id_number);
 
     //default data 
     $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -6896,6 +6930,7 @@ class Form_PPM extends CI_Controller
     $acknowledge = $this->input->post('acknowledge');
 
     $id_number = rand();
+    $id_number = $this->check_id_number($id_number);
 
     //default data 
     $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -7588,11 +7623,20 @@ class Form_PPM extends CI_Controller
     $id = $this->uri->segment(3);
     $code = $this->Admin->check_code_ppm($id);
     $title = '';
+
+
+
     switch ($code) {
 
       case 'SV':
         $data['data'] = $this->Admin->detail_server($id);
         $data['comment_user'] = $this->Admin->comment_user($id);
+
+        // echo '<pre>';
+        // var_dump($data); 
+        // echo '</pre>';
+        //exit();
+
         $html=$this->load->view('template/body/Form_PPM/Computer/PDF/Server', $data, true);
         $title = 'Server_';
         break;
@@ -7652,12 +7696,21 @@ class Form_PPM extends CI_Controller
     $data['id'] = $this->uri->segment(3);
     $hostname = $this->get_hostname($this->uri->segment(3));
     $act = $this->uri->segment(4);
+
+
+    //var_dump($hostname); exit();
+
+
     // $html=$this->load->view('template/body/Form_PPM/Hardware/PDF/UPS', $data, true);
     //$html=$this->load->view('template/body/Form_PPM/Hardware/PDF/Printer/Printer', $data, true);
 
     $id = $this->uri->segment(3);
     //var_dump($id); exit();
     $code = $this->Admin->check_code_ppm($id);
+
+    
+    // var_dump($code);
+    // exit();
 
     $title = '';
     //var_dump($code); exit();
@@ -8557,7 +8610,7 @@ class Form_PPM extends CI_Controller
 
           if((!empty($user_find))||(!empty($status_find)))
           {
-            if($status_find=='Not Yet'){
+            if($status_find=='Pending'){
               $this->data['site_title'] = 'Add_Agent';
               $this->load->view('template/header/header');
               $this->load->view('template/body/Form_PPM_v2/List_data_server',$this->data);
@@ -8838,6 +8891,7 @@ class Form_PPM extends CI_Controller
     $ppm_id = $this->input->post('ppm_id');
     $user_find = $this->input->post('user_find');
 
+    //var_dump($ppm_id); exit();
     //$this->fix_bugs($user_find,$ppm_id);
     //exit();
     // find email by username
@@ -8867,7 +8921,7 @@ class Form_PPM extends CI_Controller
       $email = $data->email;
     }
 
-    //var_dump($email);
+    //var_dump($user_find); exit();
 
 
     //$email = 'mediummyofficial@gmail.com';
@@ -8915,8 +8969,22 @@ class Form_PPM extends CI_Controller
 
   function send_email_workstation($ppm_id,$user_find,$d,$t,$s,$email)
   {
-    $this->workstation_acknowledge_email_2($ppm_id,$user_find,$d,$t,$s,$email);
-    $this->workstation_verified_send_email_2($ppm_id,$user_find,$d,$t,$s,$email);
+    //echo $email; echo '<br>';
+
+    //var_dump($s); exit();
+    if($s=='Performed'){
+      $this->workstation_acknowledge_email_2($ppm_id,$user_find,$d,$t,$s,$email);
+    } else if($s=='Verified'){
+      $this->workstation_verified_send_email_2($ppm_id,$user_find,$d,$t,$s,$email);
+    } else if($s=='Performed & Send'){
+      $this->workstation_acknowledge_email_2($ppm_id,$user_find,$d,$t,$s,$email);
+    } else {
+      // $this->workstation_acknowledge_email_2($ppm_id,$user_find,$d,$t,$s,$email);
+      // $this->workstation_verified_send_email_2($ppm_id,$user_find,$d,$t,$s,$email);
+    }
+
+    
+    
   }
 
 
@@ -8981,6 +9049,7 @@ class Form_PPM extends CI_Controller
 
     //var_dump($email);
 
+    //echo $subject.' : '.$email; echo '<br>';
     $this->email->to($email);  // replace it with receiver mail id
     $this->email->subject($subject); // replace it with relevant subject
 
@@ -9000,7 +9069,7 @@ class Form_PPM extends CI_Controller
     echo $this->email->print_debugger();
 
 
-
+    $this->db->where('acknowledge',$user_find);
     $this->db->where('status_ppm','Performed');
     $this->db->where('type_ppm_activity',$ppm_id);
     $query =  $this->db->get('ppm_register')->result();
@@ -9052,6 +9121,7 @@ class Form_PPM extends CI_Controller
 
 
       $data_update = array('status_ppm'=>'Verified & Send');
+      $this->db->where('acknowledge',$user_find);
       $this->db->where('type_ppm_activity',$ppm_id);
       $this->db->where('hostname',$hostname);
       $this->db->where('status_ppm','Verified');
@@ -11946,6 +12016,33 @@ class Form_PPM extends CI_Controller
       }
       echo json_encode($data);
     }
+
+  }
+
+
+  function check_id_number($id_number)
+  {
+
+      $total = '0';
+      $where = "  SELECT COUNT(*) AS TOTAL FROM ppm_register as a  
+                  WHERE a.id_number='$id_number'
+               ";
+      $query = $this->db->query($where);
+      if ($query->num_rows() >0){ 
+          foreach ($query->result() as $data) {
+            $total = $data->TOTAL;
+          }
+      } else {
+        $total = '0';
+      }
+
+
+      if($total>0){
+        $id_number = $id_number.rand();
+        return $id_number;
+      } else {
+        return $id_number;
+      }
 
   }
 }

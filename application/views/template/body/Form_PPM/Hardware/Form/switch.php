@@ -765,6 +765,9 @@
 
                 },
                 success: function(response){
+                	var mac_address = response.mac_addr;
+                	$("#mac_address").val(mac_address);
+
                 	var location = response.location;
                 	$("#location").val(location);
 

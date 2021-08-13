@@ -389,7 +389,8 @@
 					    <td style="width: 85%">
 					    	<span class="font_12">
 					    		<br>
-					    		Check and verify CPU (CPU speed : <u style="padding-left: 10px; padding-right: 10px;"><?= $data->cpu_speed ?></u> GHz)
+					    		Check and verify CPU (CPU speed : <u style="padding-left: 10px; padding-right: 10px;"><?= $data->cpu_speed ?></u> GHz),
+					    		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(CPU Core : <u style="padding-left: 10px; padding-right: 10px;"><?= $data->cpu_core?></u>)
 					    	</span>
 					    </td>
 					    <td style="width: 10%" class="">

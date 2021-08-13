@@ -3397,7 +3397,10 @@ class Admin_model extends CI_Model
 					LEFT JOIN ppm_computer_device ON ppm_computer_device.id_number =  ppm_register.id_number
 					LEFT JOIN ppm_computer_checklist ON ppm_computer_checklist.id_number =  ppm_register.id_number
 					LEFT JOIN ppm_comment ON ppm_comment.id_number  =  ppm_register.id_number
-					WHERE ppm_register.id_number='$id'";
+					WHERE ppm_register.id_number='$id'
+					group by ppm_register.id_number 
+
+				";
 		//var_dump($select); exit();
 	  	$query= $this->db->query($select);
 	    if ($query->num_rows() >0){ 
@@ -3417,7 +3420,9 @@ class Admin_model extends CI_Model
 					LEFT JOIN ppm_computer_device ON ppm_computer_device.id_number =  ppm_register.id_number
 					LEFT JOIN ppm_server_checklist ON ppm_server_checklist.id_number =  ppm_register.id_number
 					LEFT JOIN ppm_comment ON ppm_comment.id_number  =  ppm_register.id_number
-					WHERE ppm_register.id_number='$id'";
+					WHERE ppm_register.id_number='$id'
+					group by ppm_register.id_number  #baru tambah sbb duplicate js
+				";
 
 		//var_dump($select); exit(); 
 
@@ -3440,7 +3445,9 @@ class Admin_model extends CI_Model
 					LEFT JOIN ppm_hardware_device ON ppm_hardware_device.id_number =  ppm_register.id_number
 					LEFT JOIN ppm_hardware_checklist ON ppm_hardware_checklist.id_number =  ppm_register.id_number
 					LEFT JOIN ppm_comment ON ppm_comment.id_number  =  ppm_register.id_number
-					WHERE ppm_register.id_number='$id'";
+					WHERE ppm_register.id_number='$id'
+					group by ppm_register.id_number 
+				";
 
 
 	  	$query= $this->db->query($select);
@@ -3462,7 +3469,10 @@ class Admin_model extends CI_Model
 					LEFT JOIN ppm_printer_device ON ppm_printer_device.id_number =  ppm_register.id_number
 					LEFT JOIN ppm_printer_checklist ON ppm_printer_checklist.id_number =  ppm_register.id_number
 					LEFT JOIN ppm_comment ON ppm_comment.id_number  =  ppm_register.id_number
-					WHERE ppm_register.id_number='$id'";
+					WHERE ppm_register.id_number='$id'
+					group by ppm_register.id_number 
+
+				";
 
 
 	  	$query= $this->db->query($select);
@@ -4132,7 +4142,15 @@ class Admin_model extends CI_Model
 			$this->db->like('status_ppm', $status);
 		}
 
-		$this->db->where('status_ppm !=', 'Performed');
+		// $this->db->where('status_ppm !=', 'Performed');
+		// $this->db->where('status_ppm !=', 'acknowledge');
+		// $this->db->where('status_ppm !=', 'ver');
+
+
+		$ignore = array('Performed', 'Acknowledge', 'Verified','Verified & Send');
+		$this->db->where_not_in('status_ppm', $ignore);
+
+
 
 
 		// if($user != ''){
@@ -4185,7 +4203,10 @@ class Admin_model extends CI_Model
 		// }
 
 
-		$this->db->where('status_ppm !=', 'Performed');
+		//$this->db->where('status_ppm !=', 'Performed');
+
+		$ignore = array('Performed', 'Acknowledge', 'Verified','Verified & Send');
+		$this->db->where_not_in('status_ppm', $ignore);
 
 
 		$user = hex2bin($user);
@@ -4674,7 +4695,7 @@ class Admin_model extends CI_Model
 			SELECT a.name,a.description,a.type,a.location,b.department FROM computer as a
 			LEFT JOIN location as b ON b.name=a.location
 			WHERE a.type IN
-			('Server(Physical)','Server(Virtual)','Storage')
+			('Server(Physical)','Server(Virtual)','Storage') and a.validity = 'Valid'
 		*/
 		//END
 

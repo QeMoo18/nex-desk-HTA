@@ -2855,7 +2855,7 @@ class Admin extends CI_Controller
       $other_id = rand();
 
       $COMP_ip = $this->input->post('COMP_ip');
-      $COMP_mac = $this->input->post('COMP_mac');
+      $COMP_mac =$this->input->post('COMP_mac');
 
 
       $check = $this->Admin->checkName_Computer($COMP_Name);
@@ -3025,7 +3025,7 @@ class Admin extends CI_Controller
                           "changed"=>$datetime, // kita letak tarikh kau changed ,
                           "network_port"=>$network_port,
                           "cpu_model"=>$cpu_model,
-                          "cpu_core" =>$cpu_core,
+                          "cpu_core"=>$cpu_core,
                           "cpu_serial_no"=>$cpu_serial_no,
                           "processor_type"=>$processor_type,
                           "monitor_brand"=>$monitor_brand,
@@ -4229,6 +4229,7 @@ class Admin extends CI_Controller
         $Hardware_ip = $this->input->post('Hardware_ip');
         $network_port = $this->input->post('network_port');
         $Firmware_Version = $this->input->post('Firmware_Version');
+        
 
         //default data 
         $updateBy = $this->session->userdata('userid'); // id yang login system
@@ -9322,7 +9323,25 @@ class Admin extends CI_Controller
     $data = $query->result();
 
     var_dump($data);
-}
+  }
+
+
+  function changePassword()
+  {
+    $new_password = $this->input->post('new_password');
+    $updateBy = $this->session->userdata('userid');
+
+    $data = array('password'=>$new_password);
+    $this->db->where('userid',$updateBy);
+    $this->db->update('login_user',$data);
+
+
+    $data2 = array('password'=>$new_password);
+    $this->db->where('userid',$updateBy);
+    $this->db->update('agent',$data2);
+
+    //var_dump($updateBy);
+  }
 
 }
  	

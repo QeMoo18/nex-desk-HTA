@@ -60,7 +60,7 @@
                     <div class="col-md-2" style="padding-left: 0px;">
                       <select class="form-control" name="status_find">
                         <option value="">-- Status --</option>      
-                        <option value="Not Yet">Not Yet</option>   
+                        <option value="Pending">Pending</option>   
                         <option value="Performed">Performed</option>   
                         <option value="Verified">Verified</option>   
                         <option value="Endorse">Endorsed</option>   
@@ -446,7 +446,7 @@
              success: function(description){
 
                 if(description==''){
-                    description='Not Yet';
+                    description='Pending';
                 }
                 $("#status_"+sno).html(description);
                 // var description = response;

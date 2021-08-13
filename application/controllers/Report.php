@@ -1597,7 +1597,7 @@ class Report extends CI_Controller
 
     function hospital()
     {
-
+      
       $id_report_hosp = $this->input->post('id_report_hosp');
       $id_title_hosp = $this->input->post('id_title_hosp');
       $start_report_hosp = $this->input->post('start_report_hosp');

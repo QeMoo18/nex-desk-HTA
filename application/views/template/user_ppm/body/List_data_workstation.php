@@ -33,7 +33,19 @@
                         <i class="material-icons">search</i>
                       </button>
                     </div>
+
+                    <div style="float: right">
+                    <select class="form-control" name="paging_by_find" id="paging_by_find" required>
+                        <option value="">-- Paging --</option>
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
                   </div>
+                  </div>
+
+                  
+
             </form>
         </div>
     </div>
@@ -356,7 +368,7 @@
                 //$(this).attr("href", "<?= base_url()?>Form_PPM/Form_PPM_Client_Work" + "/1");
             } else{
                 <?php if(!empty($this->session->userdata('ppm_id'))){ ?>
-                    $(this).attr("href", $(this).attr('href') + "?q=<?= $_GET['q']?>&u=<?= $_GET['u']?>");
+                    $(this).attr("href", $(this).attr('href') + "?q=<?= $_GET['q']?>&u=<?= $_GET['u']?>&p=<?= $_GET['p']?>");
                 <?php } else { ?>
                     /*
                     $(this).attr("href", $(this).attr('href') + "?q=<?= $this->session->userdata('q');?>&u=<?= $this->session->userdata('u');?>");

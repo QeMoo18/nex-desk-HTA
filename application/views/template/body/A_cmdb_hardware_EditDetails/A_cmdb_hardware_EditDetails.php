@@ -42,7 +42,7 @@
 				                </div>
 
 				                <div class="form-group col-md-3">
-				                  <label for="exampleInputEmail1">Network Port</label>
+				                  <label for="exampleInputEmail1">* Network Port</label>
 				                  <input type='text' class='form-control' name='network_port' id='network_port'> 
 				                  <span id="alert_Network_Port"></span> 
 				                </div>
@@ -278,10 +278,10 @@
 		var Hardware_ip = $("#Hardware_ip").val();
 		var network_port = $("#network_port").val();
 		var Firmware_Version = $("#Firmware_Version").val();
+		var Hardware_mac = $("#Hardware_mac").val();
 
 
 		var HW_brand = $("#HW_brand").val();
-		var Hardware_mac = $("#Hardware_mac").val();
 
 		
 
