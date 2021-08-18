@@ -161,7 +161,7 @@
 									<tr>
 										<td style="width: 100%;" class="small">
 											<span>[<?= $cb_3?>]</span>
-											Room Name : <?= $data->location ?></td>
+											Room Name : <?= $data->room_name ?></td>
 									</tr>
 									<tr>
 										<td style="width: 100%;" class="small">
@@ -284,7 +284,7 @@
 									<tr>
 										<td style="width: 100%;" class="small">
 											<span>[<?= $cb_17?>]</span>
-											Device In Tag : <?= $data->tagging_device ?></td>
+											Device In Tag <?= $data->tagging_device ?></td>
 									</tr>
 									<tr>
 										<td style="width: 100%;" class="small">Need Replacement : <?= $data->tagging_replace ?></td>

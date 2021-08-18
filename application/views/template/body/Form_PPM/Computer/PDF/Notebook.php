@@ -54,8 +54,6 @@
 				        	if($cb_6=='1'){$cb_6='/';}else{$cb_6=' ';}
 
 
-
-
 				        	$cb_7 = $datax->cb_7;
 				        	if($cb_7=='1'){$cb_7='/';}else{$cb_7=' ';}
 
@@ -78,10 +76,6 @@
 
 				        	$cb_12 = $datax->cb_12;
 				        	if($cb_12=='1'){$cb_12='/';}else{$cb_12=' ';}
-
-
-
-
 
 
 				        	$cb_13 = $datax->cb_13;
@@ -160,7 +154,7 @@
 									<tr>
 										<td style="width: 100%;" class="small">
 											<span>[<?= $cb_3?>]</span>
-											Room Name : <?= $data->location ?></td>
+											Room Name : <?= $data->room_name ?></td>
 									</tr>
 									<tr>
 										<td style="width: 100%;" class="small">
@@ -238,7 +232,7 @@
 									<tr>
 										<td style="width: 100%;" class="small">
 											<span>[<?= $cb_11?>]</span>
-											Device In Tag : <?= $data->tagging_device ?></td>
+											Device In Tag <?= $data->tagging_device ?></td>
 									</tr>
 									<tr>
 										<td style="width: 100%;" class="small">Need Replacement : <?= $data->tagging_replace ?></td>

@@ -41,35 +41,46 @@
 				        	$cb_1 = $datax->cb_1;
 				        	if($cb_1=='1'){$cb_1='/';}else{$cb_1=' ';}
 
+
 				        	$cb_2 = $datax->cb_2;
 				        	if($cb_2=='1'){$cb_2='/';}else{$cb_2=' ';}
+
 
 				        	$cb_3 = $datax->cb_3;
 				        	if($cb_3=='1'){$cb_3='/';}else{$cb_3=' ';}
 
+
 				        	$cb_4 = $datax->cb_4;
 				        	if($cb_4=='1'){$cb_4='/';}else{$cb_4=' ';}
+
 
 				        	$cb_5 = $datax->cb_5;
 				        	if($cb_5=='1'){$cb_5='/';}else{$cb_5=' ';}
 
+
 				        	$cb_6 = $datax->cb_6;
 				        	if($cb_6=='1'){$cb_6='/';}else{$cb_6=' ';}
+
 
 				        	$cb_7 = $datax->cb_7;
 				        	if($cb_7=='1'){$cb_7='/';}else{$cb_7=' ';}
 
+
 				        	$cb_8 = $datax->cb_8;
 				        	if($cb_8=='1'){$cb_8='/';}else{$cb_8=' ';}
+
 
 				        	$cb_9 = $datax->cb_9;
 				        	if($cb_9=='1'){$cb_9='/';}else{$cb_9=' ';}
 
+
 				        	$cb_10 = $datax->cb_10;
 				        	if($cb_10=='1'){$cb_10='/';}else{$cb_10=' ';}
 
+
 				        	$cb_11 = $datax->cb_11;
 				        	if($cb_11=='1'){$cb_11='/';}else{$cb_11=' ';}
+
 
 				        	$cb_12 = $datax->cb_12;
 				        	if($cb_12=='1'){$cb_12='/';}else{$cb_12=' ';}
@@ -77,7 +88,6 @@
 				        }
 				}
 			?>
-
 
 			<table>
 				<tbody>
@@ -129,13 +139,13 @@
 							<tr>
 							    <td style="width: 50%">
 							    	<span>[<?= $cb_3?>]</span>
-							    	Room Name : <?= $data->location ?>
+							    	Room Name : <?= $data->room_name ?>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
 							    	<span>[<?= $cb_4?>]</span>
-							    	Room ID : <?= $data->model ?>
+							    	Room ID : <?= $data->location ?>
 							    </td>
 							</tr>
 							<br>
@@ -203,7 +213,7 @@
 				    		<tr>
 							    <td style="width: 50%">
 							    	<span>[<?= $cb_11?>]</span>
-							    	Device ID Tag : <?= $data->device_tag ?>
+							    	Device ID Tag <?= $data->device_tag ?>
 							    </td>
 							</tr>
 							<tr>
