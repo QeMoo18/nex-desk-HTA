@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2021 at 09:37 AM
+-- Generation Time: Aug 18, 2021 at 07:18 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `nexticks_ui`
+-- Database: `nex-desk-ui-hta`
 --
 
 -- --------------------------------------------------------
