@@ -29,6 +29,54 @@
 	<div class="content-wrapper">
 		<section class="content">
 
+			<?php 
+				// checklist
+				$getData = "SELECT * FROM ppm_list_checkbox WHERE id_number='".$data->id_number."' ";
+				// var_dump($getData);
+				$queryx= $this->db->query($getData);
+				if ($queryx->num_rows() >0){ 
+				    	//echo $id;
+				        foreach ($queryx->result() as $datax) {
+
+				        	$cb_1 = $datax->cb_1;
+				        	if($cb_1=='1'){$cb_1='/';}else{$cb_1=' ';}
+
+				        	$cb_2 = $datax->cb_2;
+				        	if($cb_2=='1'){$cb_2='/';}else{$cb_2=' ';}
+
+				        	$cb_3 = $datax->cb_3;
+				        	if($cb_3=='1'){$cb_3='/';}else{$cb_3=' ';}
+
+				        	$cb_4 = $datax->cb_4;
+				        	if($cb_4=='1'){$cb_4='/';}else{$cb_4=' ';}
+
+				        	$cb_5 = $datax->cb_5;
+				        	if($cb_5=='1'){$cb_5='/';}else{$cb_5=' ';}
+
+				        	$cb_6 = $datax->cb_6;
+				        	if($cb_6=='1'){$cb_6='/';}else{$cb_6=' ';}
+
+				        	$cb_7 = $datax->cb_7;
+				        	if($cb_7=='1'){$cb_7='/';}else{$cb_7=' ';}
+
+				        	$cb_8 = $datax->cb_8;
+				        	if($cb_8=='1'){$cb_8='/';}else{$cb_8=' ';}
+
+				        	$cb_9 = $datax->cb_9;
+				        	if($cb_9=='1'){$cb_9='/';}else{$cb_9=' ';}
+
+				        	$cb_10 = $datax->cb_10;
+				        	if($cb_10=='1'){$cb_10='/';}else{$cb_10=' ';}
+
+				        	$cb_11 = $datax->cb_11;
+				        	if($cb_11=='1'){$cb_11='/';}else{$cb_11=' ';}
+
+				        	$cb_12 = $datax->cb_12;
+				        	if($cb_12=='1'){$cb_12='/';}else{$cb_12=' ';}
+
+				        }
+				}
+			?>
 
 			<table>
 				<tbody>
@@ -67,22 +115,26 @@
 				    	<table style="width:100%;  padding-top: 30px; padding-bottom: 30px;">
 				    		<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Level : <?= $data->level ?></p>
+							    	<span>[<?= $cb_1?>]</span>
+							    	Level : <?= $data->level ?>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Department : <?= $data->model ?></p>
+							    	<span>[<?= $cb_2?>]</span>
+							    	Department : <?= $data->department ?>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Room Name : <?= $data->location ?></p>
+							    	<span>[<?= $cb_3?>]</span>
+							    	Room Name : <?= $data->location ?>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Room ID : <?= $data->model ?></p>
+							    	<span>[<?= $cb_4?>]</span>
+							    	Room ID : <?= $data->model ?>
 							    </td>
 							</tr>
 							<br>
@@ -95,17 +147,20 @@
 				    	<table style="width:100%; padding-top: 30px; padding-bottom: 30px;">
 				    		<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Brand : <?= $data->brand ?></p>
+							    	<span>[<?= $cb_5?>]</span>
+							    	Brand : <?= $data->brand ?>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Model : <?= $data->model ?></p>
+							    	<span>[<?= $cb_6?>]</span>
+							    	Model : <?= $data->model ?>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Serial No : <?= $data->serial_number ?></p>
+							    	<span>[<?= $cb_7?>]</span>
+							    	Serial No : <?= $data->serial_number ?>
 							    </td>
 							</tr>
 							<br><br>
@@ -120,17 +175,20 @@
 				    	<table style="width:100%;  padding-top: 30px; padding-bottom: 30px;">
 				    		<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Local : <?= $data->local ?></p>
+							    	<span>[<?= $cb_8?>]</span>
+							    	Local : <?= $data->local ?>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Network IP : <?= $data->network_ip ?></p>
+							    	<span>[<?= $cb_9?>]</span>
+							    	Network IP : <?= $data->network_ip ?>
 							    </td>
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Port : <?= $data->port ?></p>
+							    	<span>[<?= $cb_10?>]</span>
+							    	Port : <?= $data->port ?>
 							    </td>
 							</tr>
 							<br><br>
@@ -143,7 +201,8 @@
 				    	<table style="width:100%;  padding-top: 30px; padding-bottom: 30px;">
 				    		<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #000;">&nbsp;&nbsp;&nbsp;[ ] Device ID Tag : <?= $data->device_tag ?></p>
+							    	<span>[<?= $cb_11?>]</span>
+							    	Device ID Tag : <?= $data->device_tag ?>
 							    </td>
 							</tr>
 							<tr>
@@ -168,7 +227,8 @@
 							</tr>
 							<tr>
 							    <td style="width: 50%">
-							    	<p style="font-size: 12px; color: #fff;">&nbsp;&nbsp;&nbsp;PPM Tag : <?= $data->ppm_tag ?> </p>
+							    	<span>[<?= $cb_12?>]</span>
+							    	PPM Tag : <?= $data->ppm_tag ?> </p>
 							    </td>
 							</tr>
 							<br>
@@ -316,7 +376,7 @@
 			  </tr>
 			  <tr>
 			  	<td style="padding-left: 30px;">
-			  		<!-- <p style="font-size: 12px;"><?= $data->comment; ?></p> -->
+			  		<!-- <p style="font-size: 12px;"><?= $data->comment; ?> -->
 			  	</td>
 			  </tr>
 			</table>
@@ -397,7 +457,7 @@
 
 			<?php if($data->status=='Rejected'){ ?>
 			<br>
-			<p style="font-size: 12px;">Reason To Reject : <?= $data->reason_reject ?></p>
+			<p style="font-size: 12px;">Reason To Reject : <?= $data->reason_reject ?>
 			<?Php } ?>
 
 			<h4 style="font-size: 12px; float: right;"><b>NOTE: This PPM Form is computer generated and no signature is required</b></h4>
