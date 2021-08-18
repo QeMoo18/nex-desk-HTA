@@ -21,6 +21,18 @@ class Admin_model extends CI_Model
 	  }
 
 
+	  function check_komen($id_number)
+	  {
+	  		$where = "SELECT COUNT(*) AS TOTAL FROM ppm_comment WHERE id_number='$id_number'";
+			$query = $this->db2->query($where);
+			if ($query->num_rows() >0){ 
+			    foreach ($query->result() as $data) {
+			    	return $data->TOTAL;
+			    }
+			} else {
+				return '0';
+			}
+	  }
 
 	  
 

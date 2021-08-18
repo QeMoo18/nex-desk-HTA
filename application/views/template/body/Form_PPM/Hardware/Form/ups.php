@@ -528,12 +528,12 @@
 
 
 				          					<div class="row">
-									        	<div class="col-md-12">
+									        	<div class="col-md-6">
 									        			<div class="row" style="padding-bottom: 10px;">
-										        			<div class="col-sm-3">
+										        			<div class="col-md-6">
 										        				<label for="exampleInputEmail1">Output Load</label>
 										        			</div>
-										        			<div class="col-sm-3 font_class">
+										        			<div class="col-md-6 font_class">
 										        				<input type="radio" name="ups_1"  value="Yes" checked> Yes</input>
 									          					<input type="radio" name="ups_1" value="No"> No</input>
 									          					<input type="radio" name="ups_1" value="N/A"> N/A</input>
@@ -544,12 +544,12 @@
 										        					<?= yes_or_no() ?>
 										        				</select> -->
 										        			</div>
-
-										        			<div class="col-sm-3">
+										        		</div>
+										        		<div class="row" style="padding-bottom: 10px;">
+										        			<div class="col-md-6">
 										        				<label for="exampleInputEmail1">Battery Capacity</label>
 										        			</div>
-
-										        			<div class="col-sm-3 font_class">
+										        			<div class="col-md-6 font_class">
 										        				<input type="radio" name="ups_2"  value="Yes" checked> Yes</input>
 									          					<input type="radio" name="ups_2" value="No"> No</input>
 									          					<input type="radio" name="ups_2" value="N/A"> N/A</input>
@@ -562,10 +562,10 @@
 										        			</div>
 										        		</div>
 										        		<div class="row" style="padding-bottom: 10px;">
-										        			<div class="col-sm-3">
+										        			<div class="col-md-6">
 										        				<label for="exampleInputEmail1">Battery Temperature</label>
 										        			</div>
-										        			<div class="col-sm-3 font_class">
+										        			<div class="col-md-6 font_class">
 										        				<input type="radio" name="ups_3"  value="Yes" checked> Yes</input>
 									          					<input type="radio" name="ups_3" value="No"> No</input>
 									          					<input type="radio" name="ups_3" value="N/A"> N/A</input>
@@ -576,11 +576,12 @@
 										        					<?= yes_or_no() ?>
 										        				</select> -->
 										        			</div>
-
-										        			<div class="col-sm-3">
+										        		</div>
+										        		<div class="row" style="padding-bottom: 10px;">
+										        			<div class="col-md-6">
 										        				<label for="exampleInputEmail1">Run Time Remaining</label>
 										        			</div>
-										        			<div class="col-sm-3 font_class">
+										        			<div class="col-md-6 font_class">
 										        				<input type="radio" name="ups_4"  value="Yes" checked> Yes</input>
 									          					<input type="radio" name="ups_4" value="No"> No</input>
 									          					<input type="radio" name="ups_4" value="N/A"> N/A</input>
@@ -593,10 +594,10 @@
 										        			</div>
 										        		</div>
 										        		<div class="row" style="padding-bottom: 10px;">
-										        			<div class="col-sm-3">
+										        			<div class="col-md-6">
 										        				<label for="exampleInputEmail1">Replace Battery Indicator</label>
 										        			</div>
-										        			<div class="col-sm-3 font_class">
+										        			<div class="col-md-6 font_class">
 										        				<input type="radio" name="ups_5"  value="Yes" checked> Yes</input>
 									          					<input type="radio" name="ups_5" value="No"> No</input>
 									          					<input type="radio" name="ups_5" value="N/A"> N/A</input>
@@ -606,36 +607,6 @@
 										        				</select> -->
 										        			</div>
 										        		</div>
-										        		<!-- <div class="row" style="padding-bottom: 10px;">
-										        			<div class="col-md-6">
-										        				<label for="exampleInputEmail1">Run Time Remaining</label>
-										        			</div> -->
-										        			<!-- <div class="col-md-6 font_class">
-										        				<input type="radio" name="ups_4"  value="Yes" checked> Yes</input>
-									          					<input type="radio" name="ups_4" value="No"> No</input>
-									          					<input type="radio" name="ups_4" value="N/A"> N/A</input>
-
-									          					<input type="text" name="data_rt" class="form-control"> -->
-										        				<!-- <select class="form-control" name="ups_4">
-										        					<option value="">-- Select Type -- </option>
-										        					<?= yes_or_no() ?>
-										        				</select>
-										        			</div> -->
-										        		<!-- </div> -->
-										        		<!-- <div class="row" style="padding-bottom: 10px;"> -->
-										        			<!-- <div class="col-md-6">
-										        				<label for="exampleInputEmail1">Replace Battery Indicator</label>
-										        			</div> -->
-										        			<!-- <div class="col-md-6 font_class"> -->
-										        				<!-- <input type="radio" name="ups_5"  value="Yes" checked> Yes</input>
-									          					<input type="radio" name="ups_5" value="No"> No</input>
-									          					<input type="radio" name="ups_5" value="N/A"> N/A</input -->>
-										        				<!-- <select class="form-control" name="ups_5"> -->
-										        					<!-- <option value="">-- Select Type -- </option>
-										        					<?= yes_or_no() ?>
-										        				</select> -->
-										        			<!-- </div> -->
-										        		<!-- </div> -->
 										        		
 										        </div>
 										    </div>

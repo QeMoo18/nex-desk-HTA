@@ -1099,7 +1099,10 @@
 
 
 	                	//$("#comment").val(response.comment);
-	  					$("#id").val(response.id_number);
+	                	if(response.id_number!=''){
+	                		//$("#id").val(response.id_number);	
+	                	}
+	  					
 
 
 	  					if((response.status=='Rejected')||(response.status=='Done')){
@@ -1474,8 +1477,10 @@
 		                   
 		                },
 		                success: function(response){
+		                	//alert(response);
 		                	if(response)
 		                	{
+		                		$("input[name='id']").val(response);
 		                		$("#get_from_id").val(response);
 		                		detail();
 								// $('#form_data').attr('action', '<?= base_url()?>Form_PPM/Update_Computer');

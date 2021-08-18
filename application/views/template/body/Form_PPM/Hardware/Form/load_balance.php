@@ -528,67 +528,36 @@
 
 
 				          					<div class="row">
-				          					 <div class="col-md-20">
-				          					  <div class="row" style="padding-bottom: 10px;">
-				          					  	
-				          					  	<div class="col-sm-3">
-				          					  	 <label for="exampleInputEmail1">Check system logs</label>
-										        </div>
-										        <div class="col-sm-3 font_class">
-										         <input type="radio" name="load_balance_1"  value="Yes" checked> Yes</input>
-									          	 <input type="radio" name="load_balance_1" value="No"> No</input>
-									          	 <input type="radio" name="load_balance_1" value="N/A"> N/A</input>
-										         <!-- <select class="form-control" name="load_balance_1"> -->
-										         <!-- <option value="">-- Select Type -- </option> -->
-										         <!-- <?= yes_or_no() ?> -->
-										         <!-- </select> -->
-										        </div>
-
-										        			
-										        <div class="col-sm-3">
-										         <label for="exampleInputEmail1">Hard Disk Usage</label>
-										        </div>
-										        <div class="col-sm-3 font_class">
-										         <input type="radio" name="load_balance_2"  value="Yes" checked> Yes</input>
-									          	 <input type="radio" name="load_balance_2" value="No"> No</input>
-									          	 <input type="radio" name="load_balance_2" value="N/A"> N/A</input>
-									          	 <input type="text" name="hard_disk_usage" placeholder="" class="form-control">
-										         <!-- <select class="form-control" name="load_balance_2"> -->
-										         <!-- <option value="">-- Select Type -- </option> -->
-										         <!-- <?= yes_or_no() ?> -->
-										         <!-- </select> -->
-										        </div>
-
-
-										        <div class="col-sm-3">
-										         <label for="exampleInputEmail1">Check System Memory</label>
-										        </div>
-										        <div class="col-sm-3 font_class">
-										         <input type="radio" name="load_balance_3"  value="Yes" checked> Yes</input>
-									          	 <input type="radio" name="load_balance_3" value="No"> No</input>
-									          	 <input type="radio" name="load_balance_3" value="N/A"> N/A</input>
-										         <!-- <select class="form-control" name="load_balance_3"> -->
-										         <!-- <option value="">-- Select Type -- </option> -->
-										         <!-- <?= yes_or_no() ?> -->
-										         <!-- </select> -->
-										        </div>
-										       
-										        		<!-- <div class="row" style="padding-bottom: 10px;"> -->
-										        			<!-- <div class="col-md-6"> -->
-										        				<!-- <label for="exampleInputEmail1">Hard Disk Usage</label> -->
-										        			<!-- </div> -->
-										        			<!-- <div class="col-md-6 font_class"> -->
-										        				<!-- <input type="radio" name="load_balance_2"  value="Yes" checked> Yes</input>
+									        	<div class="col-md-6">
+									        			<div class="row" style="padding-bottom: 10px;">
+										        			<div class="col-md-6">
+										        				<label for="exampleInputEmail1">Check system logs</label>
+										        			</div>
+										        			<div class="col-md-6 font_class">
+										        				<input type="radio" name="load_balance_1"  value="Yes" checked> Yes</input>
+									          					<input type="radio" name="load_balance_1" value="No"> No</input>
+									          					<input type="radio" name="load_balance_1" value="N/A"> N/A</input>
+										        				<!-- <select class="form-control" name="load_balance_1">
+										        					<option value="">-- Select Type -- </option>
+										        					<?= yes_or_no() ?>
+										        				</select> -->
+										        			</div>
+										        		</div>
+										        		<div class="row" style="padding-bottom: 10px;">
+										        			<div class="col-md-6">
+										        				<label for="exampleInputEmail1">Hard Disk Usage</label>
+										        			</div>
+										        			<div class="col-md-6 font_class">
+										        				<input type="radio" name="load_balance_2"  value="Yes" checked> Yes</input>
 									          					<input type="radio" name="load_balance_2" value="No"> No</input>
 									          					<input type="radio" name="load_balance_2" value="N/A"> N/A</input>
-									          					<input type="text" name="hard_disk_usage" placeholder="" class="form-control"> -->
-										        				<!-- <select class="form-control" name="load_balance_2"> -->
-										        					<!-- <option value="">-- Select Type -- </option> -->
-										        					<!-- <?= yes_or_no() ?> -->
-										        				<!-- </select> --> -->
-										        			<!-- </div> -->
-
-										        		<!-- </div>
+									          					<input type="text" name="hard_disk_usage" placeholder="" class="form-control">
+										        				<!-- <select class="form-control" name="load_balance_2">
+										        					<option value="">-- Select Type -- </option>
+										        					<?= yes_or_no() ?>
+										        				</select> -->
+										        			</div>
+										        		</div>
 										        		<div class="row" style="padding-bottom: 10px;">
 										        			<div class="col-md-6">
 										        				<label for="exampleInputEmail1">Check System Memory</label>
@@ -596,15 +565,19 @@
 										        			<div class="col-md-6 font_class">
 										        				<input type="radio" name="load_balance_3"  value="Yes" checked> Yes</input>
 									          					<input type="radio" name="load_balance_3" value="No"> No</input>
-									          					<input type="radio" name="load_balance_3" value="N/A"> N/A</input> -->
-										        				<!-- <select class="form-control" name="load_balance_3"> -->
-										        					<!-- <option value="">-- Select Type -- </option> -->
-										        					<!-- <?= yes_or_no() ?> -->
-										        				<!-- </select> -->
-										        		<!-- </div> -->
-										        		<!-- </div> -->
+									          					<input type="radio" name="load_balance_3" value="N/A"> N/A</input>
+										        				<!-- <select class="form-control" name="load_balance_3">
+										        					<option value="">-- Select Type -- </option>
+										        					<?= yes_or_no() ?>
+										        				</select> -->
+										        			</div>
+										        		</div>
+										        		
+										        		
 										        </div>
 										    </div>
+
+				          			</div>
 
 				          			<div class="col-md-1"> </div>
 

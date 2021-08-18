@@ -1780,8 +1780,8 @@
 		$("[name=security_11]").prop('disabled',true); 
 		$("[name=security_12]").prop('disabled',true); 
 
-		$("[name=cpu_speed]").prop('disabled',true); 
-		$("[name=cpu_core]").prop('disabled',true);
+		$("[name=cpu_speed]").prop('disabled',true);
+		$("[name=cpu_core]").prop('disabled',true); 
 		$("[name=capacity]").prop('disabled',true); 
 		$("[name=sn_kvm]").prop('disabled',true); 
 		$("[name=sn_tape]").prop('disabled',true); 

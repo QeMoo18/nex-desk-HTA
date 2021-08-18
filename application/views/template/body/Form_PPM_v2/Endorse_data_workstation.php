@@ -178,7 +178,7 @@
                     },
                     success: function(response){
                         alert("PPM Form already send");
-                        location.reload();
+                        //location.reload();
                     }
             });
         } 

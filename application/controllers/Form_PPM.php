@@ -360,6 +360,7 @@ class Form_PPM extends CI_Controller
       $idModule = $this->session->userdata('idModule');
       if((!empty($this->session->userdata('logged_in'))) && (!empty($idModule)))
       { 
+          //exit();
           $this->data['site_title'] = 'Add_Agent';
           $this->load->view('template/header/header');
           $this->load->view('template/body/Form_PPM/Computer/Form/Computer',$this->data);
@@ -725,9 +726,9 @@ class Form_PPM extends CI_Controller
   {
     
     $id_number = $this->input->post('id');
-    // $id_number = hex2bin($id_number);
-    //var_dump($id_number);
-    //exit();
+    //$id_number = hex2bin($id_number);
+    // var_dump($id_number);
+    // exit();
     $get_agent = $this->get_agent($id_number);
 
     
@@ -1011,12 +1012,32 @@ class Form_PPM extends CI_Controller
 
       $this->db->update('ppm_computer_checklist',$data3);
 
+
+
       $this->db->where("id_number",$id_number);
-      $data4 = array(
+      $check_komen = $this->Admin->check_komen($id_number);
+
+      if($check_komen>0){
+        $data4 = array(
                       "comment"=>$comment
                     );
 
-      $this->db->update('ppm_comment',$data4);
+
+        //var_dump($id_number); exit();
+
+        $this->db->update('ppm_comment',$data4);
+      } else {
+        $data4 = array(
+                      "comment"=>$comment,
+                      "id_number"=>$id_number
+                    );
+
+
+        //var_dump($id_number); exit();
+
+        $this->db->insert('ppm_comment',$data4);
+      }
+      
 
 
 
@@ -7761,6 +7782,8 @@ class Form_PPM extends CI_Controller
       case 'PR':
         $data['data'] = $this->Admin->detail_printer($id);
         $data['comment_user'] = $this->Admin->comment_user($id);
+
+        //var_dump($data);exit();
         $html=$this->load->view('template/body/Form_PPM/Hardware/PDF/Printer/Printer', $data, true);
         $title = 'printer_';
         break;
@@ -8921,7 +8944,8 @@ class Form_PPM extends CI_Controller
       $email = $data->email;
     }
 
-    //var_dump($user_find); exit();
+    //$email ='hafizmooqe92@gmail.com';
+    //var_dump($email); exit();
 
 
     //$email = 'mediummyofficial@gmail.com';
@@ -9505,7 +9529,7 @@ class Form_PPM extends CI_Controller
         // update to Verify & send
         
         // unrun temprorary
-        $data_status = array('status_ppm'=>'Endorse & Send');
+        $data_status = array('status_ppm'=>'Endorsed & Send');
         $this->db->where('id_number',$id_number);
         $this->db->where('status_ppm','Endorse');
         $this->db->update('ppm_register',$data_status);
@@ -9612,7 +9636,7 @@ class Form_PPM extends CI_Controller
 
 
         // update to Verify & send
-        // $data_status = array('status_ppm'=>'Endorse & Send');
+        // $data_status = array('status_ppm'=>'Endorsed & Send');
         // $this->db->where('id_number',$id_number);
         // $this->db->where('status_ppm','Endorse');
         // $this->db->update('ppm_register',$data_status);
