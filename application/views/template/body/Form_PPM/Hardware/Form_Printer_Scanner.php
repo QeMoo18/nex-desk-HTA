@@ -1516,5 +1516,4 @@ function list_checkbox(id_number)
 	          $(this).removeAttr('checked');
 	     }
 	});
-
 </script>

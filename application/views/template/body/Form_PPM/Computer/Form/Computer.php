@@ -1725,7 +1725,6 @@
 	     }
 	});
 
-
 	$('#cb_4').change(function(){
 	     if(this.checked){
 	          $(this).val('1');
@@ -1735,11 +1734,6 @@
 	          $(this).removeAttr('checked');
 	     }
 	});
-
-
-
-
-
 
 	$('#cb_5').change(function(){
 	     if(this.checked){
@@ -1782,9 +1776,6 @@
 	     }
 	});
 
-
-
-
 	$('#cb_9').change(function(){
 	     if(this.checked){
 	          $(this).val('1');
@@ -1826,8 +1817,6 @@
 	     }
 	});
 
-
-
 	$('#cb_13').change(function(){
 	     if(this.checked){
 	          $(this).val('1');
@@ -1858,7 +1847,6 @@
 	     }
 	});
 
-
 	$('#cb_16').change(function(){
 	     if(this.checked){
 	          $(this).val('1');
@@ -1869,9 +1857,6 @@
 	     }
 	});
 
-
-
-
 	$('#cb_17').change(function(){
 	     if(this.checked){
 	          $(this).val('1');
@@ -1881,7 +1866,6 @@
 	          $(this).removeAttr('checked');
 	     }
 	});
-
 
 	$('#cb_18').change(function(){
 	     if(this.checked){

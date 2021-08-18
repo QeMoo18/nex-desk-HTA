@@ -115,7 +115,7 @@
 											              <input type='text' class='form-control' name='level' id='level'>
 											            </div>
 											            <div class="form-group col-md-12">
-											              <label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_" id="cb_2"> Department</label>
+											              <label for="exampleInputEmail1"><input type="checkbox" value="" name="cb_2" id="cb_2"> Department</label>
 											              <input type='text' class='form-control' name='department' id='department'>
 											            </div>
 											            <div class="form-group col-md-12">
