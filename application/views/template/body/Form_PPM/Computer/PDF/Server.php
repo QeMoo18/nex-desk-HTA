@@ -180,50 +180,46 @@
 			    
 			    	<p style="font-size: 12px;">MAC Address : <?= $data->mac_address ?></p>
 			    
-
-
 			    </td>
 			  </tr>
 			</table>
 
-
-
 			<br>
 			<table style="width:100%">
 			  <tr>
-			    <th style="width: 45%; background: #000; padding-left: 30px;">
+			    <th style="width: 48%; background: #000;">
 			    	<p style="color: white; font-size: 13px;">A. PHYSICAL CHECK</p>
 			    </th>
-			    <th style="width: 10%">
+
+			    <th style="width: 4%">
 			    	
 			    </th>
-			    <th style="width: 45%; background: #000; padding-left: 30px;">
+			    <th style="width: 48%; background: #000;">
 			    	<p style="color: white; font-size: 13px;">B.SETTING & CONFIGURATION</p>
 			    </th>
 			  </tr>
+
 			  <tr>
 			  	<td>
 			  		<table style="width:100%">
 					  <tr>
 					  	<td style="width: 5%" class="">
 					    	<span class="font_12">
-					    		<br>
 					    		1.
 					    	</span>
 					    </td>
 					    <td style="width: 85%">
 					    	<span class="font_12">
-					    		<br>
 					    		Check connection (Data cable and power connection)
 					    	</span>
 					    </td>
 					    <td style="width: 10%" class="">
 					    	<span class="font_12">
-					    		<br>
 					    		<?= $data->physical_1 ?>
 					    	</span>
 					    </td>
 					  </tr>
+
 					  <tr>
 					  	<td style="width: 5%" class="">
 					    	<span class="font_12">
@@ -232,7 +228,6 @@
 					    </td>
 					    <td style="width: 85%">
 					    	<span class="font_12">
-					    		<br>
 					    		Check the power sources(Plugged into protected outlets)
 					    	</span>
 					    </td>
@@ -242,6 +237,7 @@
 					    	</span>
 					    </td>
 					  </tr>
+
 					  <tr>
 					  	<td style="width: 5%" class="">
 					    	<span class="font_12">
@@ -250,7 +246,6 @@
 					    </td>
 					    <td style="width: 85%">
 					    	<span class="font_12">
-					    		<br>
 					    		Check the fan (CPU's cooling fan is working & the airflow isn't impede by dust)
 					    	</span>
 					    </td>
@@ -261,17 +256,14 @@
 					    </td>
 					  </tr>
 
-
 					  <tr>
 					  	<td style="width: 5%" class="">
 					    	<span class="font_12">
-					    		<br>
 					    		4.
 					    	</span>
 					    </td>
 					    <td style="width: 85%">
 					    	<span class="font_12">
-					    		<br>
 					    		Check LED signal function
 					    	</span>
 					    </td>
@@ -283,14 +275,13 @@
 					  </tr>
 
 					  <tr>
-					  	<td style="width: 5%" class="">
+					  	<td style="width: 20%" class="">
 					    	<span class="font_12">
 					    		
 					    	</span>
 					    </td>
-					    <td style="width: 85%">
+					    <td style="width: 70%">
 					    	<span class="font_12">
-					    		<br>
 					    		a. <i class="font_10">(Make sure LED signal for Hard Disk is functioning</i>
 					    	</span>
 					    </td>
@@ -300,15 +291,15 @@
 					    	</span>
 					    </td>
 					  </tr>
+
 					  <tr>
-					  	<td style="width: 5%" class="">
+					  	<td style="width: 20%" class="">
 					    	<span class="font_12">
 					    		
 					    	</span>
 					    </td>
-					    <td style="width: 85%">
+					    <td style="width: 70%">
 					    	<span class="font_12">
-					    		<br>
 					    		b. <i class="font_10">Make sure LED signal for Monitor is functioning</i>
 					    	</span>
 					    </td>
@@ -318,15 +309,15 @@
 					    	</span>
 					    </td>
 					  </tr>
+
 					  <tr>
-					  	<td style="width: 5%" class="">
+					  	<td style="width: 20%" class="">
 					    	<span class="font_12">
 					    		
 					    	</span>
 					    </td>
-					    <td style="width: 85%">
+					    <td style="width: 70%">
 					    	<span class="font_12">
-					    		<br>
 					    		c. <i class="font_10">Make sure LED signal for Network is functioning</i>
 					    	</span>
 					    </td>
@@ -337,10 +328,10 @@
 					    </td>
 					  </tr>
 
-
 					  <tr>
 					  	<td style="width: 5%" class="">
 					    	<span class="font_12">
+					    		<br>
 					    		5.
 					    	</span>
 					    </td>
@@ -352,11 +343,11 @@
 					    </td>
 					    <td style="width: 10%" class="">
 					    	<span class="font_12">
+					    		<br>
 					    		<?= $data->physical_7 ?>
 					    	</span>
 					    </td>
 					  </tr>
-
 
 					  <tr>
 					  	<td style="width: 5%" class="">
@@ -366,7 +357,6 @@
 					    </td>
 					    <td style="width: 85%">
 					    	<span class="font_12">
-					    		<br>
 					    		Update and verify inventory (Check and verify serial number)
 					    	</span>
 					    </td>
@@ -377,25 +367,20 @@
 					    </td>
 					  </tr>
 
-
-
 					  <tr>
 					  	<td style="width: 5%" class="">
 					    	<span class="font_12">
-					    		<br>
 					    		7.
 					    	</span>
 					    </td>
 					    <td style="width: 85%">
 					    	<span class="font_12">
-					    		<br>
 					    		Check and verify CPU (CPU speed : <u style="padding-left: 10px; padding-right: 10px;"><?= $data->cpu_speed ?></u> GHz)
 					    		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(CPU Core : <u style="padding-left: 10px; padding-right: 10px;"><?= $data->cpu_core?></u>)
 					    	</span>
 					    </td>
 					    <td style="width: 10%" class="">
 					    	<span class="font_12">
-					    		<br>
 					    		<?= $data->physical_9 ?>
 					    	</span>
 					    </td>
