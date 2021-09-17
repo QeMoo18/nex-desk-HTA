@@ -113,7 +113,7 @@
 								          			<div class="row">
 											            <div class="form-group col-md-12">
 											              <label for="exampleInputEmail1">Device Serial Number</label>
-											              <input type="text" class="form-control" name="cpu_serial_number" id="cpu_serial_number">
+											              <input type="text" class="form-control" name="serial_number" id="serial_number">
 											            </div>
 											            <div class="form-group col-md-12">
 											              <label for="exampleInputEmail1">Operating System (OS)</label>
@@ -1300,8 +1300,8 @@
 
                 	$('#brand').val(response.CPU);
                 	//alert(response.cpu_model);
-                	$('#model').val(response.cpu_model);
-                	$('#serial_number').val(response.cpu_serial_no);
+                	$('#model').val(response.model);
+                	$('#serial_number').val(response.serial_number);
 
                 	var location = response.location;
                 	$("#location").val(location);
@@ -1414,7 +1414,7 @@
 	                	//$("#brand").val(response.brand);
 	                	$("#department").val(response.department);
 	                	$("#level").val(response.cpu_level);
-	                	$("#cpu_serial_number").val(response.cpu_serial_number);
+	                	$("#serial_number").val(response.serial_number);
 
 	                	//alert(response.os);
 	                	$("#os").val(response.os);
@@ -1645,7 +1645,7 @@
 	  					}
 
 
-	  					$("#model").val(response.cpu_model);
+	  					$("#model").val(response.model);
 	  					$("#manufacturer").val(response.manufacturer);
 
 

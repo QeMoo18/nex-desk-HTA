@@ -95,14 +95,17 @@
 
 						<div class="form-group col-md-3 col-xs-12">
 		                  <label for="exampleInputEmail1">* ITSM Category</label>
-		                  <input type='text' class='form-control' name='tp_itsm' id='tp_itsm' required="required">
+		                  <input type='text' class='form-control' name='tp_itsm' id='tp_itsm'>
 		                  <span id="alert_tp_itsm"></span> 
 		                </div>
 
 
 		                <div class="form-group col-md-3 col-xs-12" id="location_div">
 		                  <label for="exampleInputEmail1">Location</label>
-		                  <input type='text' class='form-control' name='tp_loc' id='tp_loc'> 
+		                  <select type='text' class='form-control' name='tp_loc' id='tp_loc'>
+		                  	<option value="">-Select-</option>
+		                  	<?= getAllLoc() ?>
+		                  </select>
 		                </div>
 
 		                <div class="form-group col-md-3 col-xs-12" id="email_div">

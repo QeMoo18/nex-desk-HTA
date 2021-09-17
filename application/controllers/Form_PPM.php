@@ -1887,7 +1887,7 @@ class Form_PPM extends CI_Controller
     $processor_type = $this->input->post('processor_type');
     $model = $this->input->post('model');
     $ram = $this->input->post('ram');
-    $serial_number = $this->input->post('cpu_serial_number');
+    $serial_number = $this->input->post('serial_number');
     $monitor_brand = $this->input->post('monitor_brand');
     $monitor_model = $this->input->post('monitor_model');
     $monitor_serial_number = $this->input->post('monitor_serial_number');
@@ -2118,8 +2118,8 @@ class Form_PPM extends CI_Controller
 
     // update asset 
     $data_update = array(
-                          "cpu_serial_no"=>$serial_number,
-                          "cpu_model"=>$model,
+                          "serial_number"=>$serial_number,
+                          "model"=>$model,
                           "operating_system"=>$os,
                           "ip"=>$ip,
                           "location"=>$location,
@@ -2136,6 +2136,8 @@ class Form_PPM extends CI_Controller
                     "location"=>$location,
                     "brand"=>$brand,
                     "department"=>$department,
+                    "model"=>$model,
+                    "serial_number"=>$serial_number,
                     "cpu_brand"=>$brand,
                     "cpu_level"=>$level,
                     "cpu_serial_number"=>$serial_number,
@@ -2319,7 +2321,7 @@ class Form_PPM extends CI_Controller
     $processor_type = $this->input->post('processor_type');
     $model = $this->input->post('model');
     $ram = $this->input->post('ram');
-    $serial_number = $this->input->post('cpu_serial_number');
+    $serial_number = $this->input->post('serial_number');
     $monitor_brand = $this->input->post('monitor_brand');
     $monitor_model = $this->input->post('monitor_model');
     $monitor_serial_number = $this->input->post('monitor_serial_number');
@@ -2667,8 +2669,8 @@ class Form_PPM extends CI_Controller
 
       // update asset 
       $data_update = array(
-                            "cpu_serial_no"=>$serial_number,
-                            "cpu_model"=>$model,
+                            "serial_number"=>$serial_number,
+                            "model"=>$model,
                             "operating_system"=>$os,
                             "ip"=>$ip,
                             "location"=>$location,
@@ -2692,9 +2694,11 @@ class Form_PPM extends CI_Controller
                         "location"=>$location,
                         "brand"=>$brand,
                         "department"=>$department,
+                        "model"=>$model,
+                        "serial_number"=>$serial_number,
                         "cpu_brand"=>$brand,
                         "cpu_level"=>$level,
-                        "cpu_serial_number"=>$serial_number,
+                        "cpu_serial_number"=>$cpu_serial_number,
                         "cpu_processor_type"=>$processor_type,
                         "cpu_ram"=>$ram,
                         "cpu_model"=>$model,
