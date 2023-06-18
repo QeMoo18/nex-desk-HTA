@@ -1887,7 +1887,7 @@ class Form_PPM extends CI_Controller
     $processor_type = $this->input->post('processor_type');
     $model = $this->input->post('model');
     $ram = $this->input->post('ram');
-    $serial_number = $this->input->post('cpu_serial_number');
+    $serial_number = $this->input->post('serial_number');
     $monitor_brand = $this->input->post('monitor_brand');
     $monitor_model = $this->input->post('monitor_model');
     $monitor_serial_number = $this->input->post('monitor_serial_number');
@@ -2118,8 +2118,8 @@ class Form_PPM extends CI_Controller
 
     // update asset 
     $data_update = array(
-                          "cpu_serial_no"=>$serial_number,
-                          "cpu_model"=>$model,
+                          "serial_number"=>$serial_number,
+                          "model"=>$model,
                           "operating_system"=>$os,
                           "ip"=>$ip,
                           "location"=>$location,
@@ -2138,10 +2138,10 @@ class Form_PPM extends CI_Controller
                     "department"=>$department,
                     "cpu_brand"=>$brand,
                     "cpu_level"=>$level,
-                    "cpu_serial_number"=>$serial_number,
+                    "serial_number"=>$serial_number,
                     "cpu_processor_type"=>$processor_type,
                     "cpu_ram"=>$ram,
-                    "cpu_model"=>$model,
+                    "model"=>$model,
                     "monitor_brand"=>$monitor_brand,
                     "monitor_model"=>$monitor_model,
                     "monitor_serial_number"=>$monitor_serial_number,
@@ -2319,7 +2319,7 @@ class Form_PPM extends CI_Controller
     $processor_type = $this->input->post('processor_type');
     $model = $this->input->post('model');
     $ram = $this->input->post('ram');
-    $serial_number = $this->input->post('cpu_serial_number');
+    $serial_number = $this->input->post('serial_number');
     $monitor_brand = $this->input->post('monitor_brand');
     $monitor_model = $this->input->post('monitor_model');
     $monitor_serial_number = $this->input->post('monitor_serial_number');
@@ -2667,8 +2667,8 @@ class Form_PPM extends CI_Controller
 
       // update asset 
       $data_update = array(
-                            "cpu_serial_no"=>$serial_number,
-                            "cpu_model"=>$model,
+                            "serial_number"=>$serial_number,
+                            "model"=>$model,
                             "operating_system"=>$os,
                             "ip"=>$ip,
                             "location"=>$location,
@@ -2694,10 +2694,10 @@ class Form_PPM extends CI_Controller
                         "department"=>$department,
                         "cpu_brand"=>$brand,
                         "cpu_level"=>$level,
-                        "cpu_serial_number"=>$serial_number,
+                        "serial_number"=>$serial_number,
                         "cpu_processor_type"=>$processor_type,
                         "cpu_ram"=>$ram,
-                        "cpu_model"=>$model,
+                        "model"=>$model,
                         "monitor_brand"=>$monitor_brand,
                         "monitor_model"=>$monitor_model,
                         "monitor_serial_number"=>$monitor_serial_number,
@@ -7421,6 +7421,516 @@ class Form_PPM extends CI_Controller
 
   }
 
+    function Add_Card_Reader()
+  {
+    $ppm_id = $this->input->post('ppm_id');
+
+    $type_ppm = $this->input->post('type_ppm');
+    $type_device = $this->input->post('type_device');
+    //$responsible = $this->input->post('responsible');
+    
+    $responsible = $this->session->userdata('first_name');
+
+    $ppm_type = $this->input->post('ppm_type');
+
+    $hostname = $this->input->post('hostname');
+    $location = $this->input->post('location');
+    $level = $this->input->post('level');
+    $department = $this->input->post('department');
+    $model = $this->input->post('model');
+    $serial_number = $this->input->post('serial_number');
+    $brand = $this->input->post('brand');
+    $local = $this->input->post('local');
+    $ip = $this->input->post('ip');
+    $port = $this->input->post('port');
+    $device_tag = $this->input->post('device_tag');
+    $need_replacement = $this->input->post('need_replacement');
+    $date_replaced = $this->input->post('date_replaced');
+    $ppm_tag = $this->input->post('ppm_tag');
+
+    $checklist_1 = $this->input->post('checklist_1');
+    $checklist_2 = $this->input->post('checklist_2');
+    $checklist_3 = $this->input->post('checklist_3');
+    $checklist_4 = $this->input->post('checklist_4');
+    $checklist_5 = $this->input->post('checklist_5');
+    $checklist_6 = $this->input->post('checklist_6');
+
+    $comment = $this->input->post('comment');
+
+    $customer = $this->input->post('acknowledge');
+    $acknowledge = $this->input->post('acknowledge');
+
+    $id_number = rand();
+    $id_number = $this->check_id_number($id_number);
+
+    //default data 
+    $updateBy = $this->session->userdata('userid'); // id yang login system
+    date_default_timezone_set("Asia/Kuala_Lumpur");
+    $timeReg =date("H:i:s");
+    $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    $datetime = $dateReg.' '.$timeReg; //current date 
+
+    //generated_code 
+    $code = 'CR';
+    $number  = '1';
+    $ref = str_pad($number,6,"0",STR_PAD_LEFT); // 0001
+
+    $check = $this->Admin->check_id_ppm($code);
+
+    if(!empty($check)){
+      $number = intval($check) + 1;
+      $ref = str_pad($number,6,"0",STR_PAD_LEFT); // 0001
+    }
+
+
+    $id_reference = $ref;
+
+    $endorse = $this->input->post('endorse');
+
+    // if($endorse!=''){
+    //   $status='Endorse';
+    // } else {
+    //   if($customer!=''){
+    //     $status='Need Verify';
+    //   } else {
+    //     $status='Ordered';
+    //   }
+    // }
+
+    if($endorse!=''){
+      $status='Endorse';
+    } else {
+      $status='Ordered';
+    }
+
+
+    $room_name = $this->input->post('room_name');
+
+    $year = $this->input->post('year');
+    if(empty($year)){$year=date("Y");}
+
+
+    $ppm_id = $this->input->post('ppm_id');
+
+
+    $perform_date = $this->input->post('perform_date');
+
+    // $data = array(
+    //                 "hostname"=>$hostname,
+    //                 "location"=>$location,
+    //                 "year"=> $year,
+    //                 "ppm_type"=>$type_ppm,
+    //                 "ppm_device"=>$type_device,
+    //                 "responsible"=>$responsible,
+    //                 "id_number"=>$id_number,
+    //                 "acknowledge"=>$customer,
+    //                 "created_date"=>$datetime,
+    //                 "status"=>$status,
+    //                 "id_reference"=>$id_reference,
+    //                 "code_reference"=>$code,
+    //                 "endorse"=>$endorse
+    //              );
+    $data = array(
+                    "hostname"=>$hostname,
+                    "location"=>$location,
+                    "year"=> $year,
+                    "ppm_type"=>$type_ppm,
+                    "ppm_device"=>$type_device,
+                    "responsible"=>$responsible,
+                    "id_number"=>$id_number,
+                    "acknowledge"=>$acknowledge,
+                    "created_date"=>$datetime,
+                    "status"=>$status,
+                    "id_reference"=>$id_reference,
+                    "code_reference"=>$code,
+                    "endorse"=>$endorse,
+                    "type_ppm_activity"=>$ppm_id,
+                    'status_ppm'=>'Performed',
+                    'perform_date'=>$perform_date
+                 );
+
+    $this->db->insert('ppm_register',$data);
+
+/* CHECK BOX */
+    $cb_1 = $this->input->post('cb_1'); if(empty($cb_1)){$cb_1='';}
+    $cb_2 = $this->input->post('cb_2'); if(empty($cb_2)){$cb_2='';}
+    $cb_3 = $this->input->post('cb_3'); if(empty($cb_3)){$cb_3='';}
+    $cb_4 = $this->input->post('cb_4'); if(empty($cb_4)){$cb_4='';}
+    $cb_5 = $this->input->post('cb_5'); if(empty($cb_5)){$cb_5='';}
+    $cb_6 = $this->input->post('cb_6'); if(empty($cb_6)){$cb_6='';}
+    $cb_7 = $this->input->post('cb_7'); if(empty($cb_7)){$cb_7='';}
+    $cb_8 = $this->input->post('cb_8'); if(empty($cb_8)){$cb_8='';}
+    $cb_9 = $this->input->post('cb_9'); if(empty($cb_9)){$cb_9='';}
+    $cb_10 = $this->input->post('cb_10'); if(empty($cb_10)){$cb_10='';}
+    $cb_11 = $this->input->post('cb_11'); if(empty($cb_11)){$cb_11='';}
+    $cb_12 = $this->input->post('cb_12'); if(empty($cb_12)){$cb_12='';}
+
+
+    // ppm_computer_device
+    $ppm_list_checkbox = array(
+                    "id_number"=>$id_number,
+                    "cb_1"=>$cb_1,
+                    "cb_2"=>$cb_2,
+                    "cb_3"=>$cb_3,
+                    "cb_4"=>$cb_4,
+                    "cb_5"=>$cb_5,
+                    "cb_6"=>$cb_6,
+                    "cb_7"=>$cb_7,
+                    "cb_8"=>$cb_8,
+                    "cb_9"=>$cb_9,
+                    "cb_10"=>$cb_10,
+                    "cb_11"=>$cb_11,
+                    "cb_12"=>$cb_12
+                 );
+
+    $this->db->insert('ppm_list_checkbox',$ppm_list_checkbox);
+    /* CHECK BOX */
+
+
+    //ppm_hardware_device
+    $data2 = array(
+                    "id_number"=>$id_number,
+                    "ppm_type"=>$ppm_type,
+                    "location"=>$location,
+                    "level"=>$level,
+                    "department"=>$department,
+                    "model"=>$model,
+                    "serial_number"=>$serial_number,
+                    "brand"=>$brand,
+                    "local"=>$local,
+                    "network_ip"=>$ip,
+                    "port"=>$port,
+                    "device_tag"=>$device_tag,
+                    "need_replacement"=>$need_replacement,
+                    "date_replacement"=>$date_replaced,
+                    "ppm_tag"=>$ppm_tag,
+                    "room_name"=>$room_name
+                  );
+
+    $this->db->insert('ppm_printer_device',$data2);
+
+
+
+    $data3 = array(
+                    "id_number"=>$id_number,
+                    "checklist_1"=>$checklist_1,
+                    "checklist_2"=>$checklist_2,
+                    "checklist_3"=>$checklist_3,
+                    "checklist_4"=>$checklist_4,
+                    "checklist_5"=>$checklist_5,
+                    "checklist_6"=>$checklist_6,
+                  );
+
+    $this->db->insert('ppm_printer_checklist',$data3);
+
+    $data4 = array(
+                    "id_number"=>$id_number,
+                    "comment"=>$comment
+                  );
+
+    $this->db->insert('ppm_comment',$data4);
+
+
+
+
+    //update computer
+    $data_asset = array(
+                  "location"=>$location,
+                  "model"=>$model,
+                  "serial_number"=>$serial_number,
+                  "ip_address"=>$ip,
+                  "network_port"=>$port,
+               );
+
+    $this->db->where('name',$hostname);
+    $this->db->update('hardware',$data_asset);
+
+
+    $data_location = array("department"=>$department,"level"=>$level,"room_name"=>$room_name);
+    $this->db->where('name',$location);
+    $this->db->update('location',$data_location);
+
+    $data_asset= array("department"=>$department);
+    $this->db->where('name',$hostname);
+    $this->db->update('ppm_worksation_asset',$data_asset);
+
+    //redirect('Form_PPM/List_Hardware');
+    redirect('Form_PPM/data_workstation/'.$ppm_id);
+  }
+
+
+  function Update_Card_Reader()
+  {
+    $id_number = $this->input->post('id');
+    $get_agent = $this->get_agent($id_number);
+
+    $type_ppm = $this->input->post('type_ppm');
+    $type_device = $this->input->post('type_device');
+    //$responsible = $this->input->post('responsible');
+
+    $responsible = $this->session->userdata('first_name');
+
+    $ppm_type = $this->input->post('ppm_type');
+
+    $hostname = $this->input->post('hostname');
+    $location = $this->input->post('location');
+    $level = $this->input->post('level');
+    $department = $this->input->post('department');
+    $model = $this->input->post('model');
+    $serial_number = $this->input->post('serial_number');
+    $brand = $this->input->post('brand');
+    $local = $this->input->post('local');
+    $ip = $this->input->post('ip');
+    $port = $this->input->post('port');
+    $device_tag = $this->input->post('device_tag');
+    $need_replacement = $this->input->post('need_replacement');
+    $date_replaced = $this->input->post('date_replaced');
+    $ppm_tag = $this->input->post('ppm_tag');
+
+    $checklist_1 = $this->input->post('checklist_1');
+    $checklist_2 = $this->input->post('checklist_2');
+    $checklist_3 = $this->input->post('checklist_3');
+    $checklist_4 = $this->input->post('checklist_4');
+    $checklist_5 = $this->input->post('checklist_5');
+    $checklist_6 = $this->input->post('checklist_6');
+
+    $comment = $this->input->post('comment');
+
+    $customer = $this->input->post('acknowledge');
+    $acknowledge = $this->input->post('acknowledge');
+
+    $id_number = $this->input->post('id');
+
+    //default data 
+    $updateBy = $this->session->userdata('userid'); // id yang login system
+    date_default_timezone_set("Asia/Kuala_Lumpur");
+    $timeReg =date("H:i:s");
+    $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+    $datetime = $dateReg.' '.$timeReg; //current date 
+
+    $endorse = $this->input->post('endorse');
+
+    // if($endorse!=''){
+    //   $status='Endorse';
+    // } else {
+    //   if($customer!=''){
+    //     $status='Need Verify';
+    //   } else {
+    //     $status='Ordered';
+    //   }
+    // }
+
+    if($endorse!=''){
+      $status='Endorse';
+    } else {
+      $status='Ordered';
+    }
+
+    $reject_ppm_task = $this->input->post('reject_ppm_task');
+    $reason_reject = $this->input->post('reason_reject');
+
+    if($reject_ppm_task=='Yes'){
+      $status='Rejected';
+
+      date_default_timezone_set("Asia/Kuala_Lumpur");
+      $timeReg =date("H:i");
+      $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+      $date_reject= $dateReg.' '.$timeReg; //current date 
+    } else {
+      $date_reject = '';
+    }
+
+    if($reject_ppm_task=='No'){
+      $status='Done';
+      date_default_timezone_set("Asia/Kuala_Lumpur");
+      $timeReg =date("H:i");
+      $dateReg =date("d/m/Y");//$dateReg =date("d/m/Y");
+      $date_endorse = $dateReg.' '.$timeReg; //current date 
+    } else {
+      $date_endorse = '';
+    }
+
+
+    $room_name = $this->input->post('room_name');
+
+    $perform_date = $this->input->post('perform_date');
+
+    $year = $this->input->post('year');
+    if(empty($year)){$year=date("Y");}
+
+    //if($get_agent==$this->session->userdata('first_name')){
+
+      $this->db->where('id_number',$id_number);
+      // $data = array(
+      //                 "hostname"=>$hostname,
+      //                 "location"=>$location,
+      //                 "year"=> $year,
+      //                 "ppm_type"=>$type_ppm,
+      //                 "ppm_device"=>$type_device,
+      //                 "id_number"=>$id_number,
+      //                 "acknowledge"=>$customer,
+      //                 "status"=>$status,
+      //                 "endorse"=>$endorse,
+      //              );
+      $data = array(
+                      "hostname"=>$hostname,
+                      "location"=>$location,
+                      "year"=> $year,
+                      "ppm_type"=>$type_ppm,
+                      "ppm_device"=>$type_device,
+                      "id_number"=>$id_number,
+                      "acknowledge"=>$acknowledge,
+                      "status"=>$status,
+                      "endorse"=>$endorse,
+                      "perform_date"=>$perform_date
+                   );
+
+      $this->db->update('ppm_register',$data);
+
+      //ppm_hardware_device
+      $this->db->where('id_number',$id_number);
+      $data2 = array(
+                      "ppm_type"=>$ppm_type,
+                      "location"=>$location,
+                      "level"=>$level,
+                      "department"=>$department,
+                      "model"=>$model,
+                      "serial_number"=>$serial_number,
+                      "brand"=>$brand,
+                      "local"=>$local,
+                      "network_ip"=>$ip,
+                      "port"=>$port,
+                      "device_tag"=>$device_tag,
+                      "need_replacement"=>$need_replacement,
+                      "date_replacement"=>$date_replaced,
+                      "ppm_tag"=>$ppm_tag,
+                      "room_name"=>$room_name
+                    );
+
+      $this->db->update('ppm_printer_device',$data2);
+
+
+      $this->db->where('id_number',$id_number);
+      $data3 = array(
+                      "checklist_1"=>$checklist_1,
+                      "checklist_2"=>$checklist_2,
+                      "checklist_3"=>$checklist_3,
+                      "checklist_4"=>$checklist_4,
+                      "checklist_5"=>$checklist_5,
+                      "checklist_6"=>$checklist_6,
+                    );
+
+      $this->db->update('ppm_printer_checklist',$data3);
+
+      $this->db->where('id_number',$id_number);
+      $data4 = array(
+                      "comment"=>$comment
+                    );
+
+      $this->db->update('ppm_comment',$data4);
+
+    // } else {
+
+
+    //   $get_person_verify = $this->get_person_verify($id_number);
+
+    //   if($get_person_verify==$this->session->userdata('first_name')){
+
+    //     $this->db->where('id_number',$id_number);
+    //     $data = array(
+                        
+    //                     "status"=>$status,
+    //                     "endorse"=>$acknowledge,
+    //                     "reject_ppm_task"=>$reject_ppm_task,
+    //                     "reason_reject"=>$reason_reject,
+    //                     "date_endorse"=>$date_endorse,
+    //                     "date_reject"=>$date_reject,
+    //                  );
+
+    //   } else {
+
+    //     $this->db->where('id_number',$id_number);
+    //     $data = array(
+                      
+    //                     "status"=>$status,
+    //                     "reject_ppm_task"=>$reject_ppm_task,
+    //                     "reason_reject"=>$reason_reject,
+    //                     "date_endorse"=>$date_endorse,
+    //                     "date_reject"=>$date_reject,
+    //                  );
+
+    //   }
+
+    //   $this->db->update('ppm_register',$data);
+
+
+    // }
+
+
+/* CHECK BOX */
+    $cb_1 = $this->input->post('cb_1'); if(empty($cb_1)){$cb_1='';}
+    $cb_2 = $this->input->post('cb_2'); if(empty($cb_2)){$cb_2='';}
+    $cb_3 = $this->input->post('cb_3'); if(empty($cb_3)){$cb_3='';}
+    $cb_4 = $this->input->post('cb_4'); if(empty($cb_4)){$cb_4='';}
+    $cb_5 = $this->input->post('cb_5'); if(empty($cb_5)){$cb_5='';}
+    $cb_6 = $this->input->post('cb_6'); if(empty($cb_6)){$cb_6='';}
+    $cb_7 = $this->input->post('cb_7'); if(empty($cb_7)){$cb_7='';}
+    $cb_8 = $this->input->post('cb_8'); if(empty($cb_8)){$cb_8='';}
+    $cb_9 = $this->input->post('cb_9'); if(empty($cb_9)){$cb_9='';}
+    $cb_10 = $this->input->post('cb_10'); if(empty($cb_10)){$cb_10='';}
+    $cb_11 = $this->input->post('cb_11'); if(empty($cb_11)){$cb_11='';}
+    $cb_12 = $this->input->post('cb_12'); if(empty($cb_12)){$cb_12='';}
+
+
+    // ppm_computer_device
+    $ppm_list_checkbox = array(
+                    "cb_1"=>$cb_1,
+                    "cb_2"=>$cb_2,
+                    "cb_3"=>$cb_3,
+                    "cb_4"=>$cb_4,
+                    "cb_5"=>$cb_5,
+                    "cb_6"=>$cb_6,
+                    "cb_7"=>$cb_7,
+                    "cb_8"=>$cb_8,
+                    "cb_9"=>$cb_9,
+                    "cb_10"=>$cb_10,
+                    "cb_11"=>$cb_11,
+                    "cb_12"=>$cb_12
+                 );
+
+    //var_dump($ppm_list_checkbox); exit();
+    $this->db->where('id_number',$id_number);
+    $this->db->update('ppm_list_checkbox',$ppm_list_checkbox);
+    /* CHECK BOX */
+
+
+    //update computer
+    $data_asset = array(
+                  "location"=>$location,
+                  "model"=>$model,
+                  "serial_number"=>$serial_number,
+                  "ip_address"=>$ip,
+                  "network_port"=>$port,
+               );
+
+    $this->db->where('name',$hostname);
+    $this->db->update('hardware',$data_asset);
+
+
+    $data_location = array("department"=>$department,"level"=>$level,"room_name"=>$room_name);
+    $this->db->where('name',$location);
+    $this->db->update('location',$data_location);
+
+    $data_asset= array("department"=>$department);
+    $this->db->where('name',$hostname);
+    $this->db->update('ppm_worksation_asset',$data_asset);
+
+    //redirect('Form_PPM/List_Hardware'); 
+    $ppm_id = $this->input->post('ppm_id');
+    redirect('Form_PPM/data_workstation/'.$ppm_id);
+
+  }
+
 
   function Dtable_list_computer()
   {
@@ -7536,6 +8046,12 @@ class Form_PPM extends CI_Controller
       case 'SC':
         redirect('Form_PPM/Scanner/Update/'.$id.'/'.$type);
         break;
+
+
+      case 'CR':
+        redirect('Form_PPM/Card_Reader/Update/'.$id.'/'.$type);
+        break;
+      
       
       default:
         # code...
@@ -7794,6 +8310,13 @@ class Form_PPM extends CI_Controller
         $data['comment_user'] = $this->Admin->comment_user($id);
         $html=$this->load->view('template/body/Form_PPM/Hardware/PDF/Printer/Scanner', $data, true);
         $title = 'scanner_';
+        break;
+
+      case 'CR':
+        $data['data'] = $this->Admin->detail_printer($id);
+        $data['comment_user'] = $this->Admin->comment_user($id);
+        $html=$this->load->view('template/body/Form_PPM/Hardware/PDF/Printer/Card_Reader', $data, true);
+        $title = 'cardreader_';
         break;
       
       default:
@@ -8104,8 +8627,6 @@ class Form_PPM extends CI_Controller
   }
 
 
-
-
   function List_activity_server_add()
   {
     $this->load->view('template/header/header');
@@ -8119,9 +8640,6 @@ class Form_PPM extends CI_Controller
     $this->load->view('template/body/Form_PPM_v2/List_activity_server_update');
     $this->load->view('template/footer/footer');
   }
-
-
-
 
 
   function add_List_activity_submit()
@@ -8877,6 +9395,8 @@ class Form_PPM extends CI_Controller
         $type = 'PDF_Hardware';
       } else if($ppm_device=='Scanner'){
         $type = 'PDF_Hardware';
+      } else if($ppm_device=='Card Reader'){
+        $type = 'PDF_Hardware';
       } else if($ppm_device=='Server(Physical)'){
         $type = 'PDF_Computer';
       } else if($ppm_device=='Server(Virtual)'){
@@ -9202,6 +9722,8 @@ class Form_PPM extends CI_Controller
         $type = 'PDF_Hardware';
       } else if($ppm_device=='Scanner'){
         $type = 'PDF_Hardware';
+      } else if($ppm_device=='Card Reader'){
+        $type = 'PDF_Hardware';
       } else if($ppm_device=='Server(Physical)'){
         $type = 'PDF_Computer';
       } else if($ppm_device=='Server(Virtual)'){
@@ -9395,6 +9917,8 @@ class Form_PPM extends CI_Controller
         $type = 'PDF_Hardware';
       } else if($ppm_device=='Scanner'){
         $type = 'PDF_Hardware';
+      } else if($ppm_device=='Card Reader'){
+        $type = 'PDF_Hardware';
       } else if($ppm_device=='Server(Physical)'){
         $type = 'PDF_Computer';
       } else if($ppm_device=='Server(Virtual)'){
@@ -9547,6 +10071,8 @@ class Form_PPM extends CI_Controller
         $type = 'PDF_Hardware';
       } else if($ppm_device=='Scanner'){
         $type = 'PDF_Hardware';
+      } else if($ppm_device=='Card Reader'){
+        $type = 'PDF_Hardware';
       } else if($ppm_device=='Server(Physical)'){
         $type = 'PDF_Computer';
       } else if($ppm_device=='Server(Virtual)'){
@@ -9673,6 +10199,8 @@ class Form_PPM extends CI_Controller
       } else if($ppm_device=='Printer'){
         $type = 'PDF_Hardware';
       } else if($ppm_device=='Scanner'){
+        $type = 'PDF_Hardware';
+      } else if($ppm_device=='Card Reader'){
         $type = 'PDF_Hardware';
       } else if($ppm_device=='Server(Physical)'){
         $type = 'PDF_Computer';
@@ -10283,6 +10811,16 @@ class Form_PPM extends CI_Controller
       $this->data['site_title'] = 'Add_Agent';
       $this->load->view('template/user_ppm/header/header');
       $this->load->view('template/body/Form_PPM/Hardware/Form_PS/scanner',$this->data);
+      $this->load->view('template/user_ppm/footer/footer');
+
+  }
+
+   function User_Card_Reader()
+  {
+     
+      $this->data['site_title'] = 'Add_Agent';
+      $this->load->view('template/user_ppm/header/header');
+      $this->load->view('template/body/Form_PPM/Hardware/Form_PS/card_reader',$this->data);
       $this->load->view('template/user_ppm/footer/footer');
 
   }
@@ -11219,7 +11757,13 @@ class Form_PPM extends CI_Controller
       }
     }
 
-    
+    if(($type=='Card Reader')||($type=='card reader')){
+      $query =  $this->db->get('hardware')->result();
+      foreach ($query as $data) 
+      {
+        echo $data->description;
+      }
+    }
     
   }
 
@@ -11273,6 +11817,14 @@ class Form_PPM extends CI_Controller
       foreach ($query as $data) 
       {
         echo $data->type;
+      }
+    }
+
+    if(($type=='Card Reader')||($type=='card reader')){
+      $query =  $this->db->get('hardware')->result();
+      foreach ($query as $data) 
+      {
+        echo $data->description;
       }
     }
   }
@@ -11690,8 +12242,8 @@ class Form_PPM extends CI_Controller
 
 
 
-    if(($type=='Scanner')||($type=='scanner')){
-      $query =  $this->db->get('network')->result();
+    if(($type=='Card Reader')||($type=='card reader')){
+      $query =  $this->db->get('hardware')->result();
       foreach ($query as $data) 
       {
         echo $data->location;
@@ -11757,6 +12309,14 @@ class Form_PPM extends CI_Controller
 
 
     if(($type=='Scanner')||($type=='scanner')){
+      $query =  $this->db->get('hardware')->result();
+      foreach ($query as $data) 
+      {
+        $location = $data->location;
+      }
+    }
+
+    if(($type=='Card Reader')||($type=='card reader')){
       $query =  $this->db->get('hardware')->result();
       foreach ($query as $data) 
       {

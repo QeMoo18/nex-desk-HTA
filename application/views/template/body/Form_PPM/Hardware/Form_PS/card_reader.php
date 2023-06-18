@@ -19,7 +19,7 @@
 	<div class="content-wrapper">
 		<section class="content">
 			<div class="row">
-				<form action="<?=base_url()?>Form_PPM/Add_scanner" method="post" id="form_data">
+				<form action="<?=base_url()?>Form_PPM/Add_Card_Reader" method="post" id="form_data">
 
 					<input type="hidden" name="u" value="<?php if(!empty($_GET['u'])){echo $_GET['u'];}?>">
 
@@ -58,6 +58,7 @@
 								              	<option value="Printer">Printer</option>
 								              </select>
 								              <select class="form-control" name="type_device" id="type_device" onchange="type_device_network();" style="display: none">
+								              	<option value="Card Reader">Card Reader</option>
 								              	<option value="Scanner">Scanner</option>
 								              	<option value="Printer">Printer</option>
 								              </select>
@@ -338,18 +339,18 @@
 
 									        <div class="row">
 									        	<div class="col-md-12">
-									        		<legend style="font-size: 12px; font-weight: 700;">Scanner Checklist</legend>
+									        		<legend style="font-size: 12px; font-weight: 700;">Checklist</legend>
 
 									        		<div class="row">
 									        			<div class="col-md-6">
-									        				<label for="exampleInputEmail1">Cleaning (clean the dust and dirt of printer by using spray cleaner and cloths)</label>
+									        				<label for="exampleInputEmail1">1.Cleaning (clean the dust and dirt of printer by using spray cleaner and cloths)</label>
 									        			</div>
 									        		</div>
 
 									        		<div class="col-md-6">
 										        		<div class="row" style="padding-bottom: 10px;padding-left: 10px;">
 										        			<div class="col-md-6">
-										        				<label for="exampleInputEmail1">Wipe Glass</label>
+										        				<label for="exampleInputEmail1">a. Wipe Glass</label>
 										        			</div>
 										        			<div class="col-md-6 font_class">
 										        				<input type="radio" name="checklist_1"  value="Yes" checked> Yes</input>
@@ -363,7 +364,7 @@
 										        		</div>
 										        		<div class="row" style="padding-bottom: 10px; padding-left: 10px;">
 										        			<div class="col-md-6">
-										        				<label for="exampleInputEmail1">Scanning Trip </label>
+										        				<label for="exampleInputEmail1">b. Scanning Trip </label>
 										        			</div>
 										        			<div class="col-md-6 font_class">
 										        				<input type="radio" name="checklist_2"  value="Yes" checked> Yes</input>
@@ -378,7 +379,7 @@
 
 										        		<div class="row" style="padding-bottom: 10px; padding-left: 10px;" id="div_automatic">
 										        			<div class="col-md-6">
-										        				<label for="exampleInputEmail1">Automatic Document Feeder (ADF) Duplex </label>
+										        				<label for="exampleInputEmail1">c. Automatic Document Feeder (ADF) Duplex </label>
 										        			</div>
 										        			<div class="col-md-6 font_class">
 										        				<input type="radio" name="checklist_3"  value="Yes" checked> Yes</input>
@@ -390,12 +391,15 @@
 										        				</select> -->
 										        			</div>
 										        		</div>
+									        		</div>
 
-									        			
-									        			<div class="row" style="padding-bottom: 10px;">
+
+									        		<div class="col-md-6">
+									        			<div class="row" style="padding-bottom: 9px;">
 									        		
 										        			<div class="col-md-6">
-										        				<label for="exampleInputEmail1">Check Cable Tidiness</label> <p class="font-smaller">* Make sure the tidiness of cables</p>
+										        				<label for="exampleInputEmail1">2. Check Cable Tidiness</label> 
+										        				<p class="font-smaller">* Make sure the tidiness of cables</p>
 										        			</div>
 										        			<div class="col-md-6 font_class">
 										        				<input type="radio" name="checklist_4"  value="Yes" checked> Yes</input>
@@ -407,15 +411,10 @@
 										        				</select> -->
 										        			</div>
 										        		</div>
-									        		
-									        			
-									        		</div>
 
-
-									        		<div class="col-md-6">
-									        			<div class="row" style="padding-bottom: 10px;">
+									        			<div class="row" style="padding-bottom: 9px;">
 										        			<div class="col-md-6">
-										        				<label for="exampleInputEmail1">Check LED Signal Functioning</label>
+										        				<label for="exampleInputEmail1">3. Check LED Signal Functioning</label>
 										        			</div>
 										        			<div class="col-md-6 font_class">
 										        				<input type="radio" name="checklist_5"  value="Yes" checked> Yes</input>
@@ -427,9 +426,9 @@
 										        				</select> -->
 										        			</div>
 										        		</div>
-										        		<div class="row" style="padding-bottom: 10px;">
+										        		<div class="row" style="padding-bottom: 9px;">
 										        			<div class="col-md-6">
-										        				<label for="exampleInputEmail1">Perform Device Test</label>
+										        				<label for="exampleInputEmail1">4. Perform Device Test</label>
 										        			</div>
 										        			<div class="col-md-6 font_class">
 										        				<input type="radio" name="checklist_6"  value="Yes" checked> Yes</input>
@@ -1169,7 +1168,7 @@ function list_checkbox(id_number)
 		                	if(response>0){
 		                		get_id_number_ppm();
 		                	} else {
-		                		$('#form_data').attr('action', '<?= base_url()?>Form_PPM/Add_scanner');
+		                		$('#form_data').attr('action', '<?= base_url()?>Form_PPM/Add_Card_Reader');
 		                		getDetails();
 		                	}
 		               	}
@@ -1208,7 +1207,7 @@ function list_checkbox(id_number)
 									// alert('a');
 		                			$('#form_data').attr('action', '<?= base_url()?>Form_PPM/Update_Printer_Outside');
 		                		<?php } else { ?>
-		                			$('#form_data').attr('action', '<?= base_url()?>Form_PPM/Update_Printer');
+		                			$('#form_data').attr('action', '<?= base_url()?>Form_PPM/Update_Card_Reader');
 		                		<?php } ?>
 		                	}
 		               	}

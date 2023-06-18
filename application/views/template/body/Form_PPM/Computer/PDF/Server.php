@@ -173,6 +173,8 @@
 			    </td>	
 			    <td style="width: 50%">
 			    	<p style="font-size: 12px;">Hostname : <?= $data->hostname ?></p>
+
+			    	<!-- <p style="font-size: 12px;">Description : <?= $data->description ?></p> -->
 			    
 			    	<p style="font-size: 12px;">Operating System (OS): : <?= $data->os ?></p>
 			    
