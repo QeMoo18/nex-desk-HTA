@@ -37,7 +37,7 @@
 						<td style="width: 50;"></td>
 						<td style="width: 100%;" class="small"><h4><b>PLANNED PREVENTIVE MAINTENANCE </b></h4>  <h5>HOSPITAL TUANKU AZIZAH</h5>
 						<br><br>
-							<h4><b>YEAR : 2020</b></h4>
+							<h4><b>YEAR : 2021</b></h4>
 
 						<br><br>
 						</td>
@@ -165,18 +165,20 @@
 			    <td style="width: 50%">
 			    	<p style="font-size: 12px;">Location : <?= $data->location ?></p>
 			    	
-			    	<p style="font-size: 12px;">Model : <?= $data->cpu_model ?></p>
+			    	<p style="font-size: 12px;">Model : <?= $data->model ?></p>
 			    
 			    	<p style="font-size: 12px;">Manufacturer : <?= $data->manufacturer ?></p>
 			    
-			    	<p style="font-size: 12px;">Device Serial Number : <?= $data->cpu_serial_number ?></p>
+			    	<p style="font-size: 12px;">Device Serial Number : <?= $data->serial_number ?></p>
 			    </td>	
 			    <td style="width: 50%">
 			    	<p style="font-size: 12px;">Hostname : <?= $data->hostname ?></p>
 
 			    	<!-- <p style="font-size: 12px;">Description : <?= $data->description ?></p> -->
 			    
-			    	<p style="font-size: 12px;">Operating System (OS): : <?= $data->os ?></p>
+			    	<p style="font-size: 12px;">Description: <?= $data->description ?></p>
+
+			    	<p style="font-size: 12px;">Operating System (OS): <?= $data->os ?></p>
 			    
 			    	<p style="font-size: 12px;">IP Address (LAN) : <?= $data->network_ip ?></p>
 			    

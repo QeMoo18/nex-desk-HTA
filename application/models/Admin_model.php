@@ -3432,6 +3432,7 @@ class Admin_model extends CI_Model
 					LEFT JOIN ppm_computer_device ON ppm_computer_device.id_number =  ppm_register.id_number
 					LEFT JOIN ppm_server_checklist ON ppm_server_checklist.id_number =  ppm_register.id_number
 					LEFT JOIN ppm_comment ON ppm_comment.id_number  =  ppm_register.id_number
+					LEFT JOIN ppm_server_asset ON ppm_server_asset.name = ppm_register.hostname
 					WHERE ppm_register.id_number='$id'
 					group by ppm_register.id_number  #baru tambah sbb duplicate js
 				";
